@@ -16,7 +16,17 @@ typora-root-url: ..
 在其中一个终端操作，push本地文件夹Hexo中的必要文件到yourname.github.io的hexo分支上
 在利用Github+Hexo搭建自己的博客时，新建了一个Hexo的文件夹，并进行相关的配置，这部分主要是将这些配置的文件托管到Github项目的分支上，其中只托管部分用于多终端的同步的文件.
 
-建立.gitignore
+建立.gitignore(可选，建立.gitignore下方添加文件命令只需执行`git add .`)
+
+```shell
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+```
 
 
 
