@@ -123,7 +123,7 @@ scheme: Muse
 # Value before `||` delimeter is the target permalink.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
 social:
-  GitHub: https://github.com/lem0n  || github
+  GitHub: https://github.com/alem0n  || github
   #Gitee: https://gitee.com/yourname || glide
   E-Mail: mailto:zlem0n@foxmail.com || envelope
   #Google: https://plus.google.com/ || google
