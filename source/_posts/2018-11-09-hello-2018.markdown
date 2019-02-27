@@ -1,0 +1,20 @@
+---
+layout:     post
+title:      "Welcome to lem0n's Blog"
+categories: "Hello World, Hello Blog"
+date:       2018-11-09 10:00:00
+author:     "lem0n"
+tags:
+    - 生活
+---
+
+> “Yeah It's on. ”
+
+
+
+lem0n 的 Blog 就这么开通了。
+
+
+
+2018年11月09日纪念一下~
+
