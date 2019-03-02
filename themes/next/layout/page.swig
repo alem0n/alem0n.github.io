@@ -34,7 +34,17 @@
                 {{ _p('counter.tag_cloud', site.tags.length) }}
             </div>
             <div class="tag-cloud-tags">
-              {{ tagcloud({min_font: 12, max_font: 30, amount: 300, color: true, start_color: '#ccc', end_color: '#111'}) }}
+              {{ tagcloud({min_font: 13, max_font: 30, amount: 300, color: true, start_color: '#ccc', end_color: '#111'}) }}
+              
+
+              <script type="text/javascript">
+                var list = document.querySelectorAll('.tag-cloud-tags a');
+                Array.prototype.forEach.call(list, (item, index) => {
+                  item.style.color = 'rgb(' + Math.floor(Math.random() * 201) + ', ' + Math.floor(Math.random() * 201) + ', ' + Math.floor(Math.random() * 201) + ')';// 0,0,0 -> 200,200,200
+                });
+              </script>
+
+
             </div>
           </div>
         {% elif page.type === 'categories' %}

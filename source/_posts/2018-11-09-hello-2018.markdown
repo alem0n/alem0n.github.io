@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "Welcome to lem0n's Blog"
-categories: "Hello World, Hello Blog"
+title:      "Hello World, Hello Blog"
+categories: "生活"
 date:       2018-11-09 10:00:00
 author:     "lem0n"
 tags:
@@ -10,7 +10,11 @@ tags:
 
 > “Yeah It's on. ”
 
+#### 更新
 
+这是第二个博客了github+hexo搭建
+
+​                                                       2019年
 
 lem0n 的 Blog 就这么开通了。
 
