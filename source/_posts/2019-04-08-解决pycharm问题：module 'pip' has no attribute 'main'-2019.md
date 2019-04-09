@@ -6,6 +6,7 @@ date:       2019-04-08 21:00:00
 author:     "lem0n"
 tags:
     - python
+typora-root-url: ..
 ---
 
 ## 解决pycharm问题：module 'pip' has no attribute 'main'

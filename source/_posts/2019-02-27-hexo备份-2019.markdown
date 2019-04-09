@@ -8,6 +8,7 @@ tags:
     - 生活
     - Hexo
     - GitHub
+typora-root-url: ..
 ---
 
 # 如何解决github+Hexo的博客多终端同步问题
