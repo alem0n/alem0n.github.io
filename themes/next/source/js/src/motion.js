@@ -1,5 +1,9 @@
 /* global NexT: true */
 
+$('.site-author-image').click(function(){
+      window.location.href="https://alem0n.github.io/about/";
+});
+
 $(document).ready(function () {
   NexT.motion = {};
 

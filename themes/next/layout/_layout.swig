@@ -91,8 +91,7 @@
   {% include '_third-party/mathjax.swig' %}
   {% include '_third-party/scroll-cookie.swig' %}
   {% include '_third-party/exturl.swig' %}
-  {% include '_custom/myapcontroler.swig' %}
-  
+
 <script>
 (function(){
     var bp = document.createElement('script');

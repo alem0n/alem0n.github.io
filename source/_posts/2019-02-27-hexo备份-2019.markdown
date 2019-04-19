@@ -11,7 +11,9 @@ tags:
 typora-root-url: ..
 ---
 
-# 如何解决github+Hexo的博客多终端同步问题
+记录一些hexo的备份问题，多终端备份
+
+<!-- more -->
 
 ### 备份
 

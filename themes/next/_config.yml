@@ -20,11 +20,11 @@ override: true
 # Then need to rename & redefine they on any other names, otherwise icons from Next will rewrite your custom icons in Hexo.
 favicon:
   small: /images/favicon-16x16-next.png
-  medium: /images/favicon-32x32-next.png
-  apple_touch_icon: /images/apple-touch-icon-next.png
-  safari_pinned_tab: /images/logo.svg
-  android_manifest: /images/manifest.json
-  #ms_browserconfig: /images/browserconfig.xml
+#medium: /images/favicon-32x32-next.png
+#apple_touch_icon: /images/apple-touch-icon-next.png
+#safari_pinned_tab: /images/logo.svg
+#android_manifest: /images/manifest.json
+#ms_browserconfig: /images/browserconfig.xml
 
 # Set default keywords (Use a comma to separate)
 keywords: "Hexo, NexT"
@@ -88,8 +88,8 @@ menu:
   categories: /categories || th
   tags: /tags || tags
   archives: /archives || archive
-  about: /about || user
-  commonweal: /404.html || heartbeat
+#  about: /about || user
+commonweal: /404.html || heartbeat
 #  schedule: /schedule || schedule
 #  sitemap: /sitemap.xml || sitemap
 
@@ -157,7 +157,8 @@ links:
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.jpg
 # in site  directory(source/uploads): /uploads/avatar.jpg
-avatar: /images/avatar.jpg
+avatar: https://wx3.sinaimg.cn/small/d3ea225bly1g287w8pdezj205c05cdg1.jpg
+# 头像
 
 
 
@@ -199,7 +200,7 @@ sidebar:
   b2t: false
 
   # Scroll percent label in b2t button
-  scrollpercent: true
+  scrollpercent: false
 
 
   # Enable sidebar on narrow view (only for Muse | Mist).
@@ -222,7 +223,7 @@ excerpt_description: true
 # Automatically Excerpt. Not recommend.
 # Please use <!-- more --> in the post to control excerpt accurately.
 auto_excerpt:
-  enable: true
+  enable: false
   length: 150
 
 # Post meta display settings
@@ -249,8 +250,9 @@ post_wordcount:
 
 # Reward
 reward_comment: 如有疑问或需要技术讨论，请发邮件到 zlem0n@foxmail.com
-wechatpay: /images/wechatpay.jpg
-alipay: /images/alipay.jpg
+#支付宝微信收款码
+wechatpay: https://wx2.sinaimg.cn/small/d3ea225bly1g287wga5mwj2076076mxd.jpg
+alipay: https://wx2.sinaimg.cn/small/d3ea225bly1g287wcaboej207r07rmxa.jpg
 #bitcoin: /images/bitcoin.png
 
 # Declare license on posts
@@ -358,12 +360,12 @@ mathjax:
 han: false
 
 # Swiftype Search API Key
-swiftype_key: 
+#swiftype_key: 
 
 # Baidu Analytics ID
-baidu_analytics: 
+#baidu_analytics: 
 
-baidu-site-verification: 
+#baidu-site-verification: 
 
 # Duoshuo ShortName
 #duoshuo_shortname:
@@ -407,7 +409,7 @@ valine:
 
 # Support for LiveRe comments system.
 # You can get your uid from https://livere.com/insight/myCode (General web site)
-livere_uid: 
+#livere_uid: 
 
 # Gitment
 # Introduction: https://imsun.net/posts/gitment-introduction/
@@ -474,10 +476,10 @@ needmoreshare2:
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
-google_site_verification: 1C1XSuJ8TgM2O0mcZvsgzEdy0IdRZOJfxDYPyh18U9Q
+#google_site_verification: 1C1XSuJ8TgM2O0mcZvsgzEdy0IdRZOJfxDYPyh18U9Q
 
 # Google Analytics
-google_analytics: UA-111723881-1
+#google_analytics: UA-111723881-1
 
 # Bing Webmaster tools verification setting
 # See: https://www.bing.com/webmaster/
@@ -543,7 +545,7 @@ rating:
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn get AppID and AppKey.
 leancloud_visitors:
-  enable: true
+  enable: false
   app_id: 
   app_key: 
 
@@ -563,15 +565,15 @@ busuanzi_count:
   # count values only if the other configs are false
   enable: false
   # custom uv span for the whole site
-  site_uv: true
+  site_uv: false
   site_uv_header: <i class="fa fa-user"></i>
   site_uv_footer:
   # custom pv span for the whole site
-  site_pv: true
+  site_pv: false
   site_pv_header: <i class="fa fa-eye"></i>
   site_pv_footer:
   # custom pv span for one page only
-  page_pv: true
+  page_pv: false
   page_pv_header: <i class="fa fa-file-o"></i>
   page_pv_footer:
 
