@@ -1,7 +1,7 @@
 /* global NexT: true */
 
 $('.site-author-image').click(function(){
-      window.location.href="https://alem0n.github.io/about/";
+      window.location.href="https://alem0n.github.io/404.html";
 });
 
 $(document).ready(function () {

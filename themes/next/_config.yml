@@ -89,7 +89,7 @@ menu:
   tags: /tags || tags
   archives: /archives || archive
 #  about: /about || user
-commonweal: /404.html || heartbeat
+# commonweal: /404.html || heartbeat
 #  schedule: /schedule || schedule
 #  sitemap: /sitemap.xml || sitemap
 

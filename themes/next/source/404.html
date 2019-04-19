@@ -164,13 +164,120 @@ $('.four-oh-four-form').on('submit', function(e){
   else if(val === 'go home'){
   	window.location="https://alem0n.github.io/";
   }
+  else if(val === 'pwd'){
+  	pwd();
+  }
+  else if(val === 'ls'){
+  	ls();
+  }
+  else if(val === 'ifconfig'){
+  	ifconfig();
+  }
+  else if(val === 'cat flag.txt'){
+  	cat_flag();
+  }
+  else if(val === 'cat flag'){
+  	cat_flag();
+  }
+  else if(val === 'help'){
+  	help();
+  }
   else {
     resetForm();
   }
 });
 
+function help(){
+  var message1 = "kitten,go home,pwd,ls,ifconfig"
+  var input = $('.404-input');
+
+  $('.new-output').removeClass('new-output');
+  input.val('');
+  $('.terminal').append('<p class="prompt">' + message1 + '</p><p class="prompt output new-output"></p>');
+
+}
+
+function pwd(){
+  var message1 = "/var/www/"
+  var input = $('.404-input');
+
+  $('.new-output').removeClass('new-output');
+  input.val('');
+  $('.terminal').append('<p class="prompt">' + message1 + '</p><p class="prompt output new-output"></p>');
+
+}
+
+function ls(){
+  var message1 = "dav  Discuz  dvwa  index.php  Lankecms  mutillidae  phpinfo.php  phpMyAdmin  \n \n test  tikiwiki  flag.txt tikiwiki-old  twiki  xycms"
+  var input = $('.404-input');
+
+  $('.new-output').removeClass('new-output');
+  input.val('');
+  $('.terminal').append('<p class="prompt">' + message1 + '</p><p class="prompt output new-output"></p>');
+
+}
+
+function ifconfig(){
+  var message1 = "eth0      Link encap:Ethernet  HWaddr 00:0c:29:fa:dd:2a  \n          inet addr:192.168.179.130  Bcast:192.168.179.255  Mask:255.255.255.0\n          inet6 addr: fe80::20c:29ff:fefa:dd2a/64 Scope:Link\n          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1\n          RX packets:2694 errors:0 dropped:0 overruns:0 frame:0\n          TX packets:2469 errors:0 dropped:0 overruns:0 carrier:0\n          collisions:0 txqueuelen:1000 \n          RX bytes:259115 (253.0 KB)  TX bytes:1074723 (1.0 MB)\n          Interrupt:19 Base address:0x2000 \n\nlo        Link encap:Local Loopback  \n          inet addr:127.0.0.1  Mask:255.0.0.0\n          inet6 addr: ::1/128 Scope:Host\n          UP LOOPBACK RUNNING  MTU:16436  Metric:1\n          RX packets:810 errors:0 dropped:0 overruns:0 frame:0\n          TX packets:810 errors:0 dropped:0 overruns:0 carrier:0\n          collisions:0 txqueuelen:0 \n          RX bytes:326021 (318.3 KB)  TX bytes:326021 (318.3 KB)"
+  var input = $('.404-input');
+
+  $('.new-output').removeClass('new-output');
+  input.val('');
+  $('.terminal').append('<p class="prompt">' + message1 + '</p><p class="prompt output new-output"></p>');
+
+}
+
+function cat_flag(){
+  var message1 = "flag{   海贼王に俺がなる！   }"
+  var input = $('.404-input');
+  $('.new-output').removeClass('new-output');
+  input.val('');
+  $('.terminal').append('<p class="prompt">' + message1 + '</p>');
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">');
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">');
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  
+}
+
+
+
 function resetForm(withKittens){
-  var message = "Sorry that command is not recognized.Try typing 'kitten' or 'go home'."
+  var message1 = "Sorry that command is not recognized."
+  var message2 = "Try typing 'kitten' or 'go home'."
   var input = $('.404-input');
 
   if (withKittens){
@@ -180,7 +287,8 @@ function resetForm(withKittens){
 
   $('.new-output').removeClass('new-output');
   input.val('');
-  $('.terminal').append('<p class="prompt">' + message + '</p><p class="prompt output new-output"></p>');
+  $('.terminal').append('<p class="prompt">' + message1 + '</p>');
+  $('.terminal').append('<p class="prompt">' + message2 + '</p><p class="prompt output new-output"></p>');
 
   $('.new-output').velocity(
     'scroll'
