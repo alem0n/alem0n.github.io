@@ -124,6 +124,9 @@ body {
 	</style>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>
+    <script language="Javascript">
+    document.oncontextmenu = function(){return false;}
+</script>
 </head>
 
 <body>
@@ -182,10 +185,14 @@ $('.four-oh-four-form').on('submit', function(e){
   else if(val === 'help'){
   	help();
   }
+  else if(val === ''){
+  	new_line();
+  }
   else {
     resetForm();
   }
 });
+
 
 function help(){
   var message1 = "kitten,go home,pwd,ls,ifconfig"
@@ -196,6 +203,17 @@ function help(){
   $('.terminal').append('<p class="prompt">' + message1 + '</p><p class="prompt output new-output"></p>');
 
 }
+
+function new_line(){
+
+  var input = $('.404-input');
+
+  $('.new-output').removeClass('new-output');
+  input.val('');
+  $('.terminal').append('<p class="prompt output new-output"></p>');
+
+}
+
 
 function pwd(){
   var message1 = "/var/www/"
@@ -227,49 +245,59 @@ function ifconfig(){
 
 }
 
+function cute(){
+  var message1 = "so cute!!!"
+  var input = $('.404-input');
+
+  $('.new-output').removeClass('new-output');
+  input.val('');
+  $('.terminal').append('<p class="prompt">' + message1 + '</p><p class="prompt output new-output"></p>');
+
+}
+
 function cat_flag(){
   var message1 = "flag{   海贼王に俺がなる！   }"
   var input = $('.404-input');
   $('.new-output').removeClass('new-output');
   input.val('');
   $('.terminal').append('<p class="prompt">' + message1 + '</p>');
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">');
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">');
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
-  $('.terminal').append('<img class="kitten-gif" src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">');
+  $('.terminal').append('<img src="/做我儿子吧.jpg">');
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
   
 }
 
@@ -282,9 +310,9 @@ function resetForm(withKittens){
 
   if (withKittens){
     $('.kittens').removeClass('kittens');
-    message = "Super cute!!!"
+    
   }
-
+ 
   $('.new-output').removeClass('new-output');
   input.val('');
   $('.terminal').append('<p class="prompt">' + message1 + '</p>');
@@ -293,6 +321,7 @@ function resetForm(withKittens){
   $('.new-output').velocity(
     'scroll'
   ), {duration: 100}
+
 }
 
 	function showKittens(){
@@ -330,24 +359,20 @@ function resetForm(withKittens){
 		), {duration: 100}
 
 		setTimeout(function(){
-			var gif;
-
-			// $.get('http://oty1v077k.bkt.clouddn.com/kittens2.gif', function(result){
-			// 	gif = result.data.image_url;
-				$('.terminal').append('<img class="kitten-gif" src="https://pic4.zhimg.com/80/67b6503cc54a58ae33af3d092ce9bc7c_hd.jpg">');
-                $('.terminal').append('<img class="kitten-gif" src="https://pic2.zhimg.com/80/60fca5ccbd9f81ad2a92041e7dd6dbe2_hd.jpg">');
-                $('.terminal').append('<img class="kitten-gif" src="https://pic3.zhimg.com/80/28fa3c9d66b8a4c06d7b4c81b50f7fbb_hd.jpg">');
-                $('.terminal').append('<img class="kitten-gif" src="https://pic2.zhimg.com/80/48a62359cdfe6ceb0a60cac0bd8c9eb0_hd.jpg">');
-                $('.terminal').append('<img class="kitten-gif" src="https://pic1.zhimg.com/80/41f8105bc74ed4175b1394f9ce024263_hd.jpg">');
-                $('.terminal').append('<img class="kitten-gif" src="https://pic4.zhimg.com/80/aad67dcd7abe822ffd15a100e8c22bf2_hd.jpg">');
-                $('.terminal').append('<img class="kitten-gif" src="https://pic2.zhimg.com/80/3616b9aa4f7b8e58a4b63b02f1753e70_hd.jpg">');
-                $('.terminal').append('<img class="kitten-gif" src="https://pic3.zhimg.com/80/c90842f7dc5a40ffa1cfbe25f77fd788_hd.jpg">');
-                $('.terminal').append('<img class="kitten-gif" src="https://pic2.zhimg.com/80/335fe8ce0f01896f44926c1bcf180f9e_hd.jpg">');
-                
-				resetForm(true);
-			// });
+			
+				$('.terminal').append('<img src="https://pic4.zhimg.com/80/67b6503cc54a58ae33af3d092ce9bc7c_hd.jpg">');
+                $('.terminal').append('<img src="https://pic2.zhimg.com/80/60fca5ccbd9f81ad2a92041e7dd6dbe2_hd.jpg">');
+                $('.terminal').append('<img src="https://pic3.zhimg.com/80/28fa3c9d66b8a4c06d7b4c81b50f7fbb_hd.jpg">');
+                $('.terminal').append('<img src="https://pic2.zhimg.com/80/48a62359cdfe6ceb0a60cac0bd8c9eb0_hd.jpg">');
+                $('.terminal').append('<img src="https://pic1.zhimg.com/80/41f8105bc74ed4175b1394f9ce024263_hd.jpg">');
+                $('.terminal').append('<img src="https://pic4.zhimg.com/80/aad67dcd7abe822ffd15a100e8c22bf2_hd.jpg">');
+                $('.terminal').append('<img src="https://pic2.zhimg.com/80/3616b9aa4f7b8e58a4b63b02f1753e70_hd.jpg">');
+                $('.terminal').append('<img src="https://pic3.zhimg.com/80/c90842f7dc5a40ffa1cfbe25f77fd788_hd.jpg">');
+                $('.terminal').append('<img src="https://pic2.zhimg.com/80/335fe8ce0f01896f44926c1bcf180f9e_hd.jpg">');
+				cute();
+			
 		}, (lines.length * 100) + 1000);
-		// window.location="https://alem0n.github.io/";
+		
 	}
 
 	function textEffect(line){
