@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta name="baidu-site-verification" content="UqlC4pwKIm">
+  <meta name="baidu-site-verification" content="d3U0dGeqGw">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.cat.net/css?family=Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+
+
+
+
+  <meta name="keywords" content="CTF,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lem0n'Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="记录一些ctf杂项思路">
+<meta name="keywords" content="CTF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记录一些ctf杂项思路">
+<meta property="og:url" content="https://alem0n.github.io/2019/04/20/记录一些ctf杂项-2019/index.html">
+<meta property="og:site_name" content="Lem0n&#39;Blog">
+<meta property="og:description" content="记录一些ctf杂项思路">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项-2019/1541058836411.png">
+<meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项-2019/1541066006979.png">
+<meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项-2019/1541065964330.png">
+<meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项-2019/1541065942519.png">
+<meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项-2019/1541067213545.png">
+<meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项-2019/15101945515601419.jpg">
+<meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项-2019/1541133206799.png">
+<meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项-2019/1541133297090.png">
+<meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项-2019/1541133673140.png">
+<meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项-2019/1541133695949.png">
+<meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项-2019/1541138662853.png">
+<meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项-2019/1541138688983.png">
+<meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项-2019/1541138924428.png">
+<meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项-2019/1541138977862.png">
+<meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项-2019/1541139674345.png">
+<meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项-2019/1541297802913.png">
+<meta property="og:image" content="https://alem0n.github.io/2019/04/20/1541298107753.png">
+<meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项-2019/1541308920936.png">
+<meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项-2019/1541310361939.png">
+<meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项-2019/1541315900155.png">
+<meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项-2019/1541315883258.png">
+<meta property="og:updated_time" content="2019-05-29T14:31:49.848Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="记录一些ctf杂项思路">
+<meta name="twitter:description" content="记录一些ctf杂项思路">
+<meta name="twitter:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项-2019/1541058836411.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://alem0n.github.io/2019/04/20/记录一些ctf杂项-2019/">
+
+
+
+
+
+  <title>记录一些ctf杂项思路 | Lem0n'Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Lem0n'Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">一只热爱技术的文艺青年</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://alem0n.github.io/2019/04/20/记录一些ctf杂项-2019/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lem0n">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://wx3.sinaimg.cn/small/d3ea225bly1g287w8pdezj205c05cdg1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lem0n'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">记录一些ctf杂项思路</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-20T16:00:00+08:00">
+                2019-04-20
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-29T22:31:49+08:00">
+                2019-05-29
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF/" itemprop="url" rel="index">
+                    <span itemprop="name">CTF</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,589
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+     
+
+      
+      
+
+      
+        <script src="\assets\js\APlayer.min.js"> </script><h1 id="记录一些ctf杂项思路"><a href="#记录一些ctf杂项思路" class="headerlink" title="记录一些ctf杂项思路"></a>记录一些ctf杂项思路</h1><a id="more"></a>
+<h2 id="技能分析题"><a href="#技能分析题" class="headerlink" title="技能分析题"></a>技能分析题</h2><h3 id="1-小明的密码"><a href="#1-小明的密码" class="headerlink" title="1.小明的密码"></a>1.小明的密码</h3><p>97年出生的小明用自己的生日作为自己网站的密码，现在，得到一串被篡改过一个字符的字符串，你能解出小明的生日吗？</p>
+<p>0175501585710a89h5a60dc9ed2f88d7</p>
+<p>md5加密</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line">s = <span class="string">'0175501585710a89h5a60dc9ed2f88d7'</span></span><br><span class="line"><span class="keyword">for</span> day <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">32</span>):</span><br><span class="line">    <span class="keyword">for</span> month <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">13</span>):</span><br><span class="line">        birth = <span class="string">'1997%02d%02d'</span> % (month, day)</span><br><span class="line">        m = hashlib.md5()</span><br><span class="line">        m.update(birth)</span><br><span class="line">        md5 = m.hexdigest()</span><br><span class="line">        <span class="keyword">if</span> s[:<span class="number">10</span>] <span class="keyword">in</span> md5:   <span class="comment">#以部分字符串的值来对比完整字符串</span></span><br><span class="line">            <span class="keyword">print</span> md5</span><br><span class="line">            <span class="keyword">print</span> birth</span><br></pre></td></tr></table></figure>
+<h3 id="2-仿射加密"><a href="#2-仿射加密" class="headerlink" title="2.仿射加密"></a>2.仿射加密</h3><p>已知仿射加密变换为c=（11m+7）mod26，试对密文dikxourxd解密</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line">a = <span class="string">'dikxourxd'</span></span><br><span class="line">a1=[]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">    a2 = ord(i)<span class="number">-97</span></span><br><span class="line">    a1.append(a2)</span><br><span class="line"><span class="keyword">print</span> a1</span><br><span class="line">s = <span class="string">""</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a1:</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">26</span>):</span><br><span class="line">        c = (<span class="number">11</span>*j+<span class="number">7</span>)%<span class="number">26</span></span><br><span class="line">        <span class="keyword">if</span>(c==i):</span><br><span class="line">            s += chr(j+<span class="number">97</span>)</span><br><span class="line"><span class="keyword">print</span> s</span><br></pre></td></tr></table></figure>
+<p><img src="/images/2019-04-09-记录一些ctf杂项-2019/1541058836411.png" alt="1541058836411"></p>
+<h3 id="3-黑客的机密信息"><a href="#3-黑客的机密信息" class="headerlink" title="3.黑客的机密信息"></a>3.黑客的机密信息</h3><p>黑客通过webshell往Web服务器写入了一串机密信息，你能找出机密信息吗？</p>
+<p>首先分析流量包，过滤http请求，在数据包末端发现shell.php，利用Wireshark的filter过滤出带有shell.php的流量，<code>http contains &quot;shell.php&quot;</code></p>
+<p>利用一句话执行的命令都经过base64编码，不能直接搜索到flag关键词。</p>
+<p><img src="/images/2019-04-09-记录一些ctf杂项-2019/1541066006979.png" alt="1541066006979"></p>
+<p>通过跟踪流来查找flag</p>
+<p><img src="/images/2019-04-09-记录一些ctf杂项-2019/1541065964330.png" alt="1541065964330"></p>
+<p><img src="/images/2019-04-09-记录一些ctf杂项-2019/1541065942519.png" alt="1541065942519"></p>
+<h3 id="4-远控木马"><a href="#4-远控木马" class="headerlink" title="4.远控木马"></a>4.远控木马</h3><p>某次应急响应时，工程师发现一个远控木马的客户端程序，请分析该远程控制木马的控制端IP及端口号。</p>
+<p>在虚拟机上运行<code>netstat -ano</code>查看</p>
+<p><img src="/images/2019-04-09-记录一些ctf杂项-2019/1541067213545.png" alt="1541067213545"></p>
+<h3 id="5-人生苦短"><a href="#5-人生苦短" class="headerlink" title="5.人生苦短"></a>5.人生苦短</h3><p>两个文件有什么不一样吗？</p>
+<p>查看一下两个文件，发现其中一个为png图片，WinHex查看之后，发现其中一个文件的头部做了修改。</p>
+<p>根据文件名提示，xor，将两个文件的头部进行异或运算。</p>
+<p>代码如下：</p>
+<p>异或操作</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">xor</span><span class="params">(str1, str2)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>.join(chr(ord(x) ^ ord(y)) <span class="keyword">for</span> x, y <span class="keyword">in</span> zip(str1,str2))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">        <span class="comment">#png_1 = open(sys.argv[1], "rb").read(i)</span></span><br><span class="line">        png_1 = open(<span class="string">"xor.png"</span>, <span class="string">"rb"</span>).read(i)</span><br><span class="line">        png_2 = open(<span class="string">"flag.png"</span>, <span class="string">"rb"</span>).read(i)</span><br><span class="line">        key = xor(png_1, png_2)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">print</span> key</span><br></pre></td></tr></table></figure>
+<h3 id="7-Web漏洞"><a href="#7-Web漏洞" class="headerlink" title="7.Web漏洞"></a>7.Web漏洞</h3><p>黑客利用漏洞从Web系统中窃取了什么机密信息？</p>
+<p>日志读取</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">flag = <span class="string">''</span></span><br><span class="line">flag_list = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'access.log'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> file:</span><br><span class="line">    <span class="comment">#print file.read()</span></span><br><span class="line">    line_lists = file.readlines()</span><br><span class="line">    <span class="comment">#print len(line_lists)</span></span><br><span class="line">    flag_lines = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> line_lists:</span><br><span class="line">        <span class="keyword">if</span> <span class="string">'flag'</span> <span class="keyword">in</span> i:</span><br><span class="line">            flag_lines.append(i)</span><br><span class="line">    <span class="comment">#print len(flag_lines)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> flag_lines:</span><br><span class="line">        s = i.split(<span class="string">" "</span>)[<span class="number">6</span>]</span><br><span class="line">        s=urllib.unquote(s)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">'!='</span> <span class="keyword">in</span> s :</span><br><span class="line">            <span class="keyword">print</span> s</span><br><span class="line">            p = re.compile(<span class="string">r'!=[1-9]\d*'</span>)</span><br><span class="line">            flag = flag + chr(int(p.findall(s)[<span class="number">0</span>].replace(<span class="string">'!='</span>,<span class="string">''</span>)))</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> flag</span><br></pre></td></tr></table></figure>
+<h3 id="8-终端的老东西"><a href="#8-终端的老东西" class="headerlink" title="8.终端的老东西"></a>8.终端的老东西</h3><p>奇奇怪怪的东西在终端里面显示会有什么特殊效果吗？</p>
+<p>附件：console.pcap</p>
+<p>答案格式改为：flag{<strong>***</strong>}</p>
+<p>获取到flag后，请自行更改提交格式。</p>
+<p><code>tshark -T fields -e data -r console.pcap | xxd -r -p</code></p>
+<p><img src="/images/2019-04-09-记录一些ctf杂项-2019/15101945515601419.jpg" alt="img"></p>
+<h3 id="9-颜文字"><a href="#9-颜文字" class="headerlink" title="9.颜文字"></a>9.颜文字</h3><p>(ノ｀Д)ノ</p>
+<p><img src="/images/2019-04-09-记录一些ctf杂项-2019/1541133206799.png" alt="1541133206799"></p>
+<h3 id="10-磁盘镜像"><a href="#10-磁盘镜像" class="headerlink" title="10.磁盘镜像"></a>10.磁盘镜像</h3><p>磁盘里藏着flag</p>
+<p>7z解压，挂载，分离都可以</p>
+<p><img src="/images/2019-04-09-记录一些ctf杂项-2019/1541133297090.png" alt="1541133297090"></p>
+<h3 id="11-gakki"><a href="#11-gakki" class="headerlink" title="11.gakki"></a>11.gakki</h3><p>修改高度</p>
+<p><img src="/images/2019-04-09-记录一些ctf杂项-2019/1541133673140.png" alt="1541133673140"></p>
+<p><img src="/images/2019-04-09-记录一些ctf杂项-2019/1541133695949.png" alt="1541133695949"></p>
+<h3 id="12-神奇的二维码"><a href="#12-神奇的二维码" class="headerlink" title="12.神奇的二维码"></a>12.神奇的二维码</h3><p>用notepad++打开发现每行都是坐标利用python制作二维码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python2</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line">pic = Image.new(<span class="string">"RGB"</span>,(<span class="number">280</span>, <span class="number">280</span>))</span><br><span class="line">f = open(<span class="string">"flag.txt"</span>,<span class="string">"r"</span>)</span><br><span class="line">flag_s = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> f.readlines():</span><br><span class="line">    j = i.strip(<span class="string">"\n"</span>).replace(<span class="string">")"</span>,<span class="string">""</span>).replace(<span class="string">"("</span>,<span class="string">""</span>)</span><br><span class="line">    flag_s.append(j)</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">s = <span class="string">""</span></span><br><span class="line">k = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">280</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">280</span>):</span><br><span class="line">        s = flag_s[k].split(<span class="string">","</span>)</span><br><span class="line">        pic.putpixel([i,j],(int(s[<span class="number">0</span>]),int(s[<span class="number">1</span>]),int(s[<span class="number">2</span>])))</span><br><span class="line">        k += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">pic.show()</span><br><span class="line">pic.save(<span class="string">"flag.png"</span>)</span><br></pre></td></tr></table></figure>
+<p>扫码获得</p>
+<p><img src="/images/2019-04-09-记录一些ctf杂项-2019/1541138662853.png" alt="1541138662853"></p>
+<p>base32解密</p>
+<p><img src="/images/2019-04-09-记录一些ctf杂项-2019/1541138688983.png" alt="1541138688983"></p>
+<p>观察是栅栏加密</p>
+<p><img src="/images/2019-04-09-记录一些ctf杂项-2019/1541138924428.png" alt="1541138924428"></p>
+<p>应该是凯撒加密</p>
+<p><img src="/images/2019-04-09-记录一些ctf杂项-2019/1541138977862.png" alt="1541138977862"></p>
+<h3 id="14-base家族"><a href="#14-base家族" class="headerlink" title="14.base家族"></a>14.base家族</h3><p>base混合编码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">'base.txt'</span>)</span><br><span class="line">content = <span class="string">""</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> f.readlines():</span><br><span class="line">    content = content + i.replace(<span class="string">'\r'</span>,<span class="string">''</span>).replace(<span class="string">'\n'</span>,<span class="string">''</span>).replace(<span class="string">'\t'</span>,<span class="string">''</span>)</span><br><span class="line">f.close()</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        content = base64.b64decode(content).decode()</span><br><span class="line">        <span class="comment">#print(content)</span></span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            content = base64.b32decode(content).decode()</span><br><span class="line">            <span class="comment">#print(content)</span></span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                content = base64.b16decode(content).decode()</span><br><span class="line">                <span class="comment"># print(content)</span></span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                print(<span class="string">'result: '</span>, content)</span><br><span class="line">                <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/2019-04-09-记录一些ctf杂项-2019/1541139674345.png" alt="1541139674345"></p>
+<h3 id="15-rsa1"><a href="#15-rsa1" class="headerlink" title="15.rsa1"></a>15.rsa1</h3><p>openssl解rsa</p>
+<p>先用rsactftool去用公钥计算私钥</p>
+<p>python RsaCtfTool.py –publickey ~/Desktop/pub.key –private &gt; priv.key</p>
+<p>然后用ssl解密</p>
+<p>openssl rsautl -decrypt -inkey pri.key -in enc1 -out text</p>
+<h3 id="16-rsa2"><a href="#16-rsa2" class="headerlink" title="16.rsa2"></a>16.rsa2</h3><p>共享素数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gcd</span><span class="params">(a, b)</span>:</span></span><br><span class="line">   <span class="keyword">if</span> a &lt; b:</span><br><span class="line">     a, b = b, a</span><br><span class="line">   <span class="keyword">while</span> b != <span class="number">0</span>:</span><br><span class="line">     temp = a % b</span><br><span class="line">     a = b</span><br><span class="line">     b = temp</span><br><span class="line">   <span class="keyword">return</span> a</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">egcd</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> a == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> (b, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        g, y, x = egcd(b % a, a)</span><br><span class="line">        <span class="keyword">return</span> (g, x - (b // a) * y, y)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">modinv</span><span class="params">(a, m)</span>:</span></span><br><span class="line">    g, x, y = egcd(a, m)</span><br><span class="line">    <span class="keyword">if</span> g != <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">raise</span> Exception(<span class="string">'modular inverse does not exist'</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> x % m</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">n2s</span><span class="params">(n)</span>:</span></span><br><span class="line">    s=hex(n)[<span class="number">2</span>:<span class="number">-1</span>]</span><br><span class="line">    <span class="keyword">if</span> len(s)%<span class="number">2</span>!=<span class="number">0</span>:</span><br><span class="line">        s=<span class="string">'0'</span>+s</span><br><span class="line">    <span class="keyword">return</span> s.decode(<span class="string">'hex'</span>)</span><br><span class="line"></span><br><span class="line">n4=<span class="number">18674375108313094928585156581138941368570022222190945461284402673204018075354069827186085851309806592398721628845336840532779579197302984987661547245423180760958022898546496524249201679543421158842103496452861932183144343315925106154322066796612415616342291023962127055311307613898583850177922930685155351380500587263611591893137588708003711296496548004793832636078992866149115453883484010146248683416979269684197112659302912316105354447631916609587360103908746719586185593386794532066034112164661723748874045470225129298518385683561122623859924435600673501186244422907402943929464694448652074412105888867178867357727</span></span><br><span class="line">n5=<span class="number">20071978783607427283823783012022286910630968751671103864055982304683197064862908267206049336732205051588820325894943126769930029619538705149178241710069113634567118672515743206769333625177879492557703359178528342489585156713623530654319500738508146831223487732824835005697932704427046675392714922683584376449203594641540794557871881581407228096642417744611261557101573050163285919971711214856243031354845945564837109657494523902296444463748723639109612438012590084771865377795409000586992732971594598355272609789079147061852664472115395344504822644651957496307894998467309347038349470471900776050769578152203349128951</span></span><br><span class="line">c4=<span class="number">0x8C3CF3161AA3E37831030985C60566A7604688B73E5B1D3B36E72EF06ED4F71289EFE80E0D94BD755034E6C210F17DA85B9D0388F3AD104C68BC514A8EB1569A109EB5F266F7C5FA4DDFA638258949B43D4CF1406720CCD4CA11E74FDF8AEB35C56A79781C87157FC4213573329C5B0FF411F8A4F34580AA103DB9FD403C0D409FA11860A7C4595FDC49DC2CF94E5112B772E5DEC8F17E24B10A7FD7A95DCB87BE5E27C32FC931574A7847BC506A61EFE9DB3D3F612143845FE80D7B3EA548B886A67A29CBDB2775B1F91178B6DA763F1A6ECFF46592E4C7FFAAB6C9FEF29D9CB9E035A3D98ECFFB26BA2EEAA56D1CD096E6A2CF9A58086CAD7718DDA5CB0C1B</span></span><br><span class="line">e=<span class="number">65537</span></span><br><span class="line"></span><br><span class="line">p4=gcd(n4,n5)</span><br><span class="line"><span class="keyword">print</span> <span class="string">"p4"</span>,p4</span><br><span class="line">q4=n4/p4</span><br><span class="line">q5=n5/p4</span><br><span class="line"><span class="comment"># print "q4",q4</span></span><br><span class="line"><span class="comment"># print "q5",q5</span></span><br><span class="line">phi=(p4<span class="number">-1</span>)*(q5<span class="number">-1</span>)</span><br><span class="line">d4=modinv(e,phi)</span><br><span class="line"><span class="keyword">print</span> <span class="string">"d4"</span>,d4</span><br><span class="line">m=pow(c4,d4,n5)</span><br><span class="line"><span class="keyword">print</span> <span class="string">"m=%s"</span>%m</span><br><span class="line"><span class="keyword">print</span> <span class="string">"flag is"</span>,n2s(int(m))</span><br></pre></td></tr></table></figure>
+<h3 id="17-进制转换"><a href="#17-进制转换" class="headerlink" title="17.进制转换"></a>17.进制转换</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">"text.txt"</span>,<span class="string">"r"</span>)</span><br><span class="line">flag_s = f.read()</span><br><span class="line">flag_list = <span class="string">""</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> flag_s.split(<span class="string">" "</span>):</span><br><span class="line">    <span class="keyword">if</span> i[<span class="number">0</span>] == <span class="string">"b"</span> :</span><br><span class="line">        <span class="keyword">print</span> chr(int(<span class="string">"0"</span>+i,<span class="number">2</span>))</span><br><span class="line">        flag_list = flag_list + chr(int(<span class="string">"0"</span>+i,<span class="number">2</span>))</span><br><span class="line">    <span class="keyword">elif</span> i[<span class="number">0</span>] == <span class="string">"o"</span> :</span><br><span class="line">        <span class="keyword">print</span> chr(int(<span class="string">"0"</span>+i,<span class="number">8</span>))</span><br><span class="line">        flag_list = flag_list + chr(int(<span class="string">"0"</span>+i,<span class="number">8</span>))</span><br><span class="line">    <span class="keyword">elif</span> i[<span class="number">0</span>] == <span class="string">"d"</span> :</span><br><span class="line">        <span class="keyword">print</span> chr(int(i[<span class="number">1</span>:]))</span><br><span class="line">        flag_list = flag_list + chr(int(i[<span class="number">1</span>:]))</span><br><span class="line">    <span class="keyword">elif</span> i[<span class="number">0</span>] == <span class="string">"x"</span> :</span><br><span class="line">        <span class="keyword">print</span> chr(int(<span class="string">"0"</span>+i,<span class="number">16</span>))</span><br><span class="line">        flag_list = flag_list + chr(int(<span class="string">"0"</span>+i,<span class="number">16</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> flag_list</span><br></pre></td></tr></table></figure>
+<p><img src="/images/2019-04-09-记录一些ctf杂项-2019/1541297802913.png" alt="1541297802913"></p>
+<h3 id="18-Crack-it"><a href="#18-Crack-it" class="headerlink" title="18.Crack it"></a>18.Crack it</h3><p><img src="../1541298107753.png" alt="1541298107753"></p>
+<h3 id="19-日志分析"><a href="#19-日志分析" class="headerlink" title="19.日志分析"></a>19.日志分析</h3><p><img src="/images/2019-04-09-记录一些ctf杂项-2019/1541308920936.png" alt="1541308920936"></p>
+<h3 id="20-icmp流量分析"><a href="#20-icmp流量分析" class="headerlink" title="20.icmp流量分析"></a>20.icmp流量分析</h3><p><img src="/images/2019-04-09-记录一些ctf杂项-2019/1541310361939.png" alt="1541310361939"></p>
+<h3 id="21-神奇的图片"><a href="#21-神奇的图片" class="headerlink" title="21.神奇的图片"></a>21.神奇的图片</h3><p>可能是二维码也可能是图形，要根据生成的图片进行判断。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python2</span><br><span class="line"># -*- coding: UTF-8 -*-</span><br><span class="line">from PIL import Image</span><br><span class="line"></span><br><span class="line">x = 150</span><br><span class="line">y = 900</span><br><span class="line">pic = Image.new(&quot;RGB&quot;,(x, y))</span><br><span class="line">f = open(&quot;basic.txt&quot;,&quot;r&quot;)</span><br><span class="line">flag_s = []</span><br><span class="line"></span><br><span class="line">for i in f.readlines():</span><br><span class="line">    j = i.strip(&quot;\n&quot;).replace(&quot;)&quot;,&quot;&quot;).replace(&quot;(&quot;,&quot;&quot;)</span><br><span class="line">    flag_s.append(j)</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">s = &quot;&quot;</span><br><span class="line">k = 0</span><br><span class="line">for i in range(x):</span><br><span class="line">    for j in range(y):</span><br><span class="line">        s = flag_s[k].split(&quot;,&quot;)</span><br><span class="line">        pic.putpixel([i,j],(int(s[0]),int(s[1]),int(s[2])))</span><br><span class="line">        k += 1</span><br><span class="line"></span><br><span class="line">pic.show()</span><br><span class="line">pic.save(&quot;flag.png&quot;)</span><br></pre></td></tr></table></figure>
+<p>更改x，y值可以看到里面不是二维码而是数字，继续修改到合适的位置</p>
+<p><img src="/images/2019-04-09-记录一些ctf杂项-2019/1541315900155.png" alt="1541315900155"></p>
+<p>得到的图片用ps翻转即可得到下面的图</p>
+<p><img src="/images/2019-04-09-记录一些ctf杂项-2019/1541315883258.png" alt="1541315883258"></p>
+
+      
+    </div>
+    
+    
+    
+	
+	
+	
+    
+    
+	<div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #a3a3a3;font-size:20px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如有疑问或需要技术讨论，请发邮件到 zlem0n@foxmail.com</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://wx2.sinaimg.cn/small/d3ea225bly1g287wga5mwj2076076mxd.jpg" alt="lem0n 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://wx2.sinaimg.cn/small/d3ea225bly1g287wcaboej207r07rmxa.jpg" alt="lem0n 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    lem0n
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://alem0n.github.io/2019/04/20/记录一些ctf杂项-2019/" title="记录一些ctf杂项思路">https://alem0n.github.io/2019/04/20/记录一些ctf杂项-2019/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CTF/" rel="tag"># CTF</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/08/解决pycharm问题：module 'pip' has no attribute 'main'-2019/" rel="next" title="解决pycharm问题：module 'pip' has no attribute 'main'">
+                <i class="fa fa-chevron-left"></i> 解决pycharm问题：module 'pip' has no attribute 'main'
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/20/记录一些ctf杂项2-2019/" rel="prev" title="记录一些ctf杂项思路2">
+                记录一些ctf杂项思路2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://wx3.sinaimg.cn/small/d3ea225bly1g287w8pdezj205c05cdg1.jpg" alt="lem0n">
+            
+              <p class="site-author-name" itemprop="name">lem0n</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+			<!--my custom code begin-->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>
+			<script type="text/javascript">
+			  $("#sidebar").hover(function(){
+				$("#mydivshow").velocity('stop').velocity({opacity: 1});
+			  },function(){
+				$("#mydivshow").velocity('stop').velocity({opacity: 0});
+			  });
+			</script>
+			<div id="mydivshow" class="mydivshow">
+			<!--my custom code end-->
+			
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/alem0n" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zlem0n@foxmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.weibo.com/u/3555336795" target="_blank" title="微博">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://flag0.com/" title="GetFlag" target="_blank">GetFlag</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://alem0n.github.io/" title="lem0n" target="_blank">lem0n</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.coder666.cn/" title="雨时节" target="_blank">雨时节</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.fkomm.cn/" title="緣來來來" target="_blank">緣來來來</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://cdusec.happyhacking.top" title="CDUSEC内部博客" target="_blank">CDUSEC内部博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+        </div>
+		<!--my custom code begin-->
+		</div>
+		<!--my custom code end-->
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#记录一些ctf杂项思路"><span class="nav-number">1.</span> <span class="nav-text">记录一些ctf杂项思路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#技能分析题"><span class="nav-number">1.1.</span> <span class="nav-text">技能分析题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-小明的密码"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.小明的密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-仿射加密"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.仿射加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-黑客的机密信息"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.黑客的机密信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-远控木马"><span class="nav-number">1.1.4.</span> <span class="nav-text">4.远控木马</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-人生苦短"><span class="nav-number">1.1.5.</span> <span class="nav-text">5.人生苦短</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-Web漏洞"><span class="nav-number">1.1.6.</span> <span class="nav-text">7.Web漏洞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-终端的老东西"><span class="nav-number">1.1.7.</span> <span class="nav-text">8.终端的老东西</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-颜文字"><span class="nav-number">1.1.8.</span> <span class="nav-text">9.颜文字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-磁盘镜像"><span class="nav-number">1.1.9.</span> <span class="nav-text">10.磁盘镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-gakki"><span class="nav-number">1.1.10.</span> <span class="nav-text">11.gakki</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-神奇的二维码"><span class="nav-number">1.1.11.</span> <span class="nav-text">12.神奇的二维码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-base家族"><span class="nav-number">1.1.12.</span> <span class="nav-text">14.base家族</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-rsa1"><span class="nav-number">1.1.13.</span> <span class="nav-text">15.rsa1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-rsa2"><span class="nav-number">1.1.14.</span> <span class="nav-text">16.rsa2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-进制转换"><span class="nav-number">1.1.15.</span> <span class="nav-text">17.进制转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-Crack-it"><span class="nav-number">1.1.16.</span> <span class="nav-text">18.Crack it</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-日志分析"><span class="nav-number">1.1.17.</span> <span class="nav-text">19.日志分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-icmp流量分析"><span class="nav-number">1.1.18.</span> <span class="nav-text">20.icmp流量分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-神奇的图片"><span class="nav-number">1.1.19.</span> <span class="nav-text">21.神奇的图片</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lem0n</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">20.2k</span>
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.3"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.3"></script>
+
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+</body>
+</html>
