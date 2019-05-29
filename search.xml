@@ -108,6 +108,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[设置github代理]]></title>
+    <url>%2F2019%2F02%2F27%2F%E8%AE%BE%E7%BD%AEgithub%E4%BB%A3%E7%90%86-2019%2F</url>
+    <content type="text"><![CDATA[git下设置网络代理 设置http、https代理12345git config --global https.proxy &apos;http://127.0.0.1:1080&apos;git config --global https.proxy &apos;https://127.0.0.1:1080&apos;走socks5git config --global http.proxy &apos;socks5://127.0.0.1:1080&apos;git config --global https.proxy &apos;socks5://127.0.0.1:1080&apos; 取消 123git config --global --unset http.proxygit config --global --unset https.proxy]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+        <tag>GitHub</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[如何解决github+Hexo的博客多终端同步问题]]></title>
     <url>%2F2019%2F02%2F27%2Fhexo%E5%A4%87%E4%BB%BD-2019%2F</url>
     <content type="text"><![CDATA[记录一些hexo的备份问题，多终端备份 备份在其中一个终端操作，push本地文件夹Hexo中的必要文件到yourname.github.io的hexo分支上在利用Github+Hexo搭建自己的博客时，新建了一个Hexo的文件夹，并进行相关的配置，这部分主要是将这些配置的文件托管到Github项目的分支上，其中只托管部分用于多终端的同步的文件. 建立.gitignore(可选，建立.gitignore下方添加文件命令只需执行git add .) 1234567.DS_StoreThumbs.dbdb.json*.lognode_modules/public/.deploy*/ 1234567git init //初始化本地仓库git add source themes scaffolds _config.yml package.json package-lock.json //将必要的文件添加git commit -m "Blog Source Hexo"git branch hexo //新建hexo分支git checkout hexo //切换到hexo分支上git remote add origin git@github.com:yourname/yourname.github.io.git //将本地与Github项目对接git push origin hexo //push到Github项目的hexo分支上 这样你的github项目中就会多出一个Hexo分支，这个就是用于多终端同步关键的部分。 使用12345678git clone -b hexo git@github.com:yourname/yourname.github.io.git //将Github中hexo分支clone到本地cd yourname.github.io //切换到刚刚clone的文件夹内npm install //注意，这里一定要切换到刚刚clone的文件夹内执行，安装必要的所需组件，不用再inithexo new post "new blog name" //新建一个.md文件，并编辑完成自己的博客内容git add source //经测试每次只要更新sorcerer中的文件到Github中即可，因为只是新建了一篇新博客git commit -m "XX"git push origin hexo //更新分支hexo d -g //push更新完分支之后将自己写的博客对接到自己搭的博客网站上，同时同步了Github中的master 不同终端之后的使用 123456git pull origin hexo //先pull完成本地与远端的融合hexo new post " new blog name"git add sourcegit commit -m "XX"git push origin hexohexo d -g]]></content>
@@ -141,18 +153,6 @@
       <tags>
         <tag>生活</tag>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[设置github代理]]></title>
-    <url>%2F2019%2F02%2F27%2F%E8%AE%BE%E7%BD%AEgithub%E4%BB%A3%E7%90%86-2019%2F</url>
-    <content type="text"><![CDATA[git下设置网络代理 设置http、https代理12345git config --global https.proxy &apos;http://127.0.0.1:1080&apos;git config --global https.proxy &apos;https://127.0.0.1:1080&apos;走socks5git config --global http.proxy &apos;socks5://127.0.0.1:1080&apos;git config --global https.proxy &apos;socks5://127.0.0.1:1080&apos; 取消 123git config --global --unset http.proxygit config --global --unset https.proxy]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-        <tag>GitHub</tag>
       </tags>
   </entry>
   <entry>

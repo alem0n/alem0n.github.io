@@ -114,17 +114,13 @@
     <link href="https://alem0n.github.io/2019/03/02/%E8%A7%A3%E5%86%B3BT5%E4%B8%8Bpcaprub%E7%9A%84%E9%97%AE%E9%A2%98-2019/"/>
     <id>https://alem0n.github.io/2019/03/02/解决BT5下pcaprub的问题-2019/</id>
     <published>2019-03-02T11:00:00.000Z</published>
-    <updated>2019-03-02T12:24:45.000Z</updated>
+    <updated>2019-05-29T15:02:43.092Z</updated>
     
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>这是因为在BT5中Pcap模块没有安装，其实解决这个问题很简单，在Metasploit 安装目录中找到pcaprub目录再编译或安装ruby模块.</p><p>​       以/opt/framework3/msf3/external/pcaprub为例</p><p>​       首先切换到此目录下</p><p>​    cd /opt/framework3/msf3/external/pcaprub</p><p><img src="/images/2019-03-02-解决BT5下pcaprub的问题-2019/clip_image002-1551524398995.jpg" alt="4256111C773.jpeg"></p><p>​    安装Pcap模块</p><p>​    ruby extconf.rb &amp;&amp; make</p><p>​    make install</p><p><img src="/images/2019-03-02-解决BT5下pcaprub的问题-2019/clip_image004-1551524404783.jpg" alt="65CC6BC70BF.jpeg"></p><p>​    打开/opt/framework3/scripts/setenv.sh，添加pcaprub的路径：</p><p>​    vi /opt/framework3/scripts/setenv.sh</p><p>​    RUBYLIB=”…:/opt/framework3/ruby/lib/ruby/site_ruby/1.9.1/i686-linux:/opt/framework3/msf3/external/pcaprub“</p><p><img src="/images/2019-03-02-解决BT5下pcaprub的问题-2019/clip_image006-1551524411906.gif" alt="EF09E429D199.png"></p><p>​    重启msfconsole即可正常使用</p><p><img src="/images/2019-03-02-解决BT5下pcaprub的问题-2019/clip_image008-1551524417798.gif" alt="3AA27905B09E.png"></p>]]></content>
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>这是因为在BT5中Pcap模块没有安装，其实解决这个问题很简单，在Metasploit 安装目录中找到pcaprub目录再编译或安装ruby模块.</p><a id="more"></a><p>​       以/opt/framework3/msf3/external/pcaprub为例</p><p>​       首先切换到此目录下</p><p>​    cd /opt/framework3/msf3/external/pcaprub</p><p><img src="/images/2019-03-02-解决BT5下pcaprub的问题-2019/clip_image002-1551524398995.jpg" alt="4256111C773.jpeg"></p><p>​    安装Pcap模块</p><p>​    ruby extconf.rb &amp;&amp; make</p><p>​    make install</p><p><img src="/images/2019-03-02-解决BT5下pcaprub的问题-2019/clip_image004-1551524404783.jpg" alt="65CC6BC70BF.jpeg"></p><p>​    打开/opt/framework3/scripts/setenv.sh，添加pcaprub的路径：</p><p>​    vi /opt/framework3/scripts/setenv.sh</p><p>​    RUBYLIB=”…:/opt/framework3/ruby/lib/ruby/site_ruby/1.9.1/i686-linux:/opt/framework3/msf3/external/pcaprub“</p><p><img src="/images/2019-03-02-解决BT5下pcaprub的问题-2019/clip_image006-1551524411906.gif" alt="EF09E429D199.png"></p><p>​    重启msfconsole即可正常使用</p><p><img src="/images/2019-03-02-解决BT5下pcaprub的问题-2019/clip_image008-1551524417798.gif" alt="3AA27905B09E.png"></p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;script src=&quot;\assets\js\APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;p&gt;这是因为在BT5中Pcap模块没有安装，其实解决这个问题很简单，在Metasploit 安装目录中找到pcaprub目录再编译或安装ruby模块.&lt;/p&gt;
-&lt;p&gt;​     
-      
+      &lt;p&gt;这是因为在BT5中Pcap模块没有安装，其实解决这个问题很简单，在Metasploit 安装目录中找到pcaprub目录再编译或安装ruby模块.&lt;/p&gt;
     
     </summary>
     
@@ -238,6 +234,30 @@
   </entry>
   
   <entry>
+    <title>设置github代理</title>
+    <link href="https://alem0n.github.io/2019/02/27/%E8%AE%BE%E7%BD%AEgithub%E4%BB%A3%E7%90%86-2019/"/>
+    <id>https://alem0n.github.io/2019/02/27/设置github代理-2019/</id>
+    <published>2019-02-27T12:00:00.000Z</published>
+    <updated>2019-05-21T03:34:42.237Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>git下设置网络代理</p><a id="more"></a><h3 id="设置http、https代理"><a href="#设置http、https代理" class="headerlink" title="设置http、https代理"></a>设置http、https代理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global https.proxy &apos;http://127.0.0.1:1080&apos;</span><br><span class="line">git config --global https.proxy &apos;https://127.0.0.1:1080&apos;</span><br><span class="line">走socks5</span><br><span class="line">git config --global http.proxy &apos;socks5://127.0.0.1:1080&apos;</span><br><span class="line">git config --global https.proxy &apos;socks5://127.0.0.1:1080&apos;</span><br></pre></td></tr></table></figure><p>取消</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line"></span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;git下设置网络代理&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="生活" scheme="https://alem0n.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="生活" scheme="https://alem0n.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="GitHub" scheme="https://alem0n.github.io/tags/GitHub/"/>
+    
+  </entry>
+  
+  <entry>
     <title>如何解决github+Hexo的博客多终端同步问题</title>
     <link href="https://alem0n.github.io/2019/02/27/hexo%E5%A4%87%E4%BB%BD-2019/"/>
     <id>https://alem0n.github.io/2019/02/27/hexo备份-2019/</id>
@@ -306,30 +326,6 @@
       <category term="生活" scheme="https://alem0n.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
     
       <category term="Hexo" scheme="https://alem0n.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设置github代理</title>
-    <link href="https://alem0n.github.io/2019/02/27/%E8%AE%BE%E7%BD%AEgithub%E4%BB%A3%E7%90%86-2019/"/>
-    <id>https://alem0n.github.io/2019/02/27/设置github代理-2019/</id>
-    <published>2019-02-27T12:00:00.000Z</published>
-    <updated>2019-05-21T03:34:42.237Z</updated>
-    
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>git下设置网络代理</p><a id="more"></a><h3 id="设置http、https代理"><a href="#设置http、https代理" class="headerlink" title="设置http、https代理"></a>设置http、https代理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global https.proxy &apos;http://127.0.0.1:1080&apos;</span><br><span class="line">git config --global https.proxy &apos;https://127.0.0.1:1080&apos;</span><br><span class="line">走socks5</span><br><span class="line">git config --global http.proxy &apos;socks5://127.0.0.1:1080&apos;</span><br><span class="line">git config --global https.proxy &apos;socks5://127.0.0.1:1080&apos;</span><br></pre></td></tr></table></figure><p>取消</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line"></span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;git下设置网络代理&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="生活" scheme="https://alem0n.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-    
-      <category term="生活" scheme="https://alem0n.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-      <category term="GitHub" scheme="https://alem0n.github.io/tags/GitHub/"/>
     
   </entry>
   
