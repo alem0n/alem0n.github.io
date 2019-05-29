@@ -157,7 +157,7 @@ links:
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.jpg
 # in site  directory(source/uploads): /uploads/avatar.jpg
-avatar: https://wx3.sinaimg.cn/small/d3ea225bly1g287w8pdezj205c05cdg1.jpg
+avatar: /images/avatar.jpg
 # 头像
 
 
