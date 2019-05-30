@@ -251,8 +251,8 @@ post_wordcount:
 # Reward
 reward_comment: 如有疑问或需要技术讨论，请发邮件到 zlem0n@foxmail.com
 #支付宝微信收款码
-wechatpay: https://wx2.sinaimg.cn/small/d3ea225bly1g287wga5mwj2076076mxd.jpg
-alipay: https://wx2.sinaimg.cn/small/d3ea225bly1g287wcaboej207r07rmxa.jpg
+wechatpay: /images/wechatpay.jpg
+alipay: /images/alipay.jpg
 #bitcoin: /images/bitcoin.png
 
 # Declare license on posts
