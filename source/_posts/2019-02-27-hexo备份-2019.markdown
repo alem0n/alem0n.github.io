@@ -32,8 +32,6 @@ public/
 .deploy*/
 ```
 
-
-
 ```shell
 git init  //初始化本地仓库
 git add source themes scaffolds _config.yml package.json package-lock.json //将必要的文件添加
@@ -69,4 +67,3 @@ git commit -m "XX"
 git push origin hexo
 hexo d -g
 ```
-

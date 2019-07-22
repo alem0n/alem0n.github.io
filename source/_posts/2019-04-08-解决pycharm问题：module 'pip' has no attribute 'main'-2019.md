@@ -15,7 +15,7 @@ typora-root-url: ..
 
 找到安装目录下 helpers/packaging_tool.py文件，找到如下代码：
 
-```
+```python
 def do_install(pkgs):
     try:
         import pip
@@ -34,8 +34,7 @@ def do_uninstall(pkgs):
 
 改为
 
-
-```
+```python
 
 def do_install(pkgs):
     try:
@@ -61,4 +60,4 @@ def do_uninstall(pkgs):
     return main(['uninstall', '-y'] + pkgs)
 ```
 
-转载自：http://www.cnblogs.com/Fordestiny/p/8901100.html
+转载自：<http://www.cnblogs.com/Fordestiny/p/8901100.html>
