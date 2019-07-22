@@ -136,7 +136,7 @@
 <meta property="og:site_name" content="Lem0n&#39;Blog">
 <meta property="og:description" content="网上找了很久的办法，存下来">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-21T03:34:42.235Z">
+<meta property="og:updated_time" content="2019-07-22T08:59:35.623Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Next主题标签页标签随机颜色的设置方法">
 <meta name="twitter:description" content="网上找了很久的办法，存下来">
@@ -379,8 +379,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-05-21T11:34:42+08:00">
-                2019-05-21
+              <time title="更新于" itemprop="dateModified" datetime="2019-07-22T16:59:35+08:00">
+                2019-07-22
               </time>
             
           </span>
@@ -474,7 +474,7 @@
 <p>加上如下代码就可以了</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">  <span class="keyword">var</span> list = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.tag-cloud-tags a'</span>);</span><br><span class="line">  <span class="built_in">Array</span>.prototype.forEach.call(list, (item, index) =&gt; &#123;</span><br><span class="line">    item.style.fontSize = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">29</span> + <span class="number">12</span>) + <span class="string">'px'</span>;<span class="comment">//12 ~ 40</span></span><br><span class="line">    item.style.color = <span class="string">'rgb('</span> + <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">201</span>) + <span class="string">', '</span> + <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">201</span>) + <span class="string">', '</span> + <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">201</span>) + <span class="string">')'</span>;<span class="comment">// 0,0,0 -&gt; 200,200,200</span></span><br><span class="line">  &#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Ps:</p>
-<p>​    min_font和max_font代表最大最小文字，可以自行更改</p>
+<p>​ min_font和max_font代表最大最小文字，可以自行更改</p>
 
       
     </div>

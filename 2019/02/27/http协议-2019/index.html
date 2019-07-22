@@ -136,7 +136,7 @@
 <meta property="og:site_name" content="Lem0n&#39;Blog">
 <meta property="og:description" content="一些http知识">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-21T03:34:42.234Z">
+<meta property="og:updated_time" content="2019-07-22T08:57:50.458Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http安全">
 <meta name="twitter:description" content="一些http知识">
@@ -379,8 +379,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-05-21T11:34:42+08:00">
-                2019-05-21
+              <time title="更新于" itemprop="dateModified" datetime="2019-07-22T16:57:50+08:00">
+                2019-07-22
               </time>
             
           </span>
@@ -429,7 +429,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  894
+                  906
                 </span>
               
 
@@ -484,8 +484,7 @@
 <li><p>Ngix</p>
 </li>
 <li><p>Apache</p>
-</li>
-<li><ul>
+<ul>
 <li>默认prefork mode</li>
 <li>同一连接用同一个进程处理</li>
 <li>mod_php</li>
@@ -522,39 +521,36 @@
 <p>Flask 框架中默认把session返回客户端,存在验证码算法破解</p>
 <p>攻击思路,旁站拿shell,修改主站的session</p>
 <p>session可能存在与tamper目录下,</p>
-<h4 id="host"><a href="#host" class="headerlink" title="host"></a>host</h4><p>将host头,改为内部站点,有可能返回内网的内容</p>
-<h4 id="Referer"><a href="#Referer" class="headerlink" title="Referer"></a>Referer</h4><p>常用功能防盗链</p>
+<h3 id="host"><a href="#host" class="headerlink" title="host"></a>host</h3><p>将host头,改为内部站点,有可能返回内网的内容</p>
+<h3 id="Referer"><a href="#Referer" class="headerlink" title="Referer"></a>Referer</h3><p>常用功能防盗链</p>
 <p>referer为空的情况,</p>
 <p>从http到https不会发送referer,反过来不会发送</p>
 <p>跨协议不会发出referer</p>
-<h4 id="User-Agent"><a href="#User-Agent" class="headerlink" title="User-Agent"></a>User-Agent</h4><p>判断用户浏览器</p>
-<h4 id="X-Forwarded-For"><a href="#X-Forwarded-For" class="headerlink" title="X-Forwarded-For"></a>X-Forwarded-For</h4><p>获取时一般不会经过waf</p>
+<h3 id="User-Agent"><a href="#User-Agent" class="headerlink" title="User-Agent"></a>User-Agent</h3><p>判断用户浏览器</p>
+<h3 id="X-Forwarded-For"><a href="#X-Forwarded-For" class="headerlink" title="X-Forwarded-For"></a>X-Forwarded-For</h3><p>获取时一般不会经过waf</p>
 <p>反向代理,通过强行重写可以不受控制</p>
 <p>遇到X-Forwarded-For不一定真的会有问题</p>
-<h4 id="Location"><a href="#Location" class="headerlink" title="Location"></a>Location</h4><p>用来重定向</p>
-<h4 id="Set-Cookie"><a href="#Set-Cookie" class="headerlink" title="Set-Cookie"></a>Set-Cookie</h4><p>用来设置客户端的session</p>
+<h3 id="Location"><a href="#Location" class="headerlink" title="Location"></a>Location</h3><p>用来重定向</p>
+<h3 id="Set-Cookie"><a href="#Set-Cookie" class="headerlink" title="Set-Cookie"></a>Set-Cookie</h3><p>用来设置客户端的session</p>
 <p>Location 和 Set-cookie 经常用于CSRF</p>
-<h4 id="X-XSS-Protection"><a href="#X-XSS-Protection" class="headerlink" title="X-XSS-Protection"></a>X-XSS-Protection</h4><p>浏览器为了防护反射型xss</p>
+<h3 id="X-XSS-Protection"><a href="#X-XSS-Protection" class="headerlink" title="X-XSS-Protection"></a>X-XSS-Protection</h3><p>浏览器为了防护反射型xss</p>
 <p>X-XSS-Protection:0  //不会生效</p>
 <p>X-XSS-Protection:1 //会自动去除掉,浏览器认为有问题的部分,浏览器默认状态</p>
 <p>X-XSS-Protection:1;mode=block //如果有恶意内容,会自动阻止页面渲染</p>
 <p>默认容易带来安全的副作用</p>
-<ul>
-<li><script src="waf.js"></script></li>
-<li>/?xxx=<script src="waf.js"></script>  通过在url处加上waf代码,使得浏览器误认为是waf是客户端发送的数据,不予执行</li>
-</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=waf.js&gt;&lt;/script&gt;</span><br><span class="line">/?xxx=&lt;script src=waf.js&gt;&lt;/script&gt;  通过在url处加上waf代码,使得浏览器误认为是waf是客户端发送的数据,不予执行</span><br></pre></td></tr></table></figure>
 <p>0ctf 2016 初赛</p>
 <p><a href="https://github.com/5alt/ctf-challenges/blob/master/0ctf2016-qual/web500_guestbook/html/show.php" target="_blank" rel="noopener">https://github.com/5alt/ctf-challenges/blob/master/0ctf2016-qual/web500_guestbook/html/show.php</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;var debug=false;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;var debug=false;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p>统一资源标识符</p>
-<h4 id="scheme"><a href="#scheme" class="headerlink" title="scheme"></a>scheme</h4><p>http,https,ftp</p>
+<h3 id="scheme"><a href="#scheme" class="headerlink" title="scheme"></a>scheme</h3><p>http,https,ftp</p>
 <p>file,gopher,</p>
-<h4 id="Electron-远程命令执行漏洞"><a href="#Electron-远程命令执行漏洞" class="headerlink" title="Electron 远程命令执行漏洞"></a>Electron 远程命令执行漏洞</h4><p>基于electron构建的app登记了协议,即可以使用该协议直接打开应用程序</p>
+<h3 id="Electron-远程命令执行漏洞"><a href="#Electron-远程命令执行漏洞" class="headerlink" title="Electron 远程命令执行漏洞"></a>Electron 远程命令执行漏洞</h3><p>基于electron构建的app登记了协议,即可以使用该协议直接打开应用程序</p>
 <p>打开恶意页面就能被入侵</p>
 <p>2016年hitb 荷兰安全会议</p>
-<h4 id="认证部分"><a href="#认证部分" class="headerlink" title="认证部分"></a>认证部分</h4><p>用于</p>
+<h3 id="认证部分"><a href="#认证部分" class="headerlink" title="认证部分"></a>认证部分</h3><p>用于</p>
 <p><a href="https://xlab.tencent.com/cn/2018/01/05/a-new-way-to-exploit" target="_blank" rel="noopener">https://xlab.tencent.com/cn/2018/01/05/a-new-way-to-exploit</a></p>
-<h3 id="host-1"><a href="#host-1" class="headerlink" title="host"></a>host</h3><p>浏览器自动修正</p>
+<h2 id="host-1"><a href="#host-1" class="headerlink" title="host"></a>host</h2><p>浏览器自动修正</p>
 <ul>
 <li>5alt. me -&gt; 5alt.me</li>
 <li>CRLF (DNS解析错误)</li>
@@ -566,7 +562,7 @@
 </ul>
 <p>DNS Reind</p>
 <p>homeograph attack</p>
-<h4 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h4><p>用http请求其他端口</p>
+<h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h3><p>用http请求其他端口</p>
 <ul>
 <li>redis(容错机制)</li>
 </ul>
@@ -574,7 +570,7 @@
 <ul>
 <li>火狐下crlf -&gt; xss</li>
 </ul>
-<h4 id="path"><a href="#path" class="headerlink" title="path"></a>path</h4><ul>
+<h3 id="path"><a href="#path" class="headerlink" title="path"></a>path</h3><ul>
 <li><a href="http://127.0.0.1/http/path.php?x=x" target="_blank" rel="noopener">http://127.0.0.1/http/path.php?x=x</a></li>
 </ul>
 <p>Ngix解析漏洞,剖析</p>
@@ -926,7 +922,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#http安全"><span class="nav-number">1.</span> <span class="nav-text">http安全</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#WebServer"><span class="nav-number"></span> <span class="nav-text">WebServer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP请求头"><span class="nav-number"></span> <span class="nav-text">HTTP请求头</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#host"><span class="nav-number">0.1.</span> <span class="nav-text">host</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Referer"><span class="nav-number">0.2.</span> <span class="nav-text">Referer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#User-Agent"><span class="nav-number">0.3.</span> <span class="nav-text">User-Agent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#X-Forwarded-For"><span class="nav-number">0.4.</span> <span class="nav-text">X-Forwarded-For</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Location"><span class="nav-number">0.5.</span> <span class="nav-text">Location</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Set-Cookie"><span class="nav-number">0.6.</span> <span class="nav-text">Set-Cookie</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#X-XSS-Protection"><span class="nav-number">0.7.</span> <span class="nav-text">X-XSS-Protection</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URL"><span class="nav-number"></span> <span class="nav-text">URL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#scheme"><span class="nav-number">0.1.</span> <span class="nav-text">scheme</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Electron-远程命令执行漏洞"><span class="nav-number">0.2.</span> <span class="nav-text">Electron 远程命令执行漏洞</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#认证部分"><span class="nav-number">0.3.</span> <span class="nav-text">认证部分</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#host-1"><span class="nav-number">1.</span> <span class="nav-text">host</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#端口"><span class="nav-number">1.1.</span> <span class="nav-text">端口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#path"><span class="nav-number">1.2.</span> <span class="nav-text">path</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#query"><span class="nav-number">2.</span> <span class="nav-text">query</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Fregment"><span class="nav-number">2.1.</span> <span class="nav-text">Fregment</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#url-parser"><span class="nav-number">3.</span> <span class="nav-text">url parser</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#http安全"><span class="nav-number">1.</span> <span class="nav-text">http安全</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#WebServer"><span class="nav-number"></span> <span class="nav-text">WebServer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP请求头"><span class="nav-number"></span> <span class="nav-text">HTTP请求头</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#host"><span class="nav-number">1.</span> <span class="nav-text">host</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Referer"><span class="nav-number">2.</span> <span class="nav-text">Referer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#User-Agent"><span class="nav-number">3.</span> <span class="nav-text">User-Agent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#X-Forwarded-For"><span class="nav-number">4.</span> <span class="nav-text">X-Forwarded-For</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Location"><span class="nav-number">5.</span> <span class="nav-text">Location</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set-Cookie"><span class="nav-number">6.</span> <span class="nav-text">Set-Cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#X-XSS-Protection"><span class="nav-number">7.</span> <span class="nav-text">X-XSS-Protection</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URL"><span class="nav-number"></span> <span class="nav-text">URL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#scheme"><span class="nav-number">1.</span> <span class="nav-text">scheme</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Electron-远程命令执行漏洞"><span class="nav-number">2.</span> <span class="nav-text">Electron 远程命令执行漏洞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#认证部分"><span class="nav-number">3.</span> <span class="nav-text">认证部分</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#host-1"><span class="nav-number"></span> <span class="nav-text">host</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#端口"><span class="nav-number">1.</span> <span class="nav-text">端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#path"><span class="nav-number">2.</span> <span class="nav-text">path</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#query"><span class="nav-number">3.</span> <span class="nav-text">query</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Fregment"><span class="nav-number">3.1.</span> <span class="nav-text">Fregment</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#url-parser"><span class="nav-number">4.</span> <span class="nav-text">url parser</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></li></div>
             
 
           </div>
