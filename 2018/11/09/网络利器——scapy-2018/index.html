@@ -495,7 +495,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>cap = sniff(filter=<span class="string">'icmp'</span>,count=<span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cap</span><br><span class="line">&lt;Sniffed: TCP:<span class="number">0</span> UDP:<span class="number">0</span> ICMP:<span class="number">3</span> Other:<span class="number">0</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cap.summary()</span><br><span class="line">Ether / IP / ICMP <span class="number">192.168</span><span class="number">.179</span><span class="number">.149</span> &gt; <span class="number">192.168</span><span class="number">.179</span><span class="number">.2</span> echo-request <span class="number">0</span> / Raw</span><br><span class="line">Ether / IP / ICMP <span class="number">192.168</span><span class="number">.179</span><span class="number">.2</span> &gt; <span class="number">192.168</span><span class="number">.179</span><span class="number">.149</span> echo-reply <span class="number">0</span> / Raw</span><br><span class="line">Ether / IP / ICMP <span class="number">192.168</span><span class="number">.179</span><span class="number">.149</span> &gt; <span class="number">192.168</span><span class="number">.179</span><span class="number">.2</span> echo-request <span class="number">0</span> / Raw</span><br></pre></td></tr></table></figure>
 <p>同样可以Scapy可以把捕获的数据包写入pcap文件利用wireshark进行辅助分析数据。</p>
 <p>wrpcap()把捕获到的数据包写入pcap文件icmp.pcap</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span>&gt;&gt; wrpcap('icmp.pcap',cap)</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; wrpcap(<span class="string">'icmp.pcap'</span>,<span class="built_in">cap</span>)</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt;</span></span><br></pre></td></tr></table></figure>
 <p>利用wireshark可以对捕获的数据包</p>
 <p><img src="/images/2018-11-09-网络利器——scapy-2018/1541493853424.png" alt="1541493853424"></p>
 <h3 id="0x03-数据包的构建与发送"><a href="#0x03-数据包的构建与发送" class="headerlink" title="0x03 数据包的构建与发送"></a>0x03 数据包的构建与发送</h3><p>在上面的章节中我们利用sniff抓取的数据包中可以看到<code>Ether / IP / ICMP</code>这样的数据包结构，在Scapy之中数据包便是由这种形式构建不同的协议之间利用”/“连接，这样下一层下协议可以重载上一层协议的值。</p>
@@ -626,8 +626,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/09/浅谈内存取证-2018/" rel="next" title="浅谈内存取证">
-                <i class="fa fa-chevron-left"></i> 浅谈内存取证
+              <a href="/2018/11/09/Linux安全加固-2018/" rel="next" title="Linux安全加固">
+                <i class="fa fa-chevron-left"></i> Linux安全加固
               </a>
             
           </div>
@@ -732,7 +732,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -882,7 +882,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">20.2k</span>
+    <span title="Site words total count">29.0k</span>
   
 </div>
 
