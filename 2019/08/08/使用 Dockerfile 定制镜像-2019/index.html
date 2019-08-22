@@ -128,18 +128,18 @@
 
 
 
-<meta name="description" content="使用 Dockerfile 定制镜像构建镜像在 Dockerfile 文件所在目录执行： 123docker build -t 指定镜像名 .-t 对镜像名进行命名 FROM 指定基础镜像所谓定制镜像，那一定是以一个镜像为基础，在其上进行定制。就像我们之前运行了一个 nginx 镜像的容器，再进行修改一样，基础镜像是必须指定的。而 FROM 就是指定 基础镜像，因此一个 Dockerfile 中">
+<meta name="description" content="使用 Dockerfile 定制镜像">
 <meta name="keywords" content="Linux,运维">
 <meta property="og:type" content="article">
 <meta property="og:title" content="记录一些ctf杂项思路">
 <meta property="og:url" content="https://alem0n.github.io/2019/08/08/使用 Dockerfile 定制镜像-2019/index.html">
 <meta property="og:site_name" content="Lem0n&#39;Blog">
-<meta property="og:description" content="使用 Dockerfile 定制镜像构建镜像在 Dockerfile 文件所在目录执行： 123docker build -t 指定镜像名 .-t 对镜像名进行命名 FROM 指定基础镜像所谓定制镜像，那一定是以一个镜像为基础，在其上进行定制。就像我们之前运行了一个 nginx 镜像的容器，再进行修改一样，基础镜像是必须指定的。而 FROM 就是指定 基础镜像，因此一个 Dockerfile 中">
+<meta property="og:description" content="使用 Dockerfile 定制镜像">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-08T10:32:38.926Z">
+<meta property="og:updated_time" content="2019-08-22T09:22:46.392Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记录一些ctf杂项思路">
-<meta name="twitter:description" content="使用 Dockerfile 定制镜像构建镜像在 Dockerfile 文件所在目录执行： 123docker build -t 指定镜像名 .-t 对镜像名进行命名 FROM 指定基础镜像所谓定制镜像，那一定是以一个镜像为基础，在其上进行定制。就像我们之前运行了一个 nginx 镜像的容器，再进行修改一样，基础镜像是必须指定的。而 FROM 就是指定 基础镜像，因此一个 Dockerfile 中">
+<meta name="twitter:description" content="使用 Dockerfile 定制镜像">
 
 
 
@@ -379,8 +379,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-08T18:32:38+08:00">
-                2019-08-08
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-22T17:22:46+08:00">
+                2019-08-22
               </time>
             
           </span>
@@ -467,7 +467,8 @@
       
 
       
-        <script src="\assets\js\APlayer.min.js"> </script><h1 id="使用-Dockerfile-定制镜像"><a href="#使用-Dockerfile-定制镜像" class="headerlink" title="使用 Dockerfile 定制镜像"></a>使用 Dockerfile 定制镜像</h1><h2 id="构建镜像"><a href="#构建镜像" class="headerlink" title="构建镜像"></a>构建镜像</h2><p>在 <code>Dockerfile</code> 文件所在目录执行：</p>
+        <script src="\assets\js\APlayer.min.js"> </script><h1 id="使用-Dockerfile-定制镜像"><a href="#使用-Dockerfile-定制镜像" class="headerlink" title="使用 Dockerfile 定制镜像"></a>使用 Dockerfile 定制镜像</h1><a id="more"></a>
+<h2 id="构建镜像"><a href="#构建镜像" class="headerlink" title="构建镜像"></a>构建镜像</h2><p>在 <code>Dockerfile</code> 文件所在目录执行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker build -t 指定镜像名 .</span><br><span class="line"></span><br><span class="line">-t 对镜像名进行命名</span><br></pre></td></tr></table></figure>
 <h2 id="FROM-指定基础镜像"><a href="#FROM-指定基础镜像" class="headerlink" title="FROM 指定基础镜像"></a>FROM 指定基础镜像</h2><p>所谓定制镜像，那一定是以一个镜像为基础，在其上进行定制。就像我们之前运行了一个 <code>nginx</code> 镜像的容器，再进行修改一样，基础镜像是必须指定的。而 <code>FROM</code> 就是指定 <strong>基础镜像</strong>，因此一个 <code>Dockerfile</code> 中 <code>FROM</code> 是必备的指令，并且必须是第一条指令。</p>
 <p>服务类镜像如 <a href="https://hub.docker.com/_/nginx/" target="_blank" rel="noopener"><code>nginx</code></a>、<a href="https://hub.docker.com/_/redis/" target="_blank" rel="noopener"><code>redis</code></a>、<a href="https://hub.docker.com/_/mongo/" target="_blank" rel="noopener"><code>mongo</code></a>、<a href="https://hub.docker.com/_/mysql/" target="_blank" rel="noopener"><code>mysql</code></a>、<a href="https://hub.docker.com/_/httpd/" target="_blank" rel="noopener"><code>httpd</code></a>、<a href="https://hub.docker.com/_/php/" target="_blank" rel="noopener"><code>php</code></a>、<a href="https://hub.docker.com/_/tomcat/" target="_blank" rel="noopener"><code>tomcat</code></a> 等</p>
