@@ -143,7 +143,11 @@
 <meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项2-2019/e.png">
 <meta property="og:image" content="https://alem0n.github.io/images/2019-04-09-记录一些ctf杂项2-2019/f.png">
 <meta property="og:image" content="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==">
-<meta property="og:updated_time" content="2019-07-22T09:09:03.510Z">
+<meta property="og:image" content="https://alem0n.github.io/image/2019-04-09-记录一些ctf杂项2-2019/1570865408688.png">
+<meta property="og:image" content="https://alem0n.github.io/image/2019-04-09-记录一些ctf杂项2-2019/1570865464985.png">
+<meta property="og:image" content="https://alem0n.github.io/image/2019-04-09-记录一些ctf杂项2-2019/1570865686195.png">
+<meta property="og:image" content="https://alem0n.github.io/image/2019-04-09-记录一些ctf杂项2-2019/1570865629079.png">
+<meta property="og:updated_time" content="2019-10-12T07:34:52.648Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记录一些ctf杂项思路2">
 <meta name="twitter:description" content="MISC 原创： ChaMd5  ChaMd5安全团队 转载到自己博客学习">
@@ -387,8 +391,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-07-22T17:09:03+08:00">
-                2019-07-22
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-12T15:34:52+08:00">
+                2019-10-12
               </time>
             
           </span>
@@ -437,7 +441,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,121
+                  3,339
                 </span>
               
 
@@ -453,7 +457,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  15
+                  16
                 </span>
               
             </div>
@@ -539,6 +543,17 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_func</span><span class="params">(self)</span>:</span></span><br><span class="line">        netstat = Popen([<span class="string">'netstat'</span>, <span class="string">'-tlnp'</span>], stdout=PIPE)</span><br><span class="line">        netstat.wait()</span><br><span class="line"></span><br><span class="line">        ps_list = netstat.stdout.readlines()</span><br><span class="line">        result = []</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> ps_list[<span class="number">2</span>:]:</span><br><span class="line">            tmp = item.split()</span><br><span class="line">            Local_Address = tmp[<span class="number">3</span>]</span><br><span class="line">            Process_name = tmp[<span class="number">6</span>]</span><br><span class="line">            tmp_dic = &#123;<span class="string">'local_address'</span>: Local_Address, <span class="string">'Process_name'</span>: Process_name&#125;</span><br><span class="line">            result.append(tmp_dic)</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
 <p>这时候我们result.append(‘mysqld’)，此时再次在服务器伪造server，发现成功连接，并造成任意文件读。<br>在<code>/root/.bash_history</code>下发现<code>/home/dc2-user/ctf_web_2/app/main/views.py</code><br>看到提示:</p>
 <p><code># flag in mysql curl@localhost database:security table:flag</code><br>各种读之后，想到可以直接读库文件：<code>/var/lib/mysql/security/flag.idb</code>拿到flag</p>
+<h4 id="黄金六年"><a href="#黄金六年" class="headerlink" title="黄金六年"></a>黄金六年</h4><p>本题是MP4隐写，思路是解开每一帧视频看看是否隐藏信息</p>
+<p>用到ffmpeg</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg.exe -i 6.mp4 -r 60 -q:v 2 -f image2 image-3%d.jpeg</span><br><span class="line"></span><br><span class="line">-i 添加本地mp4文件</span><br><span class="line">-r 每秒提取多少帧</span><br><span class="line">-q:v2 高质量提取图片</span><br><span class="line">-f 输出文件格式及文件名</span><br></pre></td></tr></table></figure>
+<p>提取的图片中找到四个二维码，扫码获得四个key，猜测key是否为flag结果不是，继续寻找线索</p>
+<p><img src="/image/2019-04-09-记录一些ctf杂项2-2019/1570865408688.png" alt="1570865408688"></p>
+<p><img src="/image/2019-04-09-记录一些ctf杂项2-2019/1570865464985.png" alt="1570865464985"></p>
+<p>用010打开mp4文件发现末尾有一段base64加密数据尝试解密，发现是rar的二进制数据，写脚本保存成rar压缩包</p>
+<p><img src="/image/2019-04-09-记录一些ctf杂项2-2019/1570865686195.png" alt="1570865686195"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">s = <span class="string">'UmFyIRoHAQAzkrXlCgEFBgAFAQGAgADh7ek5VQIDPLAABKEAIEvsUpGAAwAIZmxhZy50eHQwAQADDx43HyOdLMGWfCE9WEsBZprAJQoBSVlWkJNS9TP5du2kyJ275JzsNo29BnSZCgMC3h+UFV9p1QEfJkBPPR6MrYwXmsMCMz67DN/k5u1NYw9ga53a83/B/t2G9FkG/IITuR+9gIvr/LEdd1ZRAwUEAA=='</span></span><br><span class="line">a = base64.b64decode(s)</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">"flag.rar"</span>, <span class="string">"wb"</span>)</span><br><span class="line">f.write(a)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<p>压缩包解压需要密码，猜测key就是密码，得到flag</p>
+<p><img src="/image/2019-04-09-记录一些ctf杂项2-2019/1570865629079.png" alt="1570865629079"></p>
 
       
     </div>
@@ -751,7 +766,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -773,7 +788,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -867,7 +882,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#MISC"><span class="nav-number">1.</span> <span class="nav-text">MISC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#真-签到题"><span class="nav-number">1.1.</span> <span class="nav-text">真-签到题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#北京地铁"><span class="nav-number">1.2.</span> <span class="nav-text">北京地铁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MulTzor"><span class="nav-number">1.3.</span> <span class="nav-text">MulTzor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PWN-strike"><span class="nav-number">1.4.</span> <span class="nav-text">[PWN] strike</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wireshark"><span class="nav-number">1.5.</span> <span class="nav-text">Wireshark</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#联盟决策大会"><span class="nav-number">1.6.</span> <span class="nav-text">联盟决策大会</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#伪-声纹锁"><span class="nav-number">1.7.</span> <span class="nav-text">伪-声纹锁</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web"><span class="nav-number">2.</span> <span class="nav-text">Web</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#滴"><span class="nav-number">2.1.</span> <span class="nav-text">滴~</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WEB-签到题"><span class="nav-number">2.2.</span> <span class="nav-text">WEB 签到题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Upload-IMG"><span class="nav-number">2.3.</span> <span class="nav-text">Upload-IMG</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#homebrew-event-loop"><span class="nav-number">2.4.</span> <span class="nav-text">homebrew event loop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欢迎报名DDCTF"><span class="nav-number">2.5.</span> <span class="nav-text">欢迎报名DDCTF</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#大吉大利，今晚吃鸡"><span class="nav-number">2.6.</span> <span class="nav-text">大吉大利，今晚吃鸡~</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mysql弱口令"><span class="nav-number">2.7.</span> <span class="nav-text">mysql弱口令</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#MISC"><span class="nav-number">1.</span> <span class="nav-text">MISC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#真-签到题"><span class="nav-number">1.1.</span> <span class="nav-text">真-签到题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#北京地铁"><span class="nav-number">1.2.</span> <span class="nav-text">北京地铁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MulTzor"><span class="nav-number">1.3.</span> <span class="nav-text">MulTzor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PWN-strike"><span class="nav-number">1.4.</span> <span class="nav-text">[PWN] strike</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wireshark"><span class="nav-number">1.5.</span> <span class="nav-text">Wireshark</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#联盟决策大会"><span class="nav-number">1.6.</span> <span class="nav-text">联盟决策大会</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#伪-声纹锁"><span class="nav-number">1.7.</span> <span class="nav-text">伪-声纹锁</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web"><span class="nav-number">2.</span> <span class="nav-text">Web</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#滴"><span class="nav-number">2.1.</span> <span class="nav-text">滴~</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WEB-签到题"><span class="nav-number">2.2.</span> <span class="nav-text">WEB 签到题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Upload-IMG"><span class="nav-number">2.3.</span> <span class="nav-text">Upload-IMG</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#homebrew-event-loop"><span class="nav-number">2.4.</span> <span class="nav-text">homebrew event loop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欢迎报名DDCTF"><span class="nav-number">2.5.</span> <span class="nav-text">欢迎报名DDCTF</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#大吉大利，今晚吃鸡"><span class="nav-number">2.6.</span> <span class="nav-text">大吉大利，今晚吃鸡~</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mysql弱口令"><span class="nav-number">2.7.</span> <span class="nav-text">mysql弱口令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#黄金六年"><span class="nav-number">2.8.</span> <span class="nav-text">黄金六年</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -887,7 +902,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -901,7 +916,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">29.0k</span>
+    <span title="Site words total count">29.5k</span>
   
 </div>
 
