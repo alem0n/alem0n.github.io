@@ -136,7 +136,7 @@
 <meta property="og:site_name" content="Lem0n&#39;Blog">
 <meta property="og:description" content="docker命令">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-22T10:09:01.846Z">
+<meta property="og:updated_time" content="2020-03-27T01:39:41.036Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker命令">
 <meta name="twitter:description" content="docker命令">
@@ -379,8 +379,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-22T18:09:01+08:00">
-                2019-08-22
+              <time title="更新于" itemprop="dateModified" datetime="2020-03-27T09:39:41+08:00">
+                2020-03-27
               </time>
             
           </span>
@@ -429,7 +429,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  747
+                  743
                 </span>
               
 
@@ -474,7 +474,7 @@
 <h3 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --rm ubuntu:18.04  bash</span><br><span class="line"></span><br><span class="line">-it：这是两个参数，一个是 -i：交互式操作，一个是 -t 终端。我们这里打算进入 bash 执行一些命令并查看返回结果，因此我们需要交互式终端。</span><br><span class="line">--rm：这个参数是说容器退出后随之将其删除。默认情况下，为了排障需求，退出的容器并不会立即删除，除非手动 docker rm。我们这里只是随便执行个命令，看看结果，不需要排障和保留结果，因此使用 --rm 可以避免浪费空间。</span><br><span class="line">ubuntu:18.04：这是指用 ubuntu:18.04 镜像为基础来启动容器。</span><br><span class="line">bash：放在镜像名后的是 命令，这里我们希望有个交互式 Shell，因此用的是 bash。</span><br><span class="line"></span><br><span class="line">docker run --name webserver -d -p 80:80 nginx</span><br><span class="line">-d 在后台运行</span><br><span class="line">-p 指定端口映射</span><br><span class="line"></span><br><span class="line">增加端口可以通过iptables进行端口转发</span><br><span class="line">iptables -t nat -A PREROUTING  -p tcp -m tcp --dport 803 -j DNAT --to-destination  172.17.0.2:803</span><br></pre></td></tr></table></figure>
 <h3 id="进入已经运行的容器"><a href="#进入已经运行的容器" class="headerlink" title="进入已经运行的容器"></a>进入已经运行的容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it webserver bash</span><br></pre></td></tr></table></figure>
 <h3 id="删除镜像"><a href="#删除镜像" class="headerlink" title="删除镜像"></a>删除镜像</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br><span class="line">docker ps -a</span><br><span class="line">    docker stop 容器ID</span><br><span class="line">    docker rm 容器ID</span><br><span class="line"> docker rmi 镜像</span><br><span class="line"> docker rmi -f</span><br></pre></td></tr></table></figure>
-<h3 id="将容器保存为镜像（慎用，此操作后期维护极其麻烦）"><a href="#将容器保存为镜像（慎用，此操作后期维护极其麻烦）" class="headerlink" title="将容器保存为镜像（慎用，此操作后期维护极其麻烦）"></a>将容器保存为镜像（慎用，此操作后期维护极其麻烦）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> docker commit </span><br><span class="line">    --author <span class="string">"Tao Wang &lt;twang2218@gmail.com&gt;"</span> \</span><br><span class="line">    --message <span class="string">"修改了默认网页"</span> \</span><br><span class="line">    webserver \</span><br><span class="line">    nginx:v2</span><br><span class="line"></span><br><span class="line">其中 --author 是指定修改的作者，而 --message 则是记录本次修改的内容。这点和 git 版本控制相似，不过这里这些信息可以省略留空。</span><br></pre></td></tr></table></figure>
+<h3 id="将容器保存为镜像（慎用，此操作后期维护极其麻烦）"><a href="#将容器保存为镜像（慎用，此操作后期维护极其麻烦）" class="headerlink" title="将容器保存为镜像（慎用，此操作后期维护极其麻烦）"></a>将容器保存为镜像（慎用，此操作后期维护极其麻烦）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> docker commit </span><br><span class="line">    --author <span class="string">"alem0n"</span> \</span><br><span class="line">    --message <span class="string">"修改了默认网页"</span> \</span><br><span class="line">    webserver \</span><br><span class="line">    nginx:v2</span><br><span class="line"></span><br><span class="line">其中 --author 是指定修改的作者，而 --message 则是记录本次修改的内容。这点和 git 版本控制相似，不过这里这些信息可以省略留空。</span><br></pre></td></tr></table></figure>
 <h3 id="导出容器"><a href="#导出容器" class="headerlink" title="导出容器"></a>导出容器</h3><p>如果要导出本地某个容器，可以使用 <code>docker export</code> 命令。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ docker container ls -a</span><br><span class="line">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                    PORTS               NAMES</span><br><span class="line">7691a814370e        ubuntu:18.04        <span class="string">"/bin/bash"</span>         36 hours ago        Exited (0) 21 hours ago                       <span class="built_in">test</span></span><br><span class="line">$ docker <span class="built_in">export</span> 7691a814370e &gt; ubuntu.tar</span><br></pre></td></tr></table></figure>
 <p>这样将导出容器快照到本地文件。</p>
@@ -697,7 +697,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -719,7 +719,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -847,7 +847,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">29.5k</span>
+    <span title="Site words total count">30.1k</span>
   
 </div>
 
