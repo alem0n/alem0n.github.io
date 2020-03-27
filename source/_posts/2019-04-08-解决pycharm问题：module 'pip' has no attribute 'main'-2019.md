@@ -5,7 +5,7 @@ categories: "编程"
 date:       2019-04-08 21:00:00
 author:     "lem0n"
 tags:
-    - python
+    - Python
 typora-root-url: ..
 ---
 
